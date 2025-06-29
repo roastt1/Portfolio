@@ -1,8 +1,20 @@
 // app/about/page.tsx
-'use client'; // 이걸 넣으면 CSR 컴포넌트가 됨
+"use client";
 
-import { useEffect, useState } from 'react';
+import Card from "./Card";
 
 export default function About() {
-    return <div>About 페이지 컴포넌트</div>;
+    return (
+        <>
+            <div className="flex flex-col items-center justify-center">
+                <Card
+                    iconSrc="/images/next.svg"
+                    iconAlt="X"
+                    title="👋 Hi, I'm Park Joon Seon"
+                    description="Passionate Frontend Developer."
+                    animationDelay="0.2s"
+                />
+            </div>
+        </>
+    );
 }

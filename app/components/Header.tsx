@@ -1,15 +1,18 @@
-import Link from 'next/link';
+import Link from "next/link";
 
 export default function Header() {
     return (
-        <header className="flex items-center justify-between p-4">
+        <header className="flex items-center justify-between px-24 py-4">
             <div>
                 <Link href="/" className="text-2xl font-bold">
-                    JoonSeon's Portfolio
+                    JoonSeon&#39;s Portfolio
                 </Link>
             </div>
-            <div className="flex gap-6">
-                <Link href="/about" className=" hover:underline">
+            <div className="flex gap-12">
+                <Link href="/" className="hover:underline">
+                    home
+                </Link>
+                <Link href="/about" className="hover:underline">
                     about
                 </Link>
                 <Link href="/skills" className="hover:underline">
