@@ -1,3 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.animate-slide-left-fade {
+    opacity: 0;
+}

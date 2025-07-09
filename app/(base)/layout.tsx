@@ -10,7 +10,7 @@ export default function RootLayout({
     return (
         <>
             <Header />
-            <main className="mx-auto min-h-[600px] w-full max-w-[1480px] px-4">
+            <main className="mx-auto my-8 min-h-[600px] w-full max-w-[1480px] px-4">
                 {children}
             </main>
             <Footer />

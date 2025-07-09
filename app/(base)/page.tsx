@@ -2,10 +2,10 @@ import Image from "next/image";
 
 export default function Home() {
     return (
-        <main className="flex min-h-screen items-center justify-center bg-white px-4">
+        <main className="flex items-center justify-center bg-white px-4">
             <div className="flex w-full max-w-6xl flex-col items-center gap-8 md:flex-row">
                 {/* 왼쪽 이미지 */}
-                <div className="animate-slide-up flex flex-shrink-0 items-center justify-center">
+                <div className="flex flex-shrink-0 animate-slide-up items-center justify-center">
                     <Image
                         src="/images/landing-image.png"
                         alt="Profile"
