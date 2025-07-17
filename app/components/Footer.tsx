@@ -1,16 +1,15 @@
 export default function Footer() {
     return (
-        <footer className="bg-background-100 flex w-full flex-col items-center justify-center gap-2 py-8 text-center font-sans">
+        <footer className="flex w-full flex-col items-center justify-center gap-2 py-8 text-center font-sans">
             <p className="text-font-100 text-caption font-medium">
                 © 2025 Portfolio. All rights reserved.
             </p>
             <a
-                href="https://github.com/roastt1" // 👉 여기 본인 깃허브 주소
+                href="https://github.com/roastt1"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-font-100 flex items-center gap-1 hover:underline"
             >
-                {/* GitHub 아이콘 */}
                 <svg
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 24 24"

@@ -9,14 +9,14 @@ export default function About() {
         <div className="flex w-full flex-col items-center">
             <div className="relative mb-8 h-40 w-40 md:h-52 md:w-52">
                 <Image
-                    src="/images/profile.jpg" //profile image 경로 수정
-                    alt="Profile"
+                    src="/images/profile.jpg"
+                    alt="x"
                     fill
                     className="rounded-full object-cover shadow-lg"
                     sizes="(max-width: 768px) 160px, 208px"
                 />
             </div>
-            <div className="mx-auto grid w-full max-w-screen-lg grid-cols-1 justify-items-center gap-4 md:grid-cols-3 md:gap-6">
+            <div className="mx-auto grid w-full grid-cols-1 justify-items-center gap-4 md:grid-cols-3 md:gap-6">
                 <Card
                     title="이름"
                     description="박준선"
