@@ -1,9 +1,10 @@
 import "./globals.css";
-import { Inter } from "next/font/google";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
+import { Gowun_Dodum } from "next/font/google";
 
-const inter = Inter({
+const gowunDodum = Gowun_Dodum({
+    weight: "400",
     subsets: ["latin"],
     display: "swap",
 });
@@ -16,7 +17,7 @@ export default function RootLayout({
     return (
         <html lang="ko">
             <body
-                className={`${inter.className} flex min-h-screen flex-col`}
+                className={`${gowunDodum.className} flex min-h-screen flex-col`}
                 style={{ minHeight: "100vh" }}
             >
                 <Header />
