@@ -1,12 +1,13 @@
-// components/AnimatedHeader.tsx
 "use client";
 
 import { useState } from "react";
 import Link from "next/link";
 import { ChevronDown, ChevronUp } from "lucide-react";
+import { usePathname } from "next/navigation";
 
-export default function AnimatedHeader() {
+export default function Header() {
     const [showHeader, setShowHeader] = useState(false);
+    const pathname = usePathname();
 
     const toggleHeader = () => {
         setShowHeader((prev) => !prev);
@@ -28,17 +29,37 @@ export default function AnimatedHeader() {
                             JoonSeon&#39;s Portfolio
                         </Link>
                     </div>
-                    <nav className="flex flex-wrap justify-center gap-12 md:gap-24">
-                        <Link href="/" className="hover:underline">
+                    <nav className="flex w-full max-w-screen-md justify-center gap-4 md:gap-12">
+                        <Link
+                            href="/"
+                            className={`flex-1 text-center hover:underline ${
+                                pathname === "/" ? "font-semibold" : ""
+                            }`}
+                        >
                             home
                         </Link>
-                        <Link href="/about" className="hover:underline">
+                        <Link
+                            href="/about"
+                            className={`flex-1 text-center hover:underline ${
+                                pathname === "/about" ? "font-semibold" : ""
+                            }`}
+                        >
                             about
                         </Link>
-                        <Link href="/skills" className="hover:underline">
+                        <Link
+                            href="/skills"
+                            className={`flex-1 text-center hover:underline ${
+                                pathname === "/skills" ? "font-semibold" : ""
+                            }`}
+                        >
                             skills
                         </Link>
-                        <Link href="/projects" className="hover:underline">
+                        <Link
+                            href="/projects"
+                            className={`flex-1 text-center hover:underline ${
+                                pathname === "/projects" ? "font-semibold" : ""
+                            }`}
+                        >
                             projects
                         </Link>
                     </nav>

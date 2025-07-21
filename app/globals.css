@@ -5,3 +5,17 @@
 .animate-slide-left-fade {
     opacity: 0;
 }
+
+.animate-slide-up {
+    opacity: 0;
+}
+
+html {
+    overflow-y: scroll;
+}
+
+.body {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
