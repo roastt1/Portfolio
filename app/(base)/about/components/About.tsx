@@ -21,37 +21,37 @@ export default function About() {
                     title="이름"
                     description="박준선"
                     animationDelay="0.2s"
-                    iconSrc="/icons/name.svg"
+                    iconSrc="/icons/about/name.svg"
                 />
                 <Card
                     title="생년월일"
                     description="2000.02.18"
                     animationDelay="0.3s"
-                    iconSrc="/icons/birth.svg"
+                    iconSrc="/icons/about/birth.svg"
                 />
                 <Card
                     title="위치"
                     description="경기도 남양주시"
                     animationDelay="0.4s"
-                    iconSrc="/icons/location.svg"
+                    iconSrc="/icons/about/location.svg"
                 />
                 <Card
                     title="연락처"
                     description="010-1234-5678"
                     animationDelay="0.5s"
-                    iconSrc="/icons/contact.svg"
+                    iconSrc="/icons/about/contact.svg"
                 />
                 <Card
                     title="이메일"
                     description="roastt1@naver.com"
                     animationDelay="0.6s"
-                    iconSrc="/icons/email.svg"
+                    iconSrc="/icons/about/email.svg"
                 />
                 <Card
                     title="학력"
                     description="서경대학교 소프트웨어학과"
                     animationDelay="0.7s"
-                    iconSrc="/icons/education.svg"
+                    iconSrc="/icons/about/education.svg"
                 />
             </div>
         </div>
