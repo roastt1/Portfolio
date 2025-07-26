@@ -17,7 +17,7 @@ export default function RootLayout({
     return (
         <html lang="ko">
             <body
-                className={`${gowunDodum.className} flex min-h-screen flex-col`}
+                className={`${gowunDodum.className} bg-animated-gradient flex min-h-screen flex-col`}
                 style={{ minHeight: "100vh" }}
             >
                 <Header />

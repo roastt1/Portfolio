@@ -24,7 +24,7 @@ export default function Home() {
     }, []);
 
     return (
-        <div className="relative flex flex-col items-center justify-center bg-white px-4 text-black">
+        <div className="relative flex flex-col items-center justify-center px-4 text-black">
             {/* 텍스트 영역 */}
             <div
                 className={`flex flex-col items-center space-y-4 transition-transform duration-1000 ease-in-out ${
