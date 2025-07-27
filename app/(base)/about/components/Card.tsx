@@ -6,7 +6,7 @@ interface LandingCardProps {
     title: string;
     description: string;
     animationDelay?: string;
-    iconSrc?: string; // SVG 경로
+    iconSrc?: string;
 }
 
 export default function Card({
@@ -17,28 +17,28 @@ export default function Card({
 }: LandingCardProps) {
     return (
         <div
-            className="flex h-[140px] w-full max-w-[260px] transform animate-slide-left-fade flex-row items-center rounded-xl border border-gray-400 bg-gray-50 px-6 py-6 text-left shadow-sm transition-all duration-300 ease-out hover:bg-gray-200 hover:shadow-md sm:h-[160px] sm:max-w-[280px] md:h-[180px] md:max-w-[300px] lg:max-w-[320px]"
+            className="flex h-[140px] w-full min-w-[300px] max-w-[260px] animate-slide-left-fade flex-row items-center rounded-xl border border-white/30 bg-white/20 px-6 py-6 text-left shadow-md backdrop-blur-md transition-all duration-300 ease-out hover:bg-white/30 hover:shadow-2xl sm:h-[160px] sm:max-w-[280px] lg:max-w-[320px]"
             style={{ animationDelay }}
         >
-            {/* 왼쪽 아이콘 */}
             {iconSrc && (
-                <div className="relative mr-4 h-10 w-10 flex-shrink-0">
+                <div className="relative mr-4 h-10 w-10 flex-shrink-0 rounded-md bg-black/10 p-1">
                     <Image
                         src={iconSrc}
-                        alt="x"
+                        alt="아이콘"
                         fill
                         sizes="40px"
-                        style={{ objectFit: "contain" }}
+                        style={{
+                            objectFit: "contain",
+                            filter: "invert(1) brightness(1.8)",
+                        }}
                     />
                 </div>
             )}
-
-            {/* 오른쪽 텍스트 */}
             <div className="flex flex-col">
-                <h2 className="mb-1 text-base font-semibold sm:text-lg md:text-xl">
+                <h2 className="mb-1 text-base font-semibold text-white sm:text-lg">
                     {title}
                 </h2>
-                <p className="text-font-200 max-w-full break-words text-xs leading-relaxed sm:text-sm md:text-base">
+                <p className="text-base leading-relaxed text-white/90 sm:text-lg">
                     {description}
                 </p>
             </div>

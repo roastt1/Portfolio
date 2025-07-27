@@ -7,16 +7,34 @@ import Card from "./Card";
 export default function About() {
     return (
         <div className="flex w-full flex-col items-center">
-            <div className="relative mb-8 h-40 w-40 md:h-52 md:w-52">
-                <Image
-                    src="/images/profile.jpg"
-                    alt="x"
-                    fill
-                    className="rounded-full object-cover shadow-lg"
-                    sizes="(max-width: 768px) 160px, 208px"
-                />
+            <div className="mb-12 flex flex-col items-center text-center">
+                {/* 프로필 사진 */}
+                <div className="relative mb-4 h-36 w-36 animate-slide-up overflow-hidden rounded-full border-4 border-white shadow-md lg:h-72 lg:w-72">
+                    <Image
+                        src="/images/landing-image.png"
+                        alt="Profile Picture"
+                        fill
+                        sizes="144px"
+                        style={{ objectFit: "cover" }}
+                    />
+                </div>
+
+                {/* 소개 */}
+                <div className="mb-4 flex animate-slide-up flex-col items-center space-y-2 text-white">
+                    <h1 className="mb-4 animate-slide-up text-xl font-bold sm:text-3xl lg:text-4xl">
+                        안녕하세요! 박준선입니다.
+                    </h1>
+                    <p className="max-w-xl animate-slide-up text-sm sm:text-xl lg:text-2xl">
+                        항상 사용자 입장에서 고민하며,
+                        <br /> 더 나은 경험을 만드는 프론트엔드 개발자입니다.
+                    </p>
+                    <p className="max-w-2xl animate-slide-up text-sm sm:text-xl lg:text-2xl">
+                        누구나 직관적이고 편하게 사용할 수 있는 웹을 지향합니다.
+                    </p>
+                </div>
             </div>
-            <div className="mx-auto grid w-full grid-cols-1 justify-items-center gap-4 md:grid-cols-3 md:gap-6">
+            {/* 정보 카드 */}
+            <div className="mx-auto grid w-full grid-cols-1 justify-items-center gap-4 lg:grid-cols-2 lg:gap-6 xl:grid-cols-3">
                 <Card
                     title="이름"
                     description="박준선"
@@ -37,7 +55,7 @@ export default function About() {
                 />
                 <Card
                     title="연락처"
-                    description="010-1234-5678"
+                    description="010-8298-9208"
                     animationDelay="0.5s"
                     iconSrc="/icons/about/contact.svg"
                 />
