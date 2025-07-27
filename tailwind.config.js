@@ -24,11 +24,21 @@ module.exports = {
                         filter: "drop-shadow(0 8px 12px rgba(0, 0, 0, 0.4))",
                     },
                 },
+                slideBgFast: {
+                    from: { "background-position": "0 0" },
+                    to: { "background-position": "250% 100%" },
+                },
+                slideBgSlow: {
+                    from: { "background-position": "0 0" },
+                    to: { "background-position": "100% 100%" },
+                },
             },
             animation: {
                 "slide-up": "slide-up 0.8s ease-out forwards",
                 "slide-left-fade": "slide-left-fade 0.8s ease-out forwards",
                 glow: "glow 1.5s ease-in-out infinite",
+                slideBgFast: "slideBgFast 20s linear infinite",
+                slideBgSlow: "slideBgSlow 40s linear infinite",
             },
         },
     },
