@@ -59,8 +59,20 @@ html {
 } */
 
 .skills-bg {
-    background: linear-gradient(120deg, #e7faff 0%, #e7e9ff 100%);
+    background: linear-gradient(
+        to bottom,
+        #ff7f5fad 0%,   /* 연한 살구색 */
+        #ff6e61a9 25%, /* 코랄색 */
+        #ff4b2ba6 50%, /* 강렬한 오렌지-레드 */
+        #d7263ea1 100% /* 진한 레드 */
+    );
 }
 .projects-bg {
-    background: linear-gradient(120deg, #e7faff 0%, #e7e9ff 100%);
+     background: linear-gradient(
+        to bottom,
+        #1e2a38cc 0%,   /* 딥 네이비 */
+        #2f3e4fc9 25%,  /* 블루그레이 */
+        #4a5d73c7 50%,  /* 스틸 블루 */
+        #607d8bc9 100%  /* 라이트 블루그레이 */
+    );
 }
