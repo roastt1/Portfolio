@@ -5,6 +5,7 @@ import Link from "next/link";
 import Lottie from "lottie-react";
 import coding from "@/public/coding.json";
 import { ChevronsDown, CircleUser, Folders, Layers } from "lucide-react";
+import Image from "next/image";
 
 export default function Home() {
     const [showFirst, setShowFirst] = useState(false);
@@ -33,23 +34,29 @@ export default function Home() {
                 }`}
             >
                 <h1
-                    className={`text-7xl font-bold transition-all duration-700 ease-in-out lg:text-8xl ${
+                    className={`text-7xl font-bold text-purple-300 transition-all duration-700 ease-in-out lg:text-8xl ${
                         showFirst
-                            ? "translate-y-[280px] scale-110 opacity-100"
+                            ? "translate-y-[280px] scale-100 opacity-100"
                             : "translate-y-[320px] scale-90 opacity-0"
                     }`}
                 >
-                    FrontEnd
+                    <Image
+                        src="/images/FrontEnd2.png"
+                        alt="Profile Picture"
+                        width={500}
+                        height={500}
+                    />
                 </h1>
 
                 <p
-                    className={`text-lg transition-all duration-700 ease-in-out lg:text-xl ${
+                    className={`text-xl transition-all duration-700 ease-in-out lg:text-2xl ${
                         showSecond
-                            ? "translate-y-[280px] scale-110 opacity-100"
+                            ? "translate-y-[280px] scale-100 opacity-100"
                             : "translate-y-[320px] scale-90 opacity-0"
                     }`}
                 >
-                    프론트엔드 개발자 박준선입니다.
+                    프론트엔드 개발자 <span className="font-bold">박준선</span>
+                    입니다.
                 </p>
             </div>
 
@@ -78,23 +85,23 @@ export default function Home() {
                 <div className="flex flex-wrap justify-center gap-6">
                     <Link
                         href="/about"
-                        className="flex w-28 flex-col items-center justify-center text-xl sm:w-32 md:w-36"
+                        className="flex w-28 animate-pulse flex-col items-center justify-center text-lg font-bold sm:w-32 md:w-36"
                     >
-                        <CircleUser size={64} />
+                        <CircleUser size={48} />
                         <span className="mt-2 text-center">About me</span>
                     </Link>
                     <Link
                         href="/skills"
-                        className="flex w-28 flex-col items-center justify-center text-xl sm:w-32 md:w-36"
+                        className="flex w-28 animate-pulse flex-col items-center justify-center text-xl font-bold sm:w-32 md:w-36"
                     >
-                        <Layers size={64} />
+                        <Layers size={48} />
                         <span className="mt-2 text-center">Skills</span>
                     </Link>
                     <Link
                         href="/projects"
-                        className="flex w-28 flex-col items-center justify-center text-xl sm:w-32 md:w-36"
+                        className="flex w-28 animate-pulse flex-col items-center justify-center text-xl font-bold sm:w-32 md:w-36"
                     >
-                        <Folders size={64} />
+                        <Folders size={48} />
                         <span className="mt-2 text-center">Projects</span>
                     </Link>
                 </div>

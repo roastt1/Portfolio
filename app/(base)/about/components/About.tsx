@@ -21,14 +21,28 @@ export default function About() {
 
                 {/* 소개 */}
                 <div className="mb-4 flex animate-slide-up flex-col items-center space-y-2 text-white">
-                    <h1 className="mb-4 animate-slide-up text-xl font-bold sm:text-3xl lg:text-4xl">
+                    <h1
+                        className="mb-4 animate-slide-up text-xl font-bold sm:text-3xl lg:text-4xl"
+                        style={{ animationDelay: "0.2s" }}
+                    >
                         안녕하세요! 박준선입니다.
                     </h1>
-                    <p className="max-w-xl animate-slide-up text-sm sm:text-xl lg:text-2xl">
+                    <p
+                        className="max-w-xl animate-slide-up text-sm sm:text-xl lg:text-2xl"
+                        style={{ animationDelay: "0.4s" }}
+                    >
                         항상 사용자 입장에서 고민하며,
-                        <br /> 더 나은 경험을 만드는 프론트엔드 개발자입니다.
                     </p>
-                    <p className="max-w-2xl animate-slide-up text-sm sm:text-xl lg:text-2xl">
+                    <p
+                        className="max-w-xl animate-slide-up text-sm sm:text-xl lg:text-2xl"
+                        style={{ animationDelay: "0.7s" }}
+                    >
+                        더 나은 경험을 만드는 프론트엔드 개발자입니다.
+                    </p>
+                    <p
+                        className="max-w-2xl animate-slide-up text-sm sm:text-xl lg:text-2xl"
+                        style={{ animationDelay: "1s" }}
+                    >
                         누구나 직관적이고 편하게 사용할 수 있는 웹을 지향합니다.
                     </p>
                 </div>
