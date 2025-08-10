@@ -1,25 +1,97 @@
 "use client";
+import Slider from "react-slick";
+import Image from "next/image";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
-interface ModalProps {
+interface ProjectModalProps {
     isOpen: boolean;
     onClose: () => void;
     title: string;
-    content: string;
+    images: string[];
+    details: string;
+    contributions: string; // 작업 기여도
+    troubleshooting: string; // 트러블슈팅
 }
 
-export default function Modal({ isOpen, onClose, title, content }: ModalProps) {
+export default function ProjectModal({
+    isOpen,
+    onClose,
+    title,
+    images,
+    details,
+    contributions,
+    troubleshooting,
+}: ProjectModalProps) {
     if (!isOpen) return null;
 
+    const settings = {
+        dots: true,
+        infinite: true,
+        speed: 300,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+    };
+
     return (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50">
-            <div className="h-[80%] w-[90%] rounded-2xl bg-white p-6 shadow-lg">
+        <div
+            className="fixed inset-0 z-50 flex items-center justify-center bg-black/70"
+            onClick={onClose}
+        >
+            <div
+                className="relative flex max-h-[80vh] w-[85vw] max-w-[1000px] flex-col rounded-2xl bg-white p-6"
+                onClick={(e) => e.stopPropagation()}
+            >
                 <h2 className="mb-4 text-xl font-bold">{title}</h2>
 
-                <p className="mb-6 text-gray-700">{content}</p>
+                <div className="h-[30vh] flex-shrink-0">
+                    <Slider {...settings}>
+                        {images.map((src, i) => (
+                            <div key={i} className="relative h-[30vh]">
+                                <Image
+                                    src={src}
+                                    alt={`${title} image ${i + 1}`}
+                                    fill
+                                    style={{ objectFit: "contain" }}
+                                />
+                            </div>
+                        ))}
+                    </Slider>
+                </div>
+
+                {/* 상세 내용 영역 */}
+                <div className="mt-8 flex-grow space-y-6 overflow-y-auto">
+                    <section>
+                        <h3 className="mb-2 border-b border-gray-300 pb-1 font-semibold">
+                            프로젝트 설명
+                        </h3>
+                        <p className="whitespace-pre-line text-gray-700">
+                            {details}
+                        </p>
+                    </section>
+
+                    <section>
+                        <h3 className="mb-2 border-b border-gray-300 pb-1 font-semibold">
+                            작업 기여도
+                        </h3>
+                        <p className="whitespace-pre-line text-gray-700">
+                            {contributions}
+                        </p>
+                    </section>
+
+                    <section>
+                        <h3 className="mb-2 border-b border-gray-300 pb-1 font-semibold">
+                            트러블슈팅
+                        </h3>
+                        <p className="whitespace-pre-line text-gray-700">
+                            {troubleshooting}
+                        </p>
+                    </section>
+                </div>
 
                 <button
                     onClick={onClose}
-                    className="rounded-lg border border-black px-4 py-2"
+                    className="mt-6 self-end rounded-lg border border-black px-6 py-2"
                 >
                     닫기
                 </button>

@@ -2,7 +2,7 @@
 "use client";
 
 import Image from "next/image";
-import Card from "./Card";
+import AboutCard from "./AboutCard";
 
 export default function About() {
     return (
@@ -49,37 +49,37 @@ export default function About() {
             </div>
             {/* 정보 카드 */}
             <div className="mx-auto grid w-full grid-cols-1 justify-items-center gap-4 lg:grid-cols-2 lg:gap-6 xl:grid-cols-3">
-                <Card
+                <AboutCard
                     title="이름"
                     description="박준선"
                     animationDelay="0.2s"
                     iconSrc="/icons/about/name.svg"
                 />
-                <Card
+                <AboutCard
                     title="생년월일"
                     description="2000.02.18"
                     animationDelay="0.3s"
                     iconSrc="/icons/about/birth.svg"
                 />
-                <Card
+                <AboutCard
                     title="위치"
                     description="경기도 남양주시"
                     animationDelay="0.4s"
                     iconSrc="/icons/about/location.svg"
                 />
-                <Card
+                <AboutCard
                     title="연락처"
                     description="010-8298-9208"
                     animationDelay="0.5s"
                     iconSrc="/icons/about/contact.svg"
                 />
-                <Card
+                <AboutCard
                     title="이메일"
                     description="roastt1@naver.com"
                     animationDelay="0.6s"
                     iconSrc="/icons/about/email.svg"
                 />
-                <Card
+                <AboutCard
                     title="학력"
                     description="서경대학교 소프트웨어학과"
                     animationDelay="0.7s"

@@ -41,7 +41,7 @@ export default function Home() {
                     }`}
                 >
                     <Image
-                        src="/images/FrontEnd2.png"
+                        src="/images/FrontEnd.png"
                         alt="Profile Picture"
                         width={500}
                         height={500}

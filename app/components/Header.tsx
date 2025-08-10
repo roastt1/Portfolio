@@ -6,7 +6,7 @@ import { ChevronDown, ChevronUp } from "lucide-react";
 import { usePathname } from "next/navigation";
 
 export default function Header() {
-    const [showHeader, setShowHeader] = useState(false);
+    const [showHeader, setShowHeader] = useState(true);
     const pathname = usePathname();
 
     const toggleHeader = () => {

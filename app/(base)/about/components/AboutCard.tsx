@@ -9,7 +9,7 @@ interface LandingCardProps {
     iconSrc?: string;
 }
 
-export default function Card({
+export default function AboutCard({
     title,
     description,
     animationDelay = "0s",
@@ -17,7 +17,7 @@ export default function Card({
 }: LandingCardProps) {
     return (
         <div
-            className="flex h-[140px] w-full min-w-[300px] max-w-[260px] animate-slide-left-fade flex-row items-center rounded-xl border border-white/30 bg-white/20 px-6 py-6 text-left shadow-md backdrop-blur-md transition-all duration-300 ease-out hover:bg-white/30 hover:shadow-2xl sm:h-[160px] sm:max-w-[280px] lg:max-w-[320px]"
+            className="flex h-[140px] w-full min-w-[300px] max-w-[260px] animate-slide-left-fade select-none flex-row items-center rounded-xl border border-white/30 bg-white/20 px-6 py-6 text-left shadow-md backdrop-blur-md transition-all duration-300 ease-out hover:bg-white/30 hover:shadow-2xl sm:h-[160px] sm:max-w-[280px] lg:max-w-[320px]"
             style={{ animationDelay }}
         >
             {iconSrc && (

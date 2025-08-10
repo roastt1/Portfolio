@@ -27,52 +27,28 @@ html {
 .about-bg {
     background: linear-gradient(
         to bottom,
-        #1b72ffc9 0%,
-        #6e7fffce 25%,
-        #7762f69f 50%,
-        #783fff91 100%
+        #7ea3f7cc 0%,  
+        #8fb8f7cc 25%,  
+        #9cc7facc 50%,  
+        #abd6fbcc 100%  
     );
 }
-
-/* .about-bg {
-  position: relative;
-  background-image:
-    linear-gradient(to bottom, rgba(30, 30, 30, 0.6), rgba(255, 255, 255, 0.1), rgba(30, 30, 30, 0.6)),
-    url("/images/vietnam.jpg");
-  background-blend-mode: overlay;
-  background-size: auto;
-  background-position: center;
-  overflow: hidden;
-}
-
-.about-bg::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.4); 
-  z-index: 0;
-}
-
-.about-bg > * {
-  position: relative;
-  z-index: 1;
-} */
 
 .skills-bg {
     background: linear-gradient(
         to bottom,
-        #ff7f5fad 0%,   /* 연한 살구색 */
-        #ff6e61a9 25%, /* 코랄색 */
-        #ff4b2ba6 50%, /* 강렬한 오렌지-레드 */
-        #d7263ea1 100% /* 진한 레드 */
+        #f4b891cc 0%,   
+        #f3a877cc 25%,  
+        #f19967cc 50%,  
+        #ef8a57cc 100%  
     );
 }
 .projects-bg {
-     background: linear-gradient(
+    background: linear-gradient(
         to bottom,
-        #1e2a38cc 0%,   /* 딥 네이비 */
-        #2f3e4fc9 25%,  /* 블루그레이 */
-        #4a5d73c7 50%,  /* 스틸 블루 */
-        #607d8bc9 100%  /* 라이트 블루그레이 */
+        #d6c7f9cc 0%,   /* 아주 연한 라벤더 */
+        #c8b3f8cc 25%,  
+        #bba0f7cc 50%,  
+        #af8df6cc 100%  /* 살짝 더 진한 연보라 */
     );
 }
