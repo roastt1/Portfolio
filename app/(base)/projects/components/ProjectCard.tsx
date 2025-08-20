@@ -8,6 +8,7 @@ interface ProjectCardProps {
     content: string;
     projectType: string;
     image?: string;
+    duration: string;
     animationDelay?: string;
     openModal: () => void;
 }
@@ -17,33 +18,37 @@ export default function ProjectCard({
     content,
     projectType,
     image = "/default-image.png",
+    duration,
     animationDelay = "0s",
     openModal,
 }: ProjectCardProps) {
     return (
         <div
-            className="group relative flex h-[500px] w-[350px] w-full select-none flex-col overflow-hidden rounded-3xl bg-white shadow-md transition-all duration-300 hover:shadow-xl lg:w-[400px]"
+            className="group relative flex h-[500px] w-[350px] transform animate-slide-up select-none flex-col overflow-hidden rounded-3xl border bg-white p-8 transition-all duration-300 hover:-translate-y-2 hover:shadow-lg lg:w-[400px]"
             style={{ animationDelay }}
         >
-            <div className="relative min-h-[250px] flex-[0.5] border-b border-gray-200">
-                <Image
-                    src={image}
-                    alt="이미지없음"
-                    fill
-                    style={{ objectFit: "contain" }}
-                />
+            <div className="flex items-start p-4">
+                <div className="relative mr-4 h-32 w-32 overflow-hidden rounded-lg border p-16">
+                    <Image
+                        src={image}
+                        alt="로고 이미지"
+                        fill
+                        style={{ objectFit: "cover" }}
+                    />
+                </div>
+                <Badge text={projectType} projectType={projectType} />
             </div>
 
-            <div className="flex min-h-[150px] flex-[0.3] flex-col items-center justify-center gap-8 px-4 py-2">
-                <Badge text={projectType} projectType={projectType} />
-                <div>
-                    <p className="text-center text-base font-semibold text-gray-800">
-                        {title}
-                    </p>
-                    <p className="mt-2 whitespace-normal break-keep text-center text-sm text-gray-600">
-                        {content}
-                    </p>
-                </div>
+            <div className="flex flex-1 flex-col px-4 py-2">
+                <p className="mb-2 text-2xl font-bold leading-snug text-gray-800">
+                    {title}
+                </p>
+                <p className="mb-3 text-sm font-medium text-gray-600">
+                    📅 진행 기간: {duration}
+                </p>
+                <p className="whitespace-normal break-keep text-base leading-relaxed text-gray-700">
+                    {content}
+                </p>
             </div>
 
             <div className="flex min-h-[100px] flex-[0.2] items-center justify-center">

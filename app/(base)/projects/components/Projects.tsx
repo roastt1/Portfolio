@@ -9,6 +9,7 @@ interface ModalData {
     title: string;
     content: string;
     images: string[];
+    duration: string;
     details: string;
     contributions: string;
     troubleshooting: string;
@@ -20,6 +21,7 @@ export default function Projects() {
         title: "",
         content: "",
         images: [], // 빈 배열이지만, ModalData 인터페이스에 의해 string[]으로 타입 지정됨
+        duration: "",
         details: "",
         contributions: "",
         troubleshooting: "",
@@ -34,6 +36,7 @@ export default function Projects() {
                         title={project.title}
                         content={project.content}
                         image={project.images[0]}
+                        duration={project.duration}
                         openModal={() => {
                             setModalData(project);
                             setIsOpen(true);

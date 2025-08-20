@@ -39,15 +39,15 @@ export default function ProjectModal({
             onClick={onClose}
         >
             <div
-                className="relative flex max-h-[80vh] w-[85vw] max-w-[1000px] flex-col rounded-2xl bg-white p-6"
+                className="relative flex max-h-[100vh] w-[85vw] max-w-[1000px] flex-col rounded-2xl bg-white p-6"
                 onClick={(e) => e.stopPropagation()}
             >
-                <h2 className="mb-4 text-xl font-bold">{title}</h2>
+                <h2 className="mb-4 text-2xl font-bold">{title}</h2>
 
-                <div className="h-[30vh] flex-shrink-0">
+                <div className="h-[40vh] flex-shrink-0 border-t">
                     <Slider {...settings}>
                         {images.map((src, i) => (
-                            <div key={i} className="relative h-[30vh]">
+                            <div key={i} className="relative h-[40vh]">
                                 <Image
                                     src={src}
                                     alt={`${title} image ${i + 1}`}
@@ -62,7 +62,7 @@ export default function ProjectModal({
                 {/* 상세 내용 영역 */}
                 <div className="mt-8 flex-grow space-y-6 overflow-y-auto">
                     <section>
-                        <h3 className="mb-2 border-b border-gray-300 pb-1 font-semibold">
+                        <h3 className="mb-2 border-b border-gray-300 pb-1 text-xl font-semibold">
                             프로젝트 설명
                         </h3>
                         <p className="whitespace-pre-line text-gray-700">
@@ -71,7 +71,7 @@ export default function ProjectModal({
                     </section>
 
                     <section>
-                        <h3 className="mb-2 border-b border-gray-300 pb-1 font-semibold">
+                        <h3 className="mb-2 border-b border-gray-300 pb-1 text-xl font-semibold">
                             작업 기여도
                         </h3>
                         <p className="whitespace-pre-line text-gray-700">
@@ -80,7 +80,7 @@ export default function ProjectModal({
                     </section>
 
                     <section>
-                        <h3 className="mb-2 border-b border-gray-300 pb-1 font-semibold">
+                        <h3 className="mb-2 border-b border-gray-300 pb-1 text-xl font-semibold">
                             트러블슈팅
                         </h3>
                         <p className="whitespace-pre-line text-gray-700">

@@ -43,12 +43,12 @@ html {
         #ef8a57cc 100%  
     );
 }
-.projects-bg {
+/* .projects-bg {
     background: linear-gradient(
         to bottom,
-        #d6c7f9cc 0%,   /* 아주 연한 라벤더 */
+        #d6c7f9cc 0%,   
         #c8b3f8cc 25%,  
         #bba0f7cc 50%,  
-        #af8df6cc 100%  /* 살짝 더 진한 연보라 */
+        #af8df6cc 100%  
     );
-}
+} */    
