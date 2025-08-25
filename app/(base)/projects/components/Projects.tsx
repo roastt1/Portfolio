@@ -20,7 +20,7 @@ export default function Projects() {
     const [modalData, setModalData] = useState<ModalData>({
         title: "",
         content: "",
-        images: [], // 빈 배열이지만, ModalData 인터페이스에 의해 string[]으로 타입 지정됨
+        images: [],
         duration: "",
         details: "",
         contributions: "",
@@ -41,7 +41,6 @@ export default function Projects() {
                             setModalData(project);
                             setIsOpen(true);
                         }}
-                        // ProjectCard 내부에 w-[320px] 같은 고정 너비 지정 필요
                     />
                 ))}
             </div>

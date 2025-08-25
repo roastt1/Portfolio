@@ -1,4 +1,3 @@
-// app/about/page.tsx
 "use client";
 
 import Image from "next/image";
@@ -48,7 +47,7 @@ export default function About() {
                 </div>
             </div>
             {/* 정보 카드 */}
-            <div className="mx-auto grid w-full grid-cols-1 justify-items-center gap-4 lg:grid-cols-2 lg:gap-6 xl:grid-cols-3">
+            <div className="mx-auto grid w-full grid-cols-1 justify-items-center gap-x-4 gap-y-10 lg:grid-cols-2 lg:gap-x-6 xl:grid-cols-3">
                 <AboutCard
                     title="이름"
                     description="박준선"

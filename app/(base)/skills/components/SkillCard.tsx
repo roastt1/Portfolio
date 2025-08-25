@@ -14,14 +14,16 @@ export default function SkillCard({
     animationDelay = "0s",
 }: SkillCardProps) {
     return (
-        <div
-            className="flex h-32 w-32 animate-slide-up select-none flex-col items-center justify-center rounded-2xl border-white/30 bg-white bg-white/20 shadow-md backdrop-blur-md transition-all duration-300 hover:bg-white/30 hover:shadow-2xl"
-            style={{ animationDelay }}
-        >
-            <div className="mb-4">
-                <Image src={icon} alt={name} width={48} height={48} />
+        <div className="animate-slide-up">
+            <div
+                className="flex h-32 w-32 select-none flex-col items-center justify-center rounded-2xl border-white/30 bg-white bg-white/20 shadow-md backdrop-blur-md transition-all duration-300 hover:-translate-y-2 hover:scale-105 hover:bg-white/30 hover:shadow-2xl"
+                style={{ animationDelay }}
+            >
+                <div className="mb-4">
+                    <Image src={icon} alt={name} width={48} height={48} />
+                </div>
+                <p className="text-base font-semibold text-white">{name}</p>
             </div>
-            <p className="text-base font-semibold text-white">{name}</p>
         </div>
     );
 }
