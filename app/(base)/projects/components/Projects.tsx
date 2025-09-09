@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import ProjectCard from "./ProjectCard";
 import ProjectModal from "./ProjectModal";
 import { projectConstants } from "@/constants/projectConstants";
@@ -26,6 +26,18 @@ export default function Projects() {
         contributions: "",
         troubleshooting: "",
     });
+
+    useEffect(() => {
+        if (isOpen) {
+            document.body.style.overflow = "hidden";
+        } else {
+            document.body.style.overflow = "";
+        }
+        return () => {
+            document.body.style.overflow = "";
+        };
+    }, [isOpen]);
+
     return (
         <>
             <div className="mt-16 flex w-full flex-wrap justify-center gap-8">
