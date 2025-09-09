@@ -91,7 +91,7 @@ export default function ProjectModal({
 
                 <button
                     onClick={onClose}
-                    className="mt-6 self-end rounded-lg border border-black px-6 py-2"
+                    className="mt-6 self-end rounded-lg border-2 border-red-400 px-6 py-2 text-red-800"
                 >
                     닫기
                 </button>

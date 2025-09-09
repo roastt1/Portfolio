@@ -29,7 +29,7 @@ export default function ProjectCard({
             style={{ animationDelay }}
         >
             <div
-                className="absolute inset-0 flex transform flex-col overflow-hidden rounded-3xl border bg-white shadow-md transition-transform duration-300 ease-out group-hover:-translate-y-2 group-hover:shadow-lg" // group-hover 적용!
+                className="absolute inset-0 flex transform flex-col overflow-hidden rounded-3xl border-2 border-blue-100 bg-white shadow-md transition-transform duration-300 ease-out hover:bg-gray-100 group-hover:-translate-y-2 group-hover:shadow-lg" // group-hover 적용!
             >
                 {/* 상단 이미지 및 뱃지 */}
                 <div className="flex items-start p-4">
@@ -63,7 +63,7 @@ export default function ProjectCard({
                 <div className="flex min-h-[100px] flex-[0.2] items-center justify-center">
                     <button
                         onClick={openModal}
-                        className="translate-y-2 rounded-lg border-2 border-solid px-6 py-4 text-lg font-medium opacity-0 shadow-lg transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100"
+                        className="translate-y-2 rounded-lg border-2 border-solid border-blue-400 px-6 py-4 text-lg font-medium text-blue-500 opacity-0 shadow-lg transition-all duration-300 hover:bg-blue-200 hover:text-white group-hover:translate-y-0 group-hover:opacity-100"
                     >
                         자세히 보기
                     </button>

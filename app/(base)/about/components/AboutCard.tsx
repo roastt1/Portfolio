@@ -16,18 +16,19 @@ export default function AboutCard({
     iconSrc,
 }: LandingCardProps) {
     return (
-        <div className="h-[140px] w-full max-w-[260px] animate-slide-up lg:max-w-[320px]">
-            <div
-                className="flex select-none flex-col items-center rounded-3xl border border-white/30 bg-white/20 px-6 py-6 text-center shadow-md transition-all duration-300 ease-out hover:-translate-y-2 hover:bg-white/30 hover:shadow-2xl"
-                style={{ animationDelay }}
-            >
+        <div
+            className="h-[180px] w-full max-w-[280px] animate-slide-up lg:max-w-[340px]"
+            style={{ animationDelay }}
+        >
+            <div className="flex h-full flex-col items-center justify-center rounded-2xl border-2 border-blue-100 bg-white/90 px-6 py-6 text-center shadow-lg backdrop-blur-sm transition-all duration-300 ease-out hover:-translate-y-2 hover:shadow-2xl">
+                {/* 아이콘 */}
                 {iconSrc && (
-                    <div className="relative mb-1 h-10 w-10 flex-shrink-0 rounded-md bg-black/10 p-1">
+                    <div className="mb-3 flex h-14 w-14 items-center justify-center rounded-xl bg-blue-200 shadow-lg">
                         <Image
                             src={iconSrc}
                             alt="아이콘"
-                            fill
-                            sizes="40px"
+                            width={32}
+                            height={32}
                             style={{
                                 objectFit: "contain",
                                 filter: "invert(1) brightness(1.8)",
@@ -35,14 +36,14 @@ export default function AboutCard({
                         />
                     </div>
                 )}
-                <div className="flex flex-col">
-                    <h2 className="mb-1 text-base font-semibold text-white sm:text-lg">
-                        {title}
-                    </h2>
-                    <p className="text-base leading-relaxed text-white/90 sm:text-lg">
-                        {description}
-                    </p>
-                </div>
+
+                {/* 텍스트 */}
+                <h2 className="mb-2 text-lg font-semibold text-gray-800 lg:text-xl">
+                    {title}
+                </h2>
+                <p className="text-sm leading-relaxed text-gray-600 lg:text-base">
+                    {description}
+                </p>
             </div>
         </div>
     );

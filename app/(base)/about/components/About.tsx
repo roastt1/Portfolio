@@ -6,20 +6,19 @@ import AboutCard from "./AboutCard";
 export default function About() {
     return (
         <div className="flex w-full flex-col items-center">
-            <div className="mb-12 flex flex-col items-center text-center">
+            <div className="mb-12 flex flex-col items-center text-center lg:flex-row lg:gap-24">
                 {/* 프로필 사진 */}
-                <div className="relative mb-4 h-36 w-36 animate-slide-up overflow-hidden rounded-full border-4 border-white shadow-md lg:h-72 lg:w-72">
+                <div className="relative mb-4 h-36 w-36 animate-slide-up overflow-hidden rounded-full border-4 border-blue-400 shadow-md lg:h-72 lg:w-72">
                     <Image
                         src="/images/landing-image.png"
                         alt="Profile Picture"
                         fill
-                        sizes="144px"
                         style={{ objectFit: "cover" }}
                     />
                 </div>
 
                 {/* 소개 */}
-                <div className="mb-4 flex animate-slide-up flex-col items-center space-y-2 text-white">
+                <div className="mb-4 flex animate-slide-up flex-col items-center space-y-2">
                     <h1
                         className="mb-4 animate-slide-up text-xl font-bold sm:text-3xl lg:text-4xl"
                         style={{ animationDelay: "0.2s" }}
