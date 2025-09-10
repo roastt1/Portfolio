@@ -5,12 +5,12 @@ import AboutCard from "./AboutCard";
 
 export default function About() {
     return (
-        <div className="flex w-full flex-col items-center">
-            <div className="mb-12 flex flex-col items-center text-center lg:flex-row lg:gap-24">
+        <div className="flex w-full flex-col items-center pt-8">
+            <div className="mb-12 flex flex-col items-center gap-10 text-center lg:flex-row">
                 {/* 프로필 사진 */}
-                <div className="relative mb-4 h-36 w-36 animate-slide-up overflow-hidden rounded-full border-4 border-blue-400 shadow-md lg:h-72 lg:w-72">
+                <div className="relative mb-4 h-72 w-72 animate-slide-up overflow-hidden rounded-3xl border-4 border-blue-400 shadow-md lg:h-96 lg:w-96">
                     <Image
-                        src="/images/landing-image.png"
+                        src="/images/about/about_me.jpg"
                         alt="Profile Picture"
                         fill
                         style={{ objectFit: "cover" }}
@@ -18,7 +18,7 @@ export default function About() {
                 </div>
 
                 {/* 소개 */}
-                <div className="mb-4 flex animate-slide-up flex-col items-center space-y-2">
+                <div className="mb-4 flex animate-slide-up flex-col items-center space-y-2 whitespace-nowrap lg:items-start">
                     <h1
                         className="mb-4 animate-slide-up text-xl font-bold sm:text-3xl lg:text-4xl"
                         style={{ animationDelay: "0.2s" }}
@@ -46,7 +46,7 @@ export default function About() {
                 </div>
             </div>
             {/* 정보 카드 */}
-            <div className="mx-auto grid w-full grid-cols-1 justify-items-center gap-x-4 gap-y-10 lg:grid-cols-2 lg:gap-x-6 xl:grid-cols-3">
+            <div className="mx-auto grid w-full grid-cols-1 justify-items-center gap-x-4 gap-y-6 md:grid-cols-2 lg:grid-cols-3">
                 <AboutCard
                     title="이름"
                     description="박준선"
