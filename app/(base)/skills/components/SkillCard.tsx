@@ -16,7 +16,7 @@ export default function SkillCard({
     return (
         <div className="animate-slide-up">
             <div
-                className="flex h-32 w-32 select-none flex-col items-center justify-center rounded-2xl border-2 border-blue-100 bg-white/80 shadow-md backdrop-blur-md transition-all duration-300 hover:-translate-y-2 hover:scale-105 hover:bg-white/80 hover:shadow-2xl"
+                className="flex h-32 w-32 select-none flex-col items-center justify-center rounded-[30px] border-2 border-blue-100 bg-white/80 p-4 shadow-md backdrop-blur-md transition-all duration-300 hover:-translate-y-2 hover:scale-105 hover:bg-white/80 hover:shadow-2xl"
                 style={{ animationDelay }}
             >
                 <div className="mb-4">

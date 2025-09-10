@@ -4,13 +4,13 @@ import SkillCard from "./SkillCard";
 
 export default function Skills() {
     return (
-        <div className="flex w-full flex-col items-center gap-16 pt-16">
-            <span className="mb-8 text-4xl font-bold">Tech Stack</span>
+        <div className="flex w-full flex-col items-center gap-16 pt-8">
+            <span className="text-4xl font-bold">Tech Stack</span>
 
             {/* Frontend */}
             <div className="mb-6 w-full max-w-5xl">
                 <h2 className="mb-4 text-2xl font-semibold">Frontend</h2>
-                <div className="grid grid-cols-2 place-items-center gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
+                <div className="grid grid-cols-2 place-items-center gap-x-4 gap-y-8 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
                     <SkillCard
                         name="HTML"
                         icon="/icons/skills/html.svg"
@@ -52,7 +52,7 @@ export default function Skills() {
             {/* Backend */}
             <div className="mb-6 w-full max-w-5xl">
                 <h2 className="mb-4 text-2xl font-semibold">Backend</h2>
-                <div className="grid grid-cols-2 place-items-center gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
+                <div className="grid grid-cols-2 place-items-center gap-x-4 gap-y-8 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
                     <SkillCard
                         name="Node.js"
                         icon="/icons/skills/nodejs.svg"
@@ -84,7 +84,7 @@ export default function Skills() {
             {/* Tools & Others */}
             <div className="w-full max-w-5xl">
                 <h2 className="mb-4 text-2xl font-semibold">Tools & Others</h2>
-                <div className="grid grid-cols-2 place-items-center gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
+                <div className="grid grid-cols-2 place-items-center gap-x-4 gap-y-8 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
                     <SkillCard
                         name="GitHub"
                         icon="/icons/skills/github.svg"
