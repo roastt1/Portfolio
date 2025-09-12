@@ -39,7 +39,7 @@ export default function ProjectModal({
             onClick={onClose}
         >
             <div
-                className="relative flex max-h-[100vh] w-[85vw] max-w-[1000px] flex-col rounded-2xl bg-white p-6"
+                className="relative flex max-h-[90vh] w-[85vw] max-w-[1000px] flex-col rounded-2xl bg-white p-6"
                 onClick={(e) => e.stopPropagation()}
             >
                 <h2 className="mb-4 text-2xl font-bold">{title}</h2>
