@@ -13,14 +13,10 @@ export default function About() {
     }, []);
 
     return (
-        <div className="flex w-full flex-col items-center pt-8">
+        <div className="flex w-full flex-col items-center gap-12 pt-8">
             <div className="mb-12 flex flex-col items-center gap-10 text-center">
                 {/* 프로필 사진 */}
-                <div
-                    className="relative mb-4 h-96 w-72 animate-slide-up overflow-hidden rounded-3xl border-4 border-blue-400 shadow-md sm:h-[450px] sm:w-[400px]"
-                    data-aos="fade-up"
-                    data-aos-delay={100}
-                >
+                <div className="relative mb-4 h-96 w-72 animate-slide-up overflow-hidden rounded-3xl border-4 border-blue-400 shadow-md sm:h-[450px] sm:w-[400px]">
                     <Image
                         src="/images/about/about_me.jpg"
                         alt="Profile Picture"
@@ -31,32 +27,16 @@ export default function About() {
 
                 {/* 소개 */}
                 <div className="mb-4 flex animate-slide-up flex-col items-center space-y-2 whitespace-nowrap">
-                    <h1
-                        className="mb-4 animate-slide-up text-2xl font-bold sm:text-3xl"
-                        data-aos="fade-up"
-                        data-aos-delay={200}
-                    >
+                    <h1 className="mb-4 animate-slide-up text-2xl font-bold sm:text-3xl">
                         안녕하세요! 박준선입니다.
                     </h1>
-                    <p
-                        className="max-w-xl animate-slide-up text-sm sm:text-xl"
-                        data-aos="fade-up"
-                        data-aos-delay={400}
-                    >
+                    <p className="max-w-xl animate-slide-up text-sm sm:text-xl">
                         항상 사용자 입장에서 고민하며,
                     </p>
-                    <p
-                        className="max-w-xl animate-slide-up text-sm sm:text-xl"
-                        data-aos="fade-up"
-                        data-aos-delay={700}
-                    >
+                    <p className="max-w-xl animate-slide-up text-sm sm:text-xl">
                         더 나은 경험을 만드는 프론트엔드 개발자입니다.
                     </p>
-                    <p
-                        className="max-w-2xl animate-slide-up text-sm sm:text-xl"
-                        data-aos="fade-up"
-                        data-aos-delay={1000}
-                    >
+                    <p className="max-w-2xl animate-slide-up text-sm sm:text-xl">
                         누구나 직관적이고 편하게 사용할 수 있는 웹을 지향합니다.
                     </p>
                 </div>

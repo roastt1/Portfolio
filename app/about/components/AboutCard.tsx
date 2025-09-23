@@ -16,8 +16,8 @@ export default function AboutCard({
     return (
         <div
             className="h-[160px] w-full max-w-[280px] sm:h-[180px] sm:max-w-[500px]"
-            data-aos="fade-up"
-            data-aos-delay="200"
+            data-aos="fade-down"
+            data-aos-delay="100"
         >
             <div className="flex h-full flex-col items-center justify-center rounded-2xl border-2 border-blue-100 bg-white/90 px-6 py-6 text-center shadow-lg backdrop-blur-sm transition-all duration-300 ease-out hover:-translate-y-2 hover:shadow-2xl">
                 {/* 아이콘 */}
