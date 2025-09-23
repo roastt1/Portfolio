@@ -20,7 +20,7 @@ export default function Header() {
                     showHeader ? "translate-y-0" : "-translate-y-full"
                 }`}
             >
-                <div className="relative flex flex-col items-center gap-4 px-4 py-4 lg:px-24">
+                <div className="relative flex flex-col items-center gap-4 px-4 py-4">
                     <div>
                         <Link
                             href="/"
