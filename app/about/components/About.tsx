@@ -9,7 +9,7 @@ import AboutCard from "./AboutCard";
 
 export default function About() {
     useEffect(() => {
-        AOS.init({ duration: 800 });
+        AOS.init({ duration: 800, easing: "ease-in-out", once: true });
     }, []);
 
     return (
