@@ -10,7 +10,6 @@ interface ProjectCardProps {
     projectType: string;
     image?: string;
     duration: string;
-    animationDelay?: string;
     openModal: () => void;
 }
 
@@ -20,13 +19,13 @@ export default function ProjectCard({
     projectType,
     image = "/default-image.png",
     duration,
-    animationDelay = "0s",
     openModal,
 }: ProjectCardProps) {
     return (
         <div
-            className="group relative h-[500px] w-[350px] animate-slide-up lg:w-[400px]"
-            style={{ animationDelay }}
+            className="group relative h-[500px] w-[350px] lg:w-[400px]"
+            data-aos="fade-up"
+            data-aos-delay="100"
         >
             <div
                 className="absolute inset-0 flex transform flex-col overflow-hidden rounded-3xl border-2 border-blue-100 bg-white shadow-md transition-transform duration-300 ease-out hover:bg-gray-100 group-hover:-translate-y-2 group-hover:shadow-lg" // group-hover 적용!

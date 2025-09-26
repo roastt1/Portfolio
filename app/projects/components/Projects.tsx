@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import "aos/dist/aos.css";
 import ProjectCard from "./ProjectCard";
 import ProjectModal from "./ProjectModal";
 import { projectConstants } from "@/constants/projectConstants";
@@ -26,7 +27,6 @@ export default function Projects() {
         contributions: "",
         troubleshooting: "",
     });
-
     useEffect(() => {
         if (isOpen) {
             document.body.style.overflow = "hidden";
