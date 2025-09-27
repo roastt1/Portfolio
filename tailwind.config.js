@@ -1,5 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
+    darkMode: "class",
     content: [
         "./app/**/*.{js,ts,jsx,tsx}", // app 디렉토리
         "./pages/**/*.{js,ts,jsx,tsx}", // pages 디렉토리
@@ -39,6 +40,12 @@ module.exports = {
                 glow: "glow 1.5s ease-in-out infinite",
                 slideBgFast: "slideBgFast 20s linear infinite",
                 slideBgSlow: "slideBgSlow 40s linear infinite",
+            },
+            colors: {
+                dark: {
+                    100: "#353535", // 메인 색상
+                    200: "#202026", // 헤더 색상
+                },
             },
         },
     },
