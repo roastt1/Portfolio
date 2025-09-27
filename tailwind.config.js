@@ -19,10 +19,18 @@ module.exports = {
                 },
                 glow: {
                     "0%, 100%": {
-                        filter: "drop-shadow(0 4px 4px rgba(0, 0, 0, 0.2))",
+                        filter: "drop-shadow(0 0 8px rgba(0, 0, 0, 0.2))",
                     },
                     "50%": {
-                        filter: "drop-shadow(0 8px 12px rgba(0, 0, 0, 0.4))",
+                        filter: "drop-shadow(0 0 16px rgba(0, 0, 0, 1))",
+                    },
+                },
+                darkglow: {
+                    "0%, 100%": {
+                        filter: "drop-shadow(0 0 8px rgba(255, 255, 255, 0.2))",
+                    },
+                    "50%": {
+                        filter: "drop-shadow(0 0 16px rgba(255, 255, 255, 1))",
                     },
                 },
                 slideBgFast: {
@@ -38,13 +46,14 @@ module.exports = {
                 "slide-up": "slide-up 0.8s ease-out forwards",
                 "slide-left-fade": "slide-left-fade 0.8s ease-out forwards",
                 glow: "glow 1.5s ease-in-out infinite",
+                darkglow: "darkglow 1.5s ease-in-out infinite",
                 slideBgFast: "slideBgFast 20s linear infinite",
                 slideBgSlow: "slideBgSlow 40s linear infinite",
             },
             colors: {
                 dark: {
                     100: "#353535", // 메인 색상
-                    200: "#202026", // 헤더 색상
+                    200: "#1d1d1d", // 헤더 색상
                 },
             },
         },

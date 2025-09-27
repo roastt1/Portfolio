@@ -16,7 +16,7 @@ export default function Header() {
     return (
         <>
             <header
-                className={`fixed left-0 top-0 z-10 w-full bg-white shadow-md transition-transform duration-500 ${
+                className={`dark:bg-dark-200 fixed left-0 top-0 z-10 w-full bg-white shadow-md backdrop-blur-sm transition-transform duration-500 dark:text-white ${
                     showHeader ? "translate-y-0" : "-translate-y-full"
                 }`}
             >
@@ -66,8 +66,10 @@ export default function Header() {
 
                     <button
                         onClick={toggleHeader}
-                        className={`absolute -bottom-5 left-1/2 -translate-x-1/2 rounded-full border-b-2 bg-white p-3 shadow-md transition hover:scale-110 ${
-                            !showHeader ? "animate-glow" : ""
+                        className={`dark:bg-dark-200 absolute -bottom-5 left-1/2 -translate-x-1/2 rounded-full bg-white p-3 shadow-md transition hover:scale-110 ${
+                            !showHeader
+                                ? "dark:animate-darkglow animate-glow"
+                                : ""
                         }`}
                     >
                         {showHeader ? (

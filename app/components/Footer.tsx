@@ -1,14 +1,14 @@
 export default function Footer() {
     return (
-        <footer className="flex w-full flex-col items-center justify-center gap-2 py-8 text-center font-sans">
-            <p className="text-font-100 text-caption font-medium">
+        <footer className="flex w-full flex-col items-center justify-center gap-2 py-8 text-center font-sans dark:text-white">
+            <p className="text-caption font-medium">
                 © 2025 Portfolio. All rights reserved.
             </p>
             <a
                 href="https://github.com/roastt1"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-font-100 flex items-center gap-1 hover:underline"
+                className="flex items-center gap-1 hover:underline"
             >
                 <svg
                     xmlns="http://www.w3.org/2000/svg"
