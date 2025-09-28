@@ -19,10 +19,10 @@ export default function AboutCard({
             data-aos="fade-down"
             data-aos-delay="100"
         >
-            <div className="flex h-full flex-col items-center justify-center rounded-2xl border-2 border-blue-100 bg-white/90 px-6 py-6 text-center shadow-lg backdrop-blur-sm transition-all duration-300 ease-out hover:-translate-y-2 hover:shadow-2xl">
+            <div className="dark:bg-dark-300 dark:border-dark-400 flex h-full flex-col items-center justify-center rounded-2xl border-2 border-blue-100 bg-white/90 px-6 py-6 text-center shadow-lg backdrop-blur-sm transition-all duration-300 ease-out hover:-translate-y-2 hover:shadow-2xl dark:bg-black/10">
                 {/* 아이콘 */}
                 {iconSrc && (
-                    <div className="mb-2 flex h-12 w-12 items-center justify-center rounded-xl bg-blue-200 shadow-lg sm:mb-4 sm:h-14 sm:w-14">
+                    <div className="mb-2 flex h-12 w-12 items-center justify-center rounded-xl bg-blue-200 shadow-lg dark:bg-dark-200 sm:mb-4 sm:h-14 sm:w-14">
                         <Image
                             src={iconSrc}
                             alt="아이콘"
@@ -37,10 +37,10 @@ export default function AboutCard({
                 )}
 
                 {/* 텍스트 */}
-                <h2 className="mb-1 text-lg font-semibold text-gray-800 sm:text-xl">
+                <h2 className="mb-1 text-lg font-semibold text-gray-800 dark:text-white sm:text-xl">
                     {title}
                 </h2>
-                <p className="text-sm leading-relaxed text-gray-600 sm:text-base">
+                <p className="text-sm leading-relaxed text-gray-600 dark:text-white sm:text-base">
                     {description}
                 </p>
             </div>

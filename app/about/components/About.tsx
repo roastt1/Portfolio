@@ -13,10 +13,10 @@ export default function About() {
     }, []);
 
     return (
-        <div className="flex w-full flex-col items-center gap-12 pt-8">
+        <div className="flex w-full flex-col items-center gap-12 pt-8 dark:text-white">
             <div className="mb-12 flex flex-col items-center gap-10 text-center">
                 {/* 프로필 사진 */}
-                <div className="relative mb-4 h-96 w-72 animate-slide-up overflow-hidden rounded-3xl border-4 border-blue-400 shadow-md sm:h-[450px] sm:w-[400px]">
+                <div className="dark:border-dark-400 relative mb-4 h-96 w-72 animate-slide-up overflow-hidden rounded-3xl border-4 border-blue-400 shadow-md sm:h-[450px] sm:w-[400px]">
                     <Image
                         src="/images/about/about_me.jpg"
                         alt="Profile Picture"

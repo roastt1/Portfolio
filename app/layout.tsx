@@ -15,10 +15,10 @@ const gowunDodum = Gowun_Dodum({
 
 function getBgClass(pathname: string) {
     if (pathname === "/" || pathname.startsWith("/home"))
-        return "home-bg animate-slideBgFast sm:animate-slideBgSlow dark:bg-dark-100";
-    if (pathname.startsWith("/about")) return "dark:bg-dark-100";
-    if (pathname.startsWith("/skills")) return "dark:bg-dark-100";
-    if (pathname.startsWith("/projects")) return "dark:bg-dark-100";
+        return "home-bg animate-slideBgFast sm:animate-slideBgSlow dark:bg-dark-200";
+    if (pathname.startsWith("/about")) return "dark:bg-dark-200";
+    if (pathname.startsWith("/skills")) return "dark:bg-dark-200";
+    if (pathname.startsWith("/projects")) return "dark:bg-dark-200";
     return "";
 }
 
@@ -33,7 +33,7 @@ export default function RootLayout({
     return (
         <html lang="ko">
             <body
-                className={`${gowunDodum.className} body flex min-h-screen flex-col transition-all ${bgClass}`}
+                className={`${gowunDodum.className} body flex min-h-screen flex-col transition-all duration-300 ${bgClass}`}
                 style={{ minHeight: "100vh" }}
             >
                 <Header />
