@@ -11,7 +11,7 @@ export default function Skills() {
     }, []);
 
     return (
-        <div className="flex w-full flex-col items-center gap-16 pt-8">
+        <div className="flex w-full flex-col items-center gap-16 pt-8 dark:text-white">
             <span className="text-4xl font-bold">Tech Stack</span>
 
             {/* Frontend */}
