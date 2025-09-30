@@ -1,6 +1,7 @@
 "use client";
 import Slider from "react-slick";
 import Image from "next/image";
+import { X } from "lucide-react";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
@@ -10,8 +11,8 @@ interface ProjectModalProps {
     title: string;
     images: string[];
     details: string;
-    contributions: string; // 작업 기여도
-    troubleshooting: string; // 트러블슈팅
+    contributions: string;
+    troubleshooting: string;
 }
 
 export default function ProjectModal({
@@ -35,25 +36,38 @@ export default function ProjectModal({
 
     return (
         <div
-            className="fixed inset-0 z-50 flex items-center justify-center bg-black/70"
+            className="fixed inset-0 z-[100] flex items-center justify-center bg-black/70"
             data-aos="zoom-out"
             onClick={onClose}
         >
             <div
-                className="relative flex max-h-[90vh] w-[85vw] max-w-[1000px] flex-col rounded-2xl bg-white p-6"
+                className="relative flex max-h-[90vh] w-[85vw] max-w-[1000px] flex-col rounded-2xl bg-white p-6 shadow-2xl dark:bg-dark-300/95 dark:text-white"
                 onClick={(e) => e.stopPropagation()}
             >
-                <h2 className="mb-4 text-2xl font-bold">{title}</h2>
+                {/* 제목, 닫기 */}
+                <div className="flex items-center justify-between border-b border-gray-200 pb-3 dark:border-dark-400">
+                    <h2 className="text-2xl font-bold">[ {title} ]</h2>
+                    <button
+                        onClick={onClose}
+                        className="rounded-full p-2 text-gray-500 transition hover:bg-gray-200 hover:text-black dark:hover:bg-dark-400"
+                    >
+                        <X className="h-6 w-6 dark:text-white" />
+                    </button>
+                </div>
 
-                <div className="h-[40vh] flex-shrink-0 border-t">
+                {/* 이미지 캐러셀 */}
+                <div className="mt-4 h-[30vh] flex-shrink-0 overflow-hidden rounded-xl border border-gray-200 dark:border-dark-400">
                     <Slider {...settings}>
                         {images.map((src, i) => (
-                            <div key={i} className="relative h-[40vh]">
+                            <div key={i} className="relative h-[30vh]">
                                 <Image
                                     src={src}
                                     alt={`${title} image ${i + 1}`}
                                     fill
-                                    style={{ objectFit: "contain" }}
+                                    style={{
+                                        objectFit: "contain",
+                                        padding: "14px",
+                                    }}
                                 />
                             </div>
                         ))}
@@ -61,41 +75,34 @@ export default function ProjectModal({
                 </div>
 
                 {/* 상세 내용 영역 */}
-                <div className="mt-8 flex-grow space-y-6 overflow-y-auto">
+                <div className="custom-scroll mt-6 flex-grow space-y-6 overflow-y-auto pr-2">
                     <section>
-                        <h3 className="mb-2 border-b border-gray-300 pb-1 text-xl font-semibold">
-                            프로젝트 설명
+                        <h3 className="mb-2 border-l-4 border-blue-500 pl-2 text-xl font-semibold dark:border-blue-400">
+                            📁 프로젝트 설명
                         </h3>
-                        <p className="whitespace-pre-line text-gray-700">
+                        <p className="whitespace-pre-line leading-relaxed dark:text-white">
                             {details}
                         </p>
                     </section>
 
                     <section>
-                        <h3 className="mb-2 border-b border-gray-300 pb-1 text-xl font-semibold">
-                            작업 기여도
+                        <h3 className="mb-2 border-l-4 border-green-500 pl-2 text-xl font-semibold dark:border-green-400">
+                            🧩 작업 기여도
                         </h3>
-                        <p className="whitespace-pre-line text-gray-700">
+                        <p className="whitespace-pre-line leading-relaxed dark:text-white">
                             {contributions}
                         </p>
                     </section>
 
                     <section>
-                        <h3 className="mb-2 border-b border-gray-300 pb-1 text-xl font-semibold">
-                            트러블슈팅
+                        <h3 className="mb-2 border-l-4 border-red-500 pl-2 text-xl font-semibold dark:border-red-400">
+                            🧠 트러블슈팅
                         </h3>
-                        <p className="whitespace-pre-line text-gray-700">
+                        <p className="whitespace-pre-line leading-relaxed dark:text-white">
                             {troubleshooting}
                         </p>
                     </section>
                 </div>
-
-                <button
-                    onClick={onClose}
-                    className="mt-6 self-end rounded-lg border-2 border-red-400 px-6 py-2 text-red-800"
-                >
-                    닫기
-                </button>
             </div>
         </div>
     );
