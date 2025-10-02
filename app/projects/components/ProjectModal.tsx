@@ -4,6 +4,7 @@ import Image from "next/image";
 import { X } from "lucide-react";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import { useState } from "react";
 
 interface ProjectModalProps {
     isOpen: boolean;
@@ -24,6 +25,8 @@ export default function ProjectModal({
     contributions,
     troubleshooting,
 }: ProjectModalProps) {
+    const [previewImg, setPreviewImg] = useState<string | null>(null);
+
     if (!isOpen) return null;
 
     const settings = {
@@ -59,7 +62,11 @@ export default function ProjectModal({
                 <div className="mt-4 h-[30vh] flex-shrink-0 overflow-hidden rounded-xl border border-gray-200 dark:border-dark-400">
                     <Slider {...settings}>
                         {images.map((src, i) => (
-                            <div key={i} className="relative h-[30vh]">
+                            <div
+                                key={i}
+                                className="relative flex h-[30vh] cursor-pointer items-center justify-center"
+                                onClick={() => setPreviewImg(src)}
+                            >
                                 <Image
                                     src={src}
                                     alt={`${title} image ${i + 1}`}
@@ -104,6 +111,31 @@ export default function ProjectModal({
                     </section>
                 </div>
             </div>
+            {/* 이미지 확대 */}
+            {previewImg && (
+                <div
+                    className="fixed inset-0 z-[200] flex items-center justify-center bg-black/70"
+                    onClick={() => setPreviewImg(null)}
+                >
+                    <div
+                        className="relative h-[90vh] w-[90vw] bg-black/90"
+                        onClick={(e) => e.stopPropagation()}
+                    >
+                        <Image
+                            src={previewImg}
+                            alt="preview"
+                            fill
+                            className="max-h-[70vh] max-w-full object-contain"
+                        />
+                        <button
+                            onClick={() => setPreviewImg(null)}
+                            className="absolute right-4 top-4 rounded-full bg-black/60 p-2 text-white hover:bg-black"
+                        >
+                            <X className="h-6 w-6" />
+                        </button>
+                    </div>
+                </div>
+            )}
         </div>
     );
 }
