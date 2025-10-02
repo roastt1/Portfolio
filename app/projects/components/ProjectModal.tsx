@@ -41,7 +41,7 @@ export default function ProjectModal({
         <div
             className="fixed inset-0 z-[100] flex items-center justify-center bg-black/70"
             data-aos="zoom-out"
-            onClick={onClose}
+            onClick={previewImg ? undefined : onClose}
         >
             <div
                 className="relative flex max-h-[90vh] w-[85vw] max-w-[1000px] flex-col rounded-2xl bg-white p-6 shadow-2xl dark:bg-dark-300/95 dark:text-white"
@@ -114,18 +114,19 @@ export default function ProjectModal({
             {/* 이미지 확대 */}
             {previewImg && (
                 <div
-                    className="fixed inset-0 z-[200] flex items-center justify-center bg-black/70"
+                    className="fixed inset-0 z-[200] flex items-center justify-center bg-black/90"
                     onClick={() => setPreviewImg(null)}
                 >
                     <div
-                        className="relative h-[90vh] w-[90vw] bg-black/90"
+                        className="relative flex h-[75vh] w-[95vw] items-center justify-center rounded-xl bg-black/90 sm:h-[80vh] sm:w-[80vw]"
                         onClick={(e) => e.stopPropagation()}
                     >
                         <Image
                             src={previewImg}
                             alt="preview"
-                            fill
-                            className="max-h-[70vh] max-w-full object-contain"
+                            width={1200}
+                            height={800}
+                            className="max-h-[70vh] object-contain"
                         />
                         <button
                             onClick={() => setPreviewImg(null)}
