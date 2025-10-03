@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import AOS from "aos";
 import "aos/dist/aos.css";
 import ProjectCard from "./ProjectCard";
 import ProjectModal from "./ProjectModal";
@@ -27,6 +28,7 @@ export default function Projects() {
         contributions: "",
         troubleshooting: "",
     });
+
     useEffect(() => {
         if (isOpen) {
             document.body.style.overflow = "hidden";
@@ -37,6 +39,10 @@ export default function Projects() {
             document.body.style.overflow = "";
         };
     }, [isOpen]);
+
+    useEffect(() => {
+        AOS.init({ duration: 800, easing: "ease-in-out", once: true });
+    }, []);
 
     return (
         <>
