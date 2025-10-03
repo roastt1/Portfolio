@@ -4,7 +4,7 @@ import Image from "next/image";
 import { X } from "lucide-react";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import { useState } from "react";
+import { useState, useRef } from "react";
 
 interface ProjectModalProps {
     isOpen: boolean;
@@ -26,6 +26,21 @@ export default function ProjectModal({
     troubleshooting,
 }: ProjectModalProps) {
     const [previewImg, setPreviewImg] = useState<string | null>(null);
+    // 마우스 드래그 시작 좌표
+    const dragStart = useRef<{ x: number } | null>(null);
+    // 마우스를 누를 때 시작 좌표 기록
+    const handleImgMouseDown = (e: React.MouseEvent) => {
+        dragStart.current = { x: e.clientX };
+    };
+    // 마우스를 뗄 때 이동 거리를 계산해서 드래그인지 클릭인지 판별
+    const handleImgMouseUp = (e: React.MouseEvent, src: string) => {
+        if (!dragStart.current) return;
+        const dx = Math.abs(e.clientX - dragStart.current.x);
+        if (dx < 5) {
+            setPreviewImg(src);
+        }
+        dragStart.current = null;
+    };
 
     if (!isOpen) return null;
 
@@ -65,7 +80,8 @@ export default function ProjectModal({
                             <div
                                 key={i}
                                 className="relative flex h-[30vh] cursor-pointer items-center justify-center"
-                                onClick={() => setPreviewImg(src)}
+                                onMouseDown={handleImgMouseDown}
+                                onMouseUp={(e) => handleImgMouseUp(e, src)}
                             >
                                 <Image
                                     src={src}
