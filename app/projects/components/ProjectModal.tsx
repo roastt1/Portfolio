@@ -59,7 +59,7 @@ export default function ProjectModal({
             onClick={previewImg ? undefined : onClose}
         >
             <div
-                className="relative flex max-h-[90vh] w-[85vw] max-w-[1000px] flex-col rounded-2xl bg-white p-6 shadow-2xl dark:bg-dark-300/95 dark:text-white"
+                className="relative flex max-h-[90vh] w-[85vw] max-w-[1000px] flex-col rounded-2xl bg-white p-6 shadow-2xl dark:bg-dark-300 dark:text-white"
                 onClick={(e) => e.stopPropagation()}
             >
                 {/* 제목, 닫기 */}
@@ -74,7 +74,7 @@ export default function ProjectModal({
                 </div>
 
                 {/* 이미지 캐러셀 */}
-                <div className="mt-4 h-[30vh] flex-shrink-0 overflow-hidden rounded-xl border border-gray-200 dark:border-dark-400">
+                <div className="mt-4 h-[30vh] flex-shrink-0 rounded-xl border border-gray-200 bg-gray-300 px-12 dark:border-dark-400 dark:bg-dark-200">
                     <Slider {...settings}>
                         {images.map((src, i) => (
                             <div
@@ -98,7 +98,7 @@ export default function ProjectModal({
                 </div>
 
                 {/* 상세 내용 영역 */}
-                <div className="custom-scroll mt-6 flex-grow space-y-6 overflow-y-auto pr-2">
+                <div className="custom-scroll mt-8 flex-grow space-y-6 overflow-y-auto pr-2">
                     <section>
                         <h3 className="mb-2 border-l-4 border-blue-500 pl-2 text-xl font-semibold dark:border-blue-400">
                             📁 프로젝트 설명

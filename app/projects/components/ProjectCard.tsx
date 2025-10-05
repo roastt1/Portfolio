@@ -23,11 +23,11 @@ export default function ProjectCard({
 }: ProjectCardProps) {
     return (
         <div
-            className="group relative h-[500px] w-[350px] lg:w-[400px]"
+            className="group relative h-[400px] w-[350px] lg:w-[400px]"
             data-aos="fade-up"
             data-aos-delay="100"
         >
-            <div className="dark:border-dark-400 dark:bg-dark-300 absolute inset-0 flex transform flex-col overflow-hidden rounded-3xl border-2 border-blue-100 bg-white shadow-md transition-transform duration-300 ease-out hover:bg-gray-100 group-hover:-translate-y-2 group-hover:shadow-lg dark:hover:bg-dark-200">
+            <div className="absolute inset-0 flex transform flex-col overflow-hidden rounded-3xl border-2 border-blue-100 bg-white shadow-md transition-transform duration-300 ease-out hover:bg-gray-100 group-hover:-translate-y-2 group-hover:shadow-lg dark:border-dark-400 dark:bg-dark-300 dark:hover:bg-dark-200">
                 {/* 상단 이미지 및 뱃지 */}
                 <div className="flex items-start p-4">
                     <div className="relative mr-4 h-32 w-32 overflow-hidden rounded-lg border p-16">
@@ -60,7 +60,7 @@ export default function ProjectCard({
                 <div className="flex min-h-[100px] flex-[0.2] items-center justify-center">
                     <button
                         onClick={openModal}
-                        className="dark:border-dark-400 dark:hover:bg-dark-400 translate-y-2 rounded-lg border-2 border-solid border-blue-400 px-6 py-4 text-lg font-medium text-blue-500 opacity-0 shadow-lg transition-all duration-300 hover:bg-blue-200 hover:text-white group-hover:translate-y-0 group-hover:opacity-100 dark:text-white"
+                        className="translate-y-2 rounded-lg border-2 border-solid border-blue-400 px-6 py-4 text-lg font-medium text-blue-500 opacity-0 shadow-lg transition-all duration-300 hover:bg-blue-200 hover:text-white group-hover:translate-y-0 group-hover:opacity-100 dark:border-dark-400 dark:text-white dark:hover:bg-dark-400"
                     >
                         자세히 보기
                     </button>
