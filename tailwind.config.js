@@ -2,9 +2,9 @@
 module.exports = {
     darkMode: "class",
     content: [
-        "./app/**/*.{js,ts,jsx,tsx}", // app 디렉토리
-        "./pages/**/*.{js,ts,jsx,tsx}", // pages 디렉토리
-        "./components/**/*.{js,ts,jsx,tsx}", // 컴포넌트 폴더 (있는 경우)
+        "./app/**/*.{js,ts,jsx,tsx}",
+        "./pages/**/*.{js,ts,jsx,tsx}",
+        "./components/**/*.{js,ts,jsx,tsx}",
     ],
     theme: {
         extend: {
@@ -41,10 +41,35 @@ module.exports = {
                     from: { "background-position": "0 0" },
                     to: { "background-position": "100% 100%" },
                 },
+                "rise-in": {
+                    "0%": {
+                        opacity: "0",
+                        transform: "translate(-25px, 20px) rotate(-270deg) ",
+                    },
+                    "100%": {
+                        opacity: "1",
+                        transform: "translate(0, 0) rotate(0deg) ",
+                    },
+                },
+                "set-out": {
+                    "0%": {
+                        opacity: "1",
+                        transform: "translate(0, 0) rotate(0deg)",
+                    },
+                    "100%": {
+                        opacity: "0",
+                        transform: "translate(25px, 20px) rotate(270deg)",
+                    },
+                },
             },
             animation: {
                 "slide-up": "slide-up 0.8s ease-out forwards",
                 "slide-left-fade": "slide-left-fade 0.8s ease-out forwards",
+                "rise-in":
+                    "rise-in 0.5s cubic-bezier(0.25, 0, 0.25, 1) forwards",
+                "set-out":
+                    "set-out 0.5s cubic-bezier(0.25, 0, 0.25, 1) forwards",
+
                 glow: "glow 1.5s ease-in-out infinite",
                 darkglow: "darkglow 1.5s ease-in-out infinite",
                 slideBgFast: "slideBgFast 20s linear infinite",
