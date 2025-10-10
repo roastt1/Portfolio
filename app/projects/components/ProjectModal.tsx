@@ -1,7 +1,7 @@
 "use client";
 import Slider from "react-slick";
 import Image from "next/image";
-import { X } from "lucide-react";
+import { X, ChevronLeft, ChevronRight } from "lucide-react";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { useState, useRef } from "react";
@@ -25,7 +25,7 @@ export default function ProjectModal({
     contributions,
     troubleshooting,
 }: ProjectModalProps) {
-    const [previewImg, setPreviewImg] = useState<string | null>(null);
+    const [previewIndex, setPreviewIndex] = useState<number | null>(null);
     // 마우스 드래그 시작 좌표
     const dragStart = useRef<{ x: number } | null>(null);
     // 마우스를 누를 때 시작 좌표 기록
@@ -33,13 +33,27 @@ export default function ProjectModal({
         dragStart.current = { x: e.clientX };
     };
     // 마우스를 뗄 때 이동 거리를 계산해서 드래그인지 클릭인지 판별
-    const handleImgMouseUp = (e: React.MouseEvent, src: string) => {
+    const handleImgMouseUp = (e: React.MouseEvent, i: number) => {
         if (!dragStart.current) return;
         const dx = Math.abs(e.clientX - dragStart.current.x);
         if (dx < 5) {
-            setPreviewImg(src);
+            setPreviewIndex(i);
         }
         dragStart.current = null;
+    };
+
+    const handleNext = () => {
+        if (previewIndex === null) return;
+        setPreviewIndex((prev) =>
+            prev === images.length - 1 ? 0 : (prev ?? 0) + 1
+        );
+    };
+
+    const handlePrev = () => {
+        if (previewIndex === null) return;
+        setPreviewIndex((prev) =>
+            prev === 0 ? images.length - 1 : (prev ?? 0) - 1
+        );
     };
 
     if (!isOpen) return null;
@@ -56,7 +70,7 @@ export default function ProjectModal({
         <div
             className="fixed inset-0 z-[100] flex items-center justify-center bg-black/70"
             data-aos="zoom-out"
-            onClick={previewImg ? undefined : onClose}
+            onClick={previewIndex !== null ? undefined : onClose}
         >
             <div
                 className="relative flex max-h-[90vh] w-[85vw] max-w-[1000px] flex-col rounded-2xl bg-white p-6 shadow-2xl dark:bg-dark-300 dark:text-white"
@@ -81,7 +95,7 @@ export default function ProjectModal({
                                 key={i}
                                 className="relative flex h-[30vh] cursor-pointer items-center justify-center"
                                 onMouseDown={handleImgMouseDown}
-                                onMouseUp={(e) => handleImgMouseUp(e, src)}
+                                onMouseUp={(e) => handleImgMouseUp(e, i)}
                             >
                                 <Image
                                     src={src}
@@ -127,29 +141,50 @@ export default function ProjectModal({
                     </section>
                 </div>
             </div>
+
             {/* 이미지 확대 */}
-            {previewImg && (
+            {previewIndex !== null && (
                 <div
                     className="fixed inset-0 z-[200] flex items-center justify-center bg-black/90"
-                    onClick={() => setPreviewImg(null)}
+                    onClick={() => setPreviewIndex(null)}
                 >
                     <div
-                        className="relative flex h-[75vh] w-[95vw] items-center justify-center rounded-xl bg-black/90 sm:h-[80vh] sm:w-[80vw]"
+                        className="relative flex h-[90vh] w-full items-center justify-center rounded-xl bg-black/90 sm:h-[80vh] sm:w-[80vw]"
                         onClick={(e) => e.stopPropagation()}
                     >
                         <Image
-                            src={previewImg}
+                            src={images[previewIndex]}
                             alt="preview"
                             width={1200}
                             height={800}
-                            className="max-h-[70vh] object-contain"
+                            className="max-h-[70vh] object-contain transition-all duration-300"
                         />
+
+                        {/* 닫기 버튼 */}
                         <button
-                            onClick={() => setPreviewImg(null)}
-                            className="absolute right-4 top-4 rounded-full bg-black/60 p-2 text-white hover:bg-black"
+                            onClick={() => setPreviewIndex(null)}
+                            className="absolute right-4 top-4 rounded-full bg-dark-200 p-2 text-white hover:bg-gray-800"
                         >
                             <X className="h-6 w-6" />
                         </button>
+
+                        {/* 좌우 이동 버튼 */}
+                        <button
+                            onClick={handlePrev}
+                            className="absolute left-4 top-1/2 -translate-y-1/2 rounded-full bg-dark-200 p-3 text-white hover:bg-gray-800"
+                        >
+                            <ChevronLeft className="h-4 w-4 sm:h-8 sm:w-8" />
+                        </button>
+                        <button
+                            onClick={handleNext}
+                            className="absolute right-4 top-1/2 -translate-y-1/2 rounded-full bg-dark-200 p-3 text-white hover:bg-gray-800"
+                        >
+                            <ChevronRight className="h-4 w-4 sm:h-8 sm:w-8" />
+                        </button>
+
+                        <div className="absolute bottom-2 text-base text-white">
+                            {previewIndex + 1} / {images.length}
+                        </div>
                     </div>
                 </div>
             )}
