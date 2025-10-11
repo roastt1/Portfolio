@@ -11,6 +11,7 @@ interface ProjectModalProps {
     onClose: () => void;
     title: string;
     images: string[];
+    link?: string;
     details: string;
     contributions: string;
     troubleshooting: string;
@@ -21,6 +22,7 @@ export default function ProjectModal({
     onClose,
     title,
     images,
+    link,
     details,
     contributions,
     troubleshooting,
@@ -114,6 +116,19 @@ export default function ProjectModal({
                 {/* 상세 내용 영역 */}
                 <div className="custom-scroll mt-8 flex-grow space-y-6 overflow-y-auto pr-2">
                     <section>
+                        {link && (
+                            <div className="mb-2">
+                                📎 서비스 URL:{" "}
+                                <a
+                                    href={link}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="text-blue-500 hover:underline"
+                                >
+                                    {link}
+                                </a>
+                            </div>
+                        )}
                         <h3 className="mb-2 border-l-4 border-blue-500 pl-2 text-xl font-semibold dark:border-blue-400">
                             📁 프로젝트 설명
                         </h3>

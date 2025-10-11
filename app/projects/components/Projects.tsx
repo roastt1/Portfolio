@@ -12,6 +12,7 @@ interface ModalData {
     content: string;
     images: string[];
     duration: string;
+    link?: string;
     details: string;
     contributions: string;
     troubleshooting: string;
@@ -24,6 +25,7 @@ export default function Projects() {
         content: "",
         images: [],
         duration: "",
+        link: "",
         details: "",
         contributions: "",
         troubleshooting: "",
@@ -68,6 +70,7 @@ export default function Projects() {
                 onClose={() => setIsOpen(false)}
                 title={modalData.title}
                 images={modalData.images}
+                link={modalData.link}
                 details={modalData.details}
                 contributions={modalData.contributions}
                 troubleshooting={modalData.troubleshooting}
