@@ -2,6 +2,7 @@
 
 안녕하세요! 프론트엔드 개발자 박준선의 포트폴리오 저장소입니다.
 
+URL: [joonseon-portfolio.vercel.app](https://joonseon-portfolio.vercel.app)
 ## 📁 주요 구성
 
 - `home` : 랜딩 페이지
