@@ -3,12 +3,12 @@
 import "./globals.css";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
-import { Gowun_Dodum } from "next/font/google";
+import { Noto_Sans_KR } from "next/font/google";
 import { usePathname } from "next/navigation";
 import DarkMode from "./components/DarkMode";
 
-const gowunDodum = Gowun_Dodum({
-    weight: "400",
+const notoSansKR = Noto_Sans_KR({
+    weight: ["300", "400", "500", "700", "900"],
     subsets: ["latin"],
     display: "swap",
 });
@@ -33,11 +33,11 @@ export default function RootLayout({
     return (
         <html lang="ko">
             <body
-                className={`${gowunDodum.className} body flex min-h-screen flex-col transition-all duration-300 ${bgClass}`}
+                className={`${notoSansKR.className} body flex min-h-screen flex-col transition-all duration-300 ${bgClass}`}
                 style={{ minHeight: "100vh" }}
             >
                 <Header />
-                <main className="mx-auto my-8 w-full max-w-[1480px] flex-1 px-4 pb-[80px] pt-[72px]">
+                <main className="mx-auto w-full max-w-[1480px] flex-1 px-4 pb-[80px]">
                     {children}
                 </main>
 
