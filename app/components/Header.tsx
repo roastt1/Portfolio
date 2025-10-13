@@ -44,12 +44,12 @@ export default function Header() {
                     </button>
 
                     {/* 데스크톱 메뉴 */}
-                    <nav className="hidden items-center gap-8 md:flex">
+                    <nav className="hidden items-center gap-12 md:flex">
                         {sections.map((section) => (
                             <button
                                 key={section.id}
                                 onClick={() => scrollToSection(section.id)}
-                                className="font-medium transition hover:underline hover:underline-offset-4"
+                                className="text-base font-black transition hover:text-blue-400"
                             >
                                 {section.label}
                             </button>
@@ -92,7 +92,7 @@ export default function Header() {
                             <button
                                 key={section.id}
                                 onClick={() => scrollToSection(section.id)}
-                                className="w-full text-center font-medium hover:underline"
+                                className="w-full text-center font-bold hover:text-blue-400"
                             >
                                 {section.label}
                             </button>

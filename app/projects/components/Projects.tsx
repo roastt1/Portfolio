@@ -47,8 +47,11 @@ export default function Projects() {
     }, []);
 
     return (
-        <>
-            <div className="mt-16 flex w-full flex-wrap justify-center gap-8">
+        <div className="flex w-full flex-col items-center gap-16 pt-20 dark:text-white">
+            <h2 className="w-full px-4 text-5xl font-black sm:text-6xl">
+                Project
+            </h2>
+            <div className="flex w-full flex-wrap justify-center gap-8">
                 {projectConstants.map((project, i) => (
                     <ProjectCard
                         key={i}
@@ -75,6 +78,6 @@ export default function Projects() {
                 contributions={modalData.contributions}
                 troubleshooting={modalData.troubleshooting}
             />
-        </>
+        </div>
     );
 }

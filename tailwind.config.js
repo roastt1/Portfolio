@@ -35,11 +35,11 @@ module.exports = {
                 },
                 slideBgFast: {
                     from: { "background-position": "0 0" },
-                    to: { "background-position": "250% 100%" },
+                    to: { "background-position": "250% 10%" },
                 },
                 slideBgSlow: {
                     from: { "background-position": "0 0" },
-                    to: { "background-position": "100% 100%" },
+                    to: { "background-position": "50% 30%" },
                 },
                 "rise-in": {
                     "0%": {
