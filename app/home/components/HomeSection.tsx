@@ -3,13 +3,11 @@
 import { useEffect, useState } from "react";
 import Lottie from "lottie-react";
 import coding from "@/public/coding.json";
-import Image from "next/image";
 import { ChevronsDown, CircleUser, Folders } from "lucide-react";
 
 export default function HomeSection() {
-    const [showFirst, setShowFirst] = useState(false);
-    const [showSecond, setShowSecond] = useState(false);
-    const [moveTextsUp, setMoveTextsUp] = useState(false);
+    const [showTitle, setShowTitle] = useState(false);
+    const [showContent, setShowContent] = useState(false);
     const [showImage, setShowImage] = useState(false);
     const [showMain, setShowMain] = useState(false);
     const [scrollLock, setScrollLock] = useState(true);
@@ -30,12 +28,11 @@ export default function HomeSection() {
 
     useEffect(() => {
         const timers = [
-            setTimeout(() => setShowFirst(true), 500),
-            setTimeout(() => setShowSecond(true), 800),
-            setTimeout(() => setMoveTextsUp(true), 1500),
-            setTimeout(() => setShowImage(true), 2200),
-            setTimeout(() => setShowMain(true), 2800),
-            setTimeout(() => setScrollLock(false), 3500), // 마지막에 스크롤 허용
+            setTimeout(() => setShowTitle(true), 500),
+            setTimeout(() => setShowContent(true), 800),
+            setTimeout(() => setShowImage(true), 1500),
+            setTimeout(() => setShowMain(true), 2000),
+            setTimeout(() => setScrollLock(false), 2500), // 마지막에 스크롤 허용
         ];
         return () => timers.forEach(clearTimeout);
     }, []);
@@ -49,49 +46,41 @@ export default function HomeSection() {
     };
 
     return (
-        <section
-            id="home"
-            className="relative flex flex-col items-center justify-center px-4 text-black dark:text-white"
-        >
+        <div className="flex min-h-screen flex-col items-center pt-24 text-black dark:text-white">
             {/* 텍스트 영역 */}
-            <div
-                className={`flex flex-col items-center space-y-4 transition-transform duration-1000 ease-in-out ${
-                    moveTextsUp ? "-translate-y-24" : "translate-y-0"
-                }`}
-            >
+            <div className="flex flex-col items-center transition-transform">
                 <h1
-                    className={`text-7xl font-bold text-purple-300 transition-all duration-700 ease-in-out lg:text-8xl ${
-                        showFirst
-                            ? "translate-y-[280px] scale-100 opacity-100"
-                            : "translate-y-[320px] scale-90 opacity-0"
+                    className={`text-center text-5xl font-black transition-all duration-700 ease-in-out sm:text-8xl ${
+                        showTitle
+                            ? "scale-100 opacity-100"
+                            : "scale-90 opacity-0"
                     }`}
                 >
-                    <Image
-                        src="/images/FrontEnd.png"
-                        alt="Profile Picture"
-                        width={500}
-                        height={500}
-                    />
+                    <span className="bg-gradient-to-r from-indigo-500 to-blue-400 bg-clip-text text-transparent">
+                        FRONTEND
+                    </span>
+                    <br />
+                    <span className="text-black dark:text-white">
+                        DEVELOPER
+                    </span>
                 </h1>
 
                 <p
-                    className={`text-xl transition-all duration-700 ease-in-out lg:text-2xl ${
-                        showSecond
-                            ? "translate-y-[280px] scale-100 opacity-100"
-                            : "translate-y-[320px] scale-90 opacity-0"
+                    className={`py-8 text-center text-lg transition-all duration-700 ease-in-out sm:text-2xl ${
+                        showContent
+                            ? "scale-100 opacity-100"
+                            : "scale-90 opacity-0"
                     }`}
                 >
-                    프론트엔드 개발자 <span className="font-bold">박준선</span>
-                    입니다.
+                    안녕하세요, <span className="font-bold">박준선</span>입니다.
+                    <br />
                 </p>
             </div>
 
             {/* 이미지 영역 */}
             <div
                 className={`mb-24 flex h-64 w-64 overflow-hidden rounded-3xl transition-all duration-1000 ${
-                    showImage
-                        ? "translate-y-[200px] scale-110 opacity-100"
-                        : "translate-y-[120px] scale-90 opacity-0"
+                    showImage ? "scale-110 opacity-100" : "scale-90 opacity-0"
                 }`}
             >
                 <Lottie animationData={coding} loop={true} autoplay={true} />
@@ -100,9 +89,7 @@ export default function HomeSection() {
             {/* 메인 콘텐츠 */}
             <div
                 className={`transition-all duration-1000 ease-in-out ${
-                    showMain
-                        ? "translate-y-[180px] opacity-100"
-                        : "translate-y-[150px] opacity-0"
+                    showMain ? "opacity-100" : "opacity-0"
                 }`}
             >
                 <div className="flex justify-center gap-16">
@@ -124,10 +111,10 @@ export default function HomeSection() {
                     </button>
                 </div>
 
-                <div className="mx-auto my-16 w-fit animate-bounce">
+                <div className="mx-auto w-fit animate-bounce pt-8">
                     <ChevronsDown size={32} />
                 </div>
             </div>
-        </section>
+        </div>
     );
 }
