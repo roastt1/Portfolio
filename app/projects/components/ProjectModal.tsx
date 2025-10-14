@@ -5,7 +5,11 @@ import { X, ChevronLeft, ChevronRight } from "lucide-react";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { useState, useRef } from "react";
-
+interface TroubleshootingItem {
+    problem: string;
+    cause: string;
+    solution: string;
+}
 interface ProjectModalProps {
     isOpen: boolean;
     onClose: () => void;
@@ -14,7 +18,7 @@ interface ProjectModalProps {
     link?: string;
     details: string;
     contributions: string;
-    troubleshooting: string;
+    troubleshooting: TroubleshootingItem[];
 }
 
 export default function ProjectModal({
@@ -90,7 +94,7 @@ export default function ProjectModal({
                 </div>
 
                 {/* 이미지 캐러셀 */}
-                <div className="mt-4 h-[30vh] flex-shrink-0 rounded-xl border border-gray-200 bg-gray-300 px-12 dark:border-dark-400 dark:bg-dark-200">
+                <div className="mt-4 h-[30vh] flex-shrink-0 rounded-xl border border-gray-400 px-12 dark:border-dark-400">
                     <Slider {...settings}>
                         {images.map((src, i) => (
                             <div
@@ -114,7 +118,7 @@ export default function ProjectModal({
                 </div>
 
                 {/* 상세 내용 영역 */}
-                <div className="custom-scroll mt-8 flex-grow space-y-6 overflow-y-auto pr-2">
+                <div className="custom-scroll mt-8 flex-grow space-y-12 overflow-y-auto pr-2">
                     <section>
                         {link && (
                             <div className="mb-2">
@@ -150,9 +154,32 @@ export default function ProjectModal({
                         <h3 className="mb-2 border-l-4 border-red-500 pl-2 text-xl font-semibold dark:border-red-400">
                             🧠 트러블슈팅
                         </h3>
-                        <p className="whitespace-pre-line leading-relaxed dark:text-white">
-                            {troubleshooting}
-                        </p>
+
+                        {troubleshooting.map((item, i) => (
+                            <div key={i} className="pb-8">
+                                <div className="rounded-lg bg-gray-100 p-6 dark:bg-dark-200">
+                                    <p className="whitespace-pre-line leading-relaxed dark:text-gray-100">
+                                        {item.problem}
+                                    </p>
+                                </div>
+                                <div className="p-4">
+                                    <p className="font-bold text-red-500 dark:text-red-400">
+                                        [원인]
+                                    </p>
+                                    <p className="whitespace-pre-line leading-relaxed dark:text-white">
+                                        {item.cause}
+                                    </p>
+                                </div>
+                                <div className="p-4">
+                                    <p className="font-bold text-green-500 dark:text-green-400">
+                                        [해결]
+                                    </p>
+                                    <p className="whitespace-pre-line leading-relaxed dark:text-white">
+                                        {item.solution}
+                                    </p>
+                                </div>
+                            </div>
+                        ))}
                     </section>
                 </div>
             </div>

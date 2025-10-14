@@ -6,7 +6,11 @@ import "aos/dist/aos.css";
 import ProjectCard from "./ProjectCard";
 import ProjectModal from "./ProjectModal";
 import { projectConstants } from "@/constants/projectConstants";
-
+interface TroubleshootingItem {
+    problem: string;
+    cause: string;
+    solution: string;
+}
 interface ModalData {
     title: string;
     content: string;
@@ -15,7 +19,7 @@ interface ModalData {
     link?: string;
     details: string;
     contributions: string;
-    troubleshooting: string;
+    troubleshooting: TroubleshootingItem[];
 }
 
 export default function Projects() {
@@ -28,7 +32,7 @@ export default function Projects() {
         link: "",
         details: "",
         contributions: "",
-        troubleshooting: "",
+        troubleshooting: [],
     });
 
     useEffect(() => {
