@@ -11,7 +11,7 @@ export default function Skills() {
     }, []);
 
     return (
-        <div className="flex w-full flex-col items-center gap-16 pt-20 dark:text-white">
+        <div className="flex w-full flex-col items-center gap-8 pt-20 dark:text-white sm:gap-16">
             <div
                 className="aos-animate:animate-expand-width mx-4 h-[2px] w-0 bg-gray-400"
                 data-aos="fade-in"
