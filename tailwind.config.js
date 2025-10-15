@@ -18,8 +18,24 @@ module.exports = {
                     "100%": { opacity: "1", transform: "translateY(0)" },
                 },
                 "slide-left-fade": {
-                    "0%": { opacity: "0", transform: "translateX(50px)" },
-                    "100%": { opacity: "1", transform: "translateX(0)" },
+                    "0%": {
+                        opacity: "0",
+                        transform: "translateX(150px) scale(0.8)",
+                    },
+                    "100%": {
+                        opacity: "1",
+                        transform: "translateX(0) scale(1)",
+                    },
+                },
+                "slide-right-fade": {
+                    "0%": {
+                        opacity: "0",
+                        transform: "translateX(-150px) scale(0.8)",
+                    },
+                    "100%": {
+                        opacity: "1",
+                        transform: "translateX(0) scale(1)",
+                    },
                 },
                 glow: {
                     "0%, 100%": {
@@ -70,6 +86,7 @@ module.exports = {
                 "expand-width": "expandWidth 1s ease-out forwards",
                 "slide-up": "slide-up 0.8s ease-out forwards",
                 "slide-left-fade": "slide-left-fade 0.8s ease-out forwards",
+                "slide-right-fade": "slide-right-fade 0.8s ease-out forwards",
                 "rise-in":
                     "rise-in 0.5s cubic-bezier(0.25, 0, 0.25, 1) forwards",
                 "set-out":

@@ -6,10 +6,12 @@ import coding from "@/public/coding.json";
 import { ChevronsDown, CircleUser, Folders } from "lucide-react";
 
 export default function HomeSection() {
-    const [showTitle, setShowTitle] = useState(false);
+    const [showTitle1, setShowTitle1] = useState(false);
+    const [showTitle2, setShowTitle2] = useState(false);
     const [showContent, setShowContent] = useState(false);
     const [showImage, setShowImage] = useState(false);
-    const [showMain, setShowMain] = useState(false);
+    const [showButton1, setShowButton1] = useState(false);
+    const [showButton2, setShowButton2] = useState(false);
     const [scrollLock, setScrollLock] = useState(true);
 
     useEffect(() => {
@@ -28,16 +30,17 @@ export default function HomeSection() {
 
     useEffect(() => {
         const timers = [
-            setTimeout(() => setShowTitle(true), 500),
-            setTimeout(() => setShowContent(true), 800),
+            setTimeout(() => setShowTitle1(true), 500),
+            setTimeout(() => setShowTitle2(true), 900),
+            setTimeout(() => setShowContent(true), 1300),
             setTimeout(() => setShowImage(true), 1500),
-            setTimeout(() => setShowMain(true), 2000),
-            setTimeout(() => setScrollLock(false), 2500), // 마지막에 스크롤 허용
+            setTimeout(() => setShowButton1(true), 2100),
+            setTimeout(() => setShowButton2(true), 2300),
+            setTimeout(() => setScrollLock(false), 2700),
         ];
         return () => timers.forEach(clearTimeout);
     }, []);
 
-    // 섹션 이동 함수
     const scrollToSection = (id: string) => {
         const el = document.getElementById(id);
         if (el) {
@@ -46,30 +49,38 @@ export default function HomeSection() {
     };
 
     return (
-        <div className="flex min-h-screen flex-col items-center pt-24 text-black dark:text-white">
+        <section className="flex min-h-screen flex-col items-center gap-4 pt-24 text-black dark:text-white sm:gap-16">
             {/* 텍스트 영역 */}
-            <div className="flex flex-col items-center transition-transform">
+            <div className="flex w-full max-w-lg flex-col items-center sm:max-w-5xl">
                 <h1
-                    className={`text-center text-5xl font-black transition-all duration-700 ease-in-out sm:text-8xl ${
-                        showTitle
-                            ? "scale-100 opacity-100"
-                            : "scale-90 opacity-0"
+                    className={`self-start pl-4 text-5xl font-black transition-all duration-700 ease-in-out md:text-8xl lg:text-9xl ${
+                        showTitle1
+                            ? "animate-slide-right-fade opacity-100"
+                            : "opacity-0"
                     }`}
                 >
                     <span className="bg-gradient-to-r from-indigo-500 to-blue-400 bg-clip-text text-transparent">
                         FRONTEND
                     </span>
-                    <br />
+                </h1>
+
+                <h1
+                    className={`self-end pr-4 text-4xl font-black transition-all duration-700 ease-in-out md:text-7xl lg:text-8xl ${
+                        showTitle2
+                            ? "animate-slide-left-fade opacity-100"
+                            : "opacity-0"
+                    }`}
+                >
                     <span className="text-black dark:text-white">
                         DEVELOPER
                     </span>
                 </h1>
 
                 <p
-                    className={`py-8 text-center text-lg transition-all duration-700 ease-in-out sm:text-2xl ${
+                    className={`mt-4 text-center text-base transition-all duration-700 ease-in-out sm:text-xl md:text-2xl ${
                         showContent
-                            ? "scale-100 opacity-100"
-                            : "scale-90 opacity-0"
+                            ? "animate-slide-up opacity-100"
+                            : "opacity-0"
                     }`}
                 >
                     안녕하세요, <span className="font-bold">박준선</span>입니다.
@@ -77,44 +88,57 @@ export default function HomeSection() {
                 </p>
             </div>
 
-            {/* 이미지 영역 */}
-            <div
-                className={`mb-24 flex h-64 w-64 overflow-hidden rounded-3xl transition-all duration-1000 ${
-                    showImage ? "scale-110 opacity-100" : "scale-90 opacity-0"
-                }`}
-            >
-                <Lottie animationData={coding} loop={true} autoplay={true} />
-            </div>
-
-            {/* 메인 콘텐츠 */}
-            <div
-                className={`transition-all duration-1000 ease-in-out ${
-                    showMain ? "opacity-100" : "opacity-0"
-                }`}
-            >
-                <div className="flex justify-center gap-16">
+            {/* 이미지 + 버튼 */}
+            <div className="flex flex-col items-center gap-12 transition-all duration-1000 sm:flex-row sm:gap-24">
+                {/* 이미지 */}
+                <div
+                    className={`flex h-48 w-48 items-center justify-center overflow-hidden rounded-3xl transition-all duration-1000 sm:h-64 sm:w-64 ${
+                        showImage
+                            ? "scale-110 opacity-100"
+                            : "scale-90 opacity-0"
+                    }`}
+                >
+                    <Lottie animationData={coding} loop autoplay />
+                </div>
+                {/* 버튼 */}
+                <div className="flex flex-col items-start gap-8">
                     <button
-                        type="button"
                         onClick={() => scrollToSection("about")}
-                        className="flex w-28 animate-pulse flex-col items-center justify-center bg-transparent text-lg font-bold sm:w-32 md:w-36"
+                        className={`group flex items-center gap-4 rounded-2xl bg-gradient-to-r from-indigo-500 to-blue-400 px-4 py-2 text-white transition-all hover:brightness-[0.8] sm:px-8 sm:py-4 ${
+                            showButton1
+                                ? "animate-slide-left-fade opacity-100"
+                                : "opacity-0"
+                        }`}
                     >
-                        <CircleUser size={48} />
-                        <span className="mt-2 text-center">더 알아보기</span>
+                        <CircleUser className="h-8 w-8 sm:h-10 sm:w-10" />
+                        <span className="text-xl font-bold sm:text-3xl">
+                            Meet the Developer
+                        </span>
                     </button>
-                    <button
-                        type="button"
-                        onClick={() => scrollToSection("projects")}
-                        className="flex w-28 animate-pulse flex-col items-center justify-center bg-transparent text-xl font-bold sm:w-32 md:w-36"
-                    >
-                        <Folders size={48} />
-                        <span className="mt-2 text-center">프로젝트</span>
-                    </button>
-                </div>
 
-                <div className="mx-auto w-fit animate-bounce pt-8">
-                    <ChevronsDown size={32} />
+                    <button
+                        onClick={() => scrollToSection("projects")}
+                        className={`group flex items-center gap-4 rounded-2xl bg-gradient-to-r from-blue-400 to-cyan-400 px-4 py-2 text-white transition-all hover:brightness-[0.8] sm:px-8 sm:py-4 ${
+                            showButton2
+                                ? "animate-slide-left-fade opacity-100"
+                                : "opacity-0"
+                        }`}
+                    >
+                        <Folders className="h-8 w-8 sm:h-10 sm:w-10" />
+                        <span className="text-xl font-bold sm:text-3xl">
+                            View My Work
+                        </span>
+                    </button>
                 </div>
             </div>
-        </div>
+
+            <div
+                className={`absolute bottom-10 animate-bounce ${
+                    showButton2 ? "opacity-100" : "opacity-0"
+                }`}
+            >
+                <ChevronsDown size={36} />
+            </div>
+        </section>
     );
 }
