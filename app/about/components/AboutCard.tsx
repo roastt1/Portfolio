@@ -17,7 +17,7 @@ export default function AboutCard({
         <div
             className="h-[160px] w-full max-w-[280px] sm:h-[180px] sm:max-w-[500px]"
             data-aos="fade-down"
-            data-aos-delay="100"
+            data-aos-duration="600"
         >
             <div className="flex h-full flex-col items-center justify-center rounded-2xl border-2 border-blue-100 bg-white/90 px-6 py-6 text-center shadow-lg backdrop-blur-sm transition-all duration-300 ease-out hover:-translate-y-2 hover:shadow-2xl dark:border-dark-400 dark:bg-black/10 dark:bg-dark-300">
                 {/* 아이콘 */}
@@ -40,7 +40,7 @@ export default function AboutCard({
                 <h2 className="mb-1 text-lg font-semibold text-gray-800 dark:text-white sm:text-xl">
                     {title}
                 </h2>
-                <p className="text-sm leading-relaxed text-gray-600 dark:text-white sm:text-base">
+                <p className="whitespace-nowrap text-sm leading-relaxed text-gray-600 dark:text-white sm:text-base">
                     {description}
                 </p>
             </div>

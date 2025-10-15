@@ -25,7 +25,7 @@ export default function ProjectCard({
         <div
             className="group relative h-[400px] w-[350px] lg:w-[400px]"
             data-aos="fade-up"
-            data-aos-delay="100"
+            data-aos-duration="600"
         >
             <div className="absolute inset-0 flex transform flex-col overflow-hidden rounded-3xl border-2 border-blue-100 bg-white shadow-md transition-transform duration-300 ease-out hover:bg-gray-100 group-hover:-translate-y-2 group-hover:shadow-lg dark:border-dark-400 dark:bg-dark-300 dark:hover:bg-dark-200">
                 {/* 상단 이미지 및 뱃지 */}

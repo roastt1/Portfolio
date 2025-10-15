@@ -9,21 +9,30 @@ import AboutCard from "./AboutCard";
 
 export default function About() {
     useEffect(() => {
-        AOS.init({ duration: 800, easing: "ease-in-out", once: true });
+        AOS.init({ duration: 600, easing: "ease-in-out", once: true });
     }, []);
 
     return (
         <div className="flex w-full flex-col items-center gap-6 pt-20 dark:text-white">
-            <h2 className="w-full px-4 text-5xl font-black sm:text-6xl">
+            <div
+                className="aos-animate:animate-expand-width mx-4 h-[2px] w-0 bg-gray-400"
+                data-aos="fade-in"
+                data-aos-once="true"
+            />
+            <h2
+                className="w-full px-4 text-5xl font-black sm:text-6xl"
+                data-aos="fade-right"
+                data-aos-once="true"
+            >
                 About me
             </h2>
 
-            <div className="mb-12 flex flex-col items-center gap-10 text-center">
+            <div className="flex flex-col items-center gap-10 text-center">
                 {/* 프로필 사진 */}
                 <div
                     data-aos="fade-down"
                     data-aos-delay="100"
-                    className="relative mb-4 h-96 w-72 overflow-hidden rounded-3xl border-4 border-blue-400 shadow-md dark:border-dark-400 sm:h-[450px] sm:w-[400px]"
+                    className="relative h-96 w-72 overflow-hidden rounded-3xl border-4 border-blue-400 shadow-md dark:border-dark-400 sm:h-[450px] sm:w-[400px]"
                 >
                     <Image
                         src="/images/about/about_me.jpg"
@@ -55,7 +64,7 @@ export default function About() {
             </div>
 
             {/* 정보 카드 */}
-            <div className="grid w-full grid-cols-1 justify-items-center gap-x-8 gap-y-12 sm:w-[60vw] sm:grid-cols-2">
+            <div className="grid w-full grid-cols-2 justify-items-center gap-4 sm:w-[60vw] sm:gap-x-8 sm:gap-y-12">
                 <AboutCard
                     title="이름"
                     description="박준선"
@@ -83,7 +92,7 @@ export default function About() {
                 />
                 <AboutCard
                     title="학력"
-                    description="서경대학교 소프트웨어학과"
+                    description="서경대학교 소프트웨어"
                     iconSrc="/icons/about/education.svg"
                 />
             </div>

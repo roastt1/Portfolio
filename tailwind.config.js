@@ -9,6 +9,10 @@ module.exports = {
     theme: {
         extend: {
             keyframes: {
+                expandWidth: {
+                    from: { width: "0%" },
+                    to: { width: "100%" },
+                },
                 "slide-up": {
                     "0%": { opacity: "0", transform: "translateY(50px)" },
                     "100%": { opacity: "1", transform: "translateY(0)" },
@@ -63,6 +67,7 @@ module.exports = {
                 },
             },
             animation: {
+                "expand-width": "expandWidth 1s ease-out forwards",
                 "slide-up": "slide-up 0.8s ease-out forwards",
                 "slide-left-fade": "slide-left-fade 0.8s ease-out forwards",
                 "rise-in":
@@ -85,5 +90,9 @@ module.exports = {
             },
         },
     },
-    plugins: [],
+    plugins: [
+        function ({ addVariant }) {
+            addVariant("aos-animate", "&.aos-animate");
+        },
+    ],
 };

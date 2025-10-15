@@ -47,12 +47,21 @@ export default function Projects() {
     }, [isOpen]);
 
     useEffect(() => {
-        AOS.init({ duration: 800, easing: "ease-in-out", once: true });
+        AOS.init({ duration: 600, easing: "ease-in-out", once: true });
     }, []);
 
     return (
         <div className="flex w-full flex-col items-center gap-16 pt-20 dark:text-white">
-            <h2 className="w-full px-4 text-5xl font-black sm:text-6xl">
+            <div
+                className="aos-animate:animate-expand-width mx-4 h-[2px] w-0 bg-gray-400"
+                data-aos="fade-in"
+                data-aos-once="true"
+            />
+            <h2
+                className="w-full px-4 text-5xl font-black sm:text-6xl"
+                data-aos="fade-right"
+                data-aos-once="true"
+            >
                 Project
             </h2>
             <div className="flex w-full flex-wrap justify-center gap-8">
