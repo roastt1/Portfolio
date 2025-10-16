@@ -13,6 +13,23 @@ module.exports = {
                     from: { width: "0%" },
                     to: { width: "100%" },
                 },
+                flyOut: {
+                    "0%": { opacity: "1", transform: "translateY(0) scale(1)" },
+                    "100%": {
+                        opacity: "0",
+                        transform: "translateY(-120%) scale(0.85)",
+                    },
+                },
+                flyIn: {
+                    "0%": {
+                        opacity: "0",
+                        transform: "translateY(120%) scale(0.85)",
+                    },
+                    "100%": {
+                        opacity: "1",
+                        transform: "translateY(0) scale(1)",
+                    },
+                },
                 "slide-up": {
                     "0%": { opacity: "0", transform: "translateY(50px)" },
                     "100%": { opacity: "1", transform: "translateY(0)" },
@@ -84,6 +101,8 @@ module.exports = {
             },
             animation: {
                 "expand-width": "expandWidth 1s ease-out forwards",
+                "fly-out": "flyOut 0.3s ease-out forwards",
+                "fly-in": "flyIn 0.3s ease-out forwards",
                 "slide-up": "slide-up 0.8s ease-out forwards",
                 "slide-left-fade": "slide-left-fade 0.8s ease-out forwards",
                 "slide-right-fade": "slide-right-fade 0.8s ease-out forwards",

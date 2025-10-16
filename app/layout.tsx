@@ -6,6 +6,7 @@ import Footer from "./components/Footer";
 import { Noto_Sans_KR } from "next/font/google";
 import { usePathname } from "next/navigation";
 import DarkMode from "./components/DarkMode";
+import ScrollToTopButton from "./components/ScrollToTopButton";
 
 const notoSansKR = Noto_Sans_KR({
     weight: ["300", "400", "500", "700", "900"],
@@ -40,7 +41,7 @@ export default function RootLayout({
                 <main className="mx-auto w-full max-w-[1480px] flex-1 px-4">
                     {children}
                 </main>
-
+                <ScrollToTopButton />
                 <DarkMode />
                 <Footer />
             </body>

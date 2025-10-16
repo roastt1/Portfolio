@@ -77,7 +77,7 @@ export default function DarkMode() {
     return (
         <button
             onClick={toggleTheme}
-            className="group fixed bottom-8 right-8 z-[99] flex h-12 w-12 items-center justify-center overflow-hidden rounded-full border border-gray-300 bg-white p-0 shadow-lg transition hover:bg-gray-100 dark:border-gray-600 dark:bg-[#202026] dark:text-white sm:bottom-16 sm:right-16 sm:h-16 sm:w-16"
+            className="group fixed bottom-24 right-8 z-[99] flex h-12 w-12 items-center justify-center overflow-hidden rounded-full border border-gray-300 bg-white p-0 shadow-lg transition hover:bg-gray-100 dark:border-gray-600 dark:bg-[#202026] dark:text-white sm:bottom-36 sm:right-16 sm:h-16 sm:w-16"
         >
             <span className="relative flex h-8 w-8 items-center justify-center">
                 <span
