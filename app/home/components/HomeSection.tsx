@@ -71,9 +71,7 @@ export default function HomeSection() {
                             : "opacity-0"
                     }`}
                 >
-                    <span className="text-black dark:text-white">
-                        DEVELOPER
-                    </span>
+                    <span>DEVELOPER</span>
                 </h1>
 
                 <p
