@@ -6,6 +6,7 @@ import "aos/dist/aos.css";
 import ProjectCard from "./ProjectCard";
 import ProjectModal from "./ProjectModal";
 import { projectConstants } from "@/constants/projectConstants";
+import { Folders } from "lucide-react";
 interface TroubleshootingItem {
     problem: string;
     cause: string;
@@ -53,16 +54,17 @@ export default function Projects() {
     return (
         <div className="flex w-full flex-col items-center gap-8 pt-20 dark:text-white sm:gap-16">
             <div
-                className="aos-animate:animate-expand-width mx-4 h-[2px] w-0 bg-gray-400"
+                className="mx-4 h-[2px] w-0 bg-gray-400 aos-animate:animate-expand-width"
                 data-aos="fade-in"
                 data-aos-once="true"
             />
             <h2
-                className="w-full px-4 text-5xl font-black sm:text-6xl"
+                className="flex w-full flex-row items-center gap-4 px-4 text-5xl font-black sm:text-6xl"
                 data-aos="fade-right"
                 data-aos-once="true"
             >
-                Project
+                <Folders className="h-10 w-10 sm:h-12 sm:w-12" />
+                <span>Project</span>
             </h2>
             <div className="flex w-full flex-wrap justify-center gap-8">
                 {projectConstants.map((project, i) => (

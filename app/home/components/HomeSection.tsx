@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import Lottie from "lottie-react";
 import coding from "@/public/coding.json";
-import { ChevronsDown, CircleUser, Folders } from "lucide-react";
+import { BookText, ChevronsDown, CircleUser, Folders } from "lucide-react";
 
 export default function HomeSection() {
     const [showTitle1, setShowTitle1] = useState(false);
@@ -12,6 +12,7 @@ export default function HomeSection() {
     const [showImage, setShowImage] = useState(false);
     const [showButton1, setShowButton1] = useState(false);
     const [showButton2, setShowButton2] = useState(false);
+    const [showButton3, setShowButton3] = useState(false);
     const [scrollLock, setScrollLock] = useState(true);
 
     useEffect(() => {
@@ -36,7 +37,8 @@ export default function HomeSection() {
             setTimeout(() => setShowImage(true), 1500),
             setTimeout(() => setShowButton1(true), 2100),
             setTimeout(() => setShowButton2(true), 2300),
-            setTimeout(() => setScrollLock(false), 2700),
+            setTimeout(() => setShowButton3(true), 2500),
+            setTimeout(() => setScrollLock(false), 2900),
         ];
         return () => timers.forEach(clearTimeout);
     }, []);
@@ -99,10 +101,10 @@ export default function HomeSection() {
                     <Lottie animationData={coding} loop autoplay />
                 </div>
                 {/* 버튼 */}
-                <div className="flex flex-col items-start gap-8">
+                <div className="flex flex-col items-start gap-2 sm:gap-8">
                     <button
                         onClick={() => scrollToSection("about")}
-                        className={`group flex items-center gap-4 rounded-2xl bg-gradient-to-r from-indigo-500 to-blue-400 px-4 py-2 text-white transition-all hover:brightness-[0.8] sm:px-8 sm:py-4 ${
+                        className={`group flex items-center gap-4 rounded-2xl bg-gradient-to-r from-violet-500 to-pink-400 px-4 py-2 text-white transition-all hover:brightness-[0.8] sm:px-8 sm:py-4 ${
                             showButton1
                                 ? "animate-slide-left-fade opacity-100"
                                 : "opacity-0"
@@ -113,25 +115,37 @@ export default function HomeSection() {
                             Meet the Developer
                         </span>
                     </button>
-
+                    <button
+                        onClick={() => scrollToSection("skills")}
+                        className={`group flex items-center gap-4 rounded-2xl bg-gradient-to-r from-indigo-500 to-blue-400 px-4 py-2 text-white transition-all hover:brightness-[0.8] sm:px-8 sm:py-4 ${
+                            showButton2
+                                ? "animate-slide-left-fade opacity-100"
+                                : "opacity-0"
+                        }`}
+                    >
+                        <BookText className="h-8 w-8 sm:h-10 sm:w-10" />
+                        <span className="text-xl font-bold sm:text-3xl">
+                            View My Skills
+                        </span>
+                    </button>
                     <button
                         onClick={() => scrollToSection("projects")}
                         className={`group flex items-center gap-4 rounded-2xl bg-gradient-to-r from-blue-400 to-cyan-400 px-4 py-2 text-white transition-all hover:brightness-[0.8] sm:px-8 sm:py-4 ${
-                            showButton2
+                            showButton3
                                 ? "animate-slide-left-fade opacity-100"
                                 : "opacity-0"
                         }`}
                     >
                         <Folders className="h-8 w-8 sm:h-10 sm:w-10" />
                         <span className="text-xl font-bold sm:text-3xl">
-                            View My Work
+                            My Work
                         </span>
                     </button>
                 </div>
             </div>
 
             <div
-                className={`absolute bottom-10 animate-bounce ${
+                className={`absolute bottom-5 animate-bounce ${
                     showButton2 ? "opacity-100" : "opacity-0"
                 }`}
             >

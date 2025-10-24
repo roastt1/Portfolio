@@ -4,6 +4,7 @@ import { useEffect } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import SkillCard from "./SkillCard";
+import { BookText } from "lucide-react";
 
 export default function Skills() {
     useEffect(() => {
@@ -13,16 +14,17 @@ export default function Skills() {
     return (
         <div className="flex w-full flex-col items-center gap-8 pt-20 dark:text-white sm:gap-16">
             <div
-                className="aos-animate:animate-expand-width mx-4 h-[2px] w-0 bg-gray-400"
+                className="mx-4 h-[2px] w-0 bg-gray-400 aos-animate:animate-expand-width"
                 data-aos="fade-in"
                 data-aos-once="true"
             />
             <h2
-                className="w-full px-4 text-5xl font-black sm:text-6xl"
+                className="felx-row flex w-full items-center gap-4 whitespace-nowrap px-4 text-5xl font-black sm:text-6xl"
                 data-aos="fade-right"
                 data-aos-once="true"
             >
-                Tech Stack
+                <BookText className="h-10 w-10 sm:h-12 sm:w-12" />
+                <span>Skill</span>
             </h2>
             {/* Frontend */}
             <div className="mb-6 w-full max-w-5xl">
@@ -33,7 +35,7 @@ export default function Skills() {
                 >
                     Frontend
                 </h2>
-                <div className="grid grid-cols-2 place-items-center gap-x-4 gap-y-8 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
+                <div className="grid grid-cols-3 place-items-center gap-x-4 gap-y-8 sm:grid-cols-4 md:grid-cols-5">
                     <SkillCard name="HTML" icon="/icons/skills/html.svg" />
                     <SkillCard name="CSS" icon="/icons/skills/css.svg" />
                     <SkillCard
@@ -62,7 +64,7 @@ export default function Skills() {
                 >
                     Backend
                 </h2>
-                <div className="grid grid-cols-2 place-items-center gap-x-4 gap-y-8 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
+                <div className="grid grid-cols-3 place-items-center gap-x-4 gap-y-8 sm:grid-cols-4 md:grid-cols-5">
                     <SkillCard name="Node.js" icon="/icons/skills/nodejs.svg" />
                     <SkillCard
                         name="Express"
@@ -89,7 +91,7 @@ export default function Skills() {
                 >
                     Tools & Others
                 </h2>
-                <div className="grid grid-cols-2 place-items-center gap-x-4 gap-y-8 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
+                <div className="grid grid-cols-3 place-items-center gap-x-4 gap-y-8 sm:grid-cols-4 md:grid-cols-5">
                     <SkillCard name="GitHub" icon="/icons/skills/github.svg" />
                     <SkillCard name="Notion" icon="/icons/skills/notion.svg" />
                     <SkillCard
