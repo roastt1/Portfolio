@@ -23,46 +23,56 @@ export default function ProjectCard({
 }: ProjectCardProps) {
     return (
         <div
-            className="group relative h-[400px] w-[350px] lg:w-[400px]"
+            className="group relative h-[450px] w-[350px] lg:w-[400px]"
             data-aos="fade-up"
             data-aos-duration="600"
         >
-            <div className="absolute inset-0 flex transform flex-col overflow-hidden rounded-3xl border-2 border-blue-100 bg-white shadow-md transition-transform duration-300 ease-out hover:bg-gray-100 group-hover:-translate-y-2 group-hover:shadow-lg dark:border-dark-400 dark:bg-dark-300 dark:hover:bg-dark-200">
+            <div className="relative flex h-full transform flex-col overflow-hidden rounded-3xl border border-gray-200 bg-white shadow-xl transition-all duration-500 ease-out group-hover:-translate-y-2 group-hover:shadow-2xl dark:border-dark-400 dark:bg-gradient-to-br dark:from-dark-300 dark:to-dark-400">
                 {/* 상단 이미지 및 뱃지 */}
-                <div className="flex items-start p-4">
-                    <div className="relative mr-4 h-32 w-32 overflow-hidden rounded-lg border p-16">
+                <div className="relative flex items-start gap-4 bg-gradient-to-br from-blue-50 to-indigo-50 p-6 dark:from-dark-100 dark:to-dark-300">
+                    <div className="absolute right-0 top-0 h-32 w-32 rounded-bl-full bg-gradient-to-br from-indigo-200/30 to-purple-200/40 dark:from-indigo-500/20 dark:to-purple-500/25"></div>
+                    {/* 호버 시 강조 효과 */}
+                    <div className="absolute inset-0 bg-gradient-to-r from-blue-400 via-indigo-400 to-purple-400 opacity-0 blur transition duration-500 group-hover:opacity-50 dark:from-indigo-400 dark:via-purple-400 dark:to-pink-200 dark:group-hover:opacity-35"></div>
+                    {/* 이미지 */}
+                    <div className="relative z-10 h-28 w-28 overflow-hidden rounded-2xl shadow-lg ring-2 ring-white/50 transition-all duration-300">
                         <Image
                             src={image}
-                            alt="로고 이미지"
+                            alt="프로젝트 이미지"
                             fill
                             style={{ objectFit: "cover" }}
                         />
                     </div>
-                    <Badge text={projectType} projectType={projectType} />
+
+                    <div className="relative z-10 flex-1">
+                        <Badge text={projectType} projectType={projectType} />
+                    </div>
                 </div>
 
                 {/* 프로젝트명, 진행 기간, 프로젝트 설명 */}
-                <div className="flex flex-1 flex-col px-4 py-2">
-                    <p className="mb-2 text-2xl font-bold leading-snug text-gray-800 dark:text-white">
-                        {title}
-                    </p>
+                <div className="flex flex-1 flex-col gap-3 px-6 py-5">
+                    <h3 className="text-2xl font-bold">{title}</h3>
+
                     {duration && (
-                        <p className="mb-3 text-sm font-medium text-gray-600 dark:text-white">
-                            📅 진행 기간: {duration}
-                        </p>
+                        <div className="flex items-center gap-2">
+                            <span className="text-lg">📅</span>
+                            <p className="text-sm font-medium text-gray-600 dark:text-gray-300">
+                                {duration}
+                            </p>
+                        </div>
                     )}
-                    <p className="whitespace-normal break-keep text-base leading-relaxed text-gray-700 dark:text-white">
+
+                    <p className="whitespace-normal break-keep text-base leading-relaxed text-gray-600 dark:text-gray-300">
                         {content}
                     </p>
                 </div>
 
                 {/* 자세히 보기 버튼 */}
-                <div className="flex min-h-[100px] flex-[0.2] items-center justify-center">
+                <div className="flex items-center justify-center p-6">
                     <button
                         onClick={openModal}
-                        className="translate-y-2 rounded-lg border-2 border-solid border-blue-400 px-6 py-4 text-lg font-medium text-blue-500 opacity-0 shadow-lg transition-all duration-300 hover:bg-blue-200 hover:text-white group-hover:translate-y-0 group-hover:opacity-100 dark:border-dark-400 dark:text-white dark:hover:bg-dark-400"
+                        className="group/btn relative w-full overflow-hidden rounded-xl bg-gradient-to-r from-indigo-400 to-purple-500 px-6 py-3.5 text-base font-semibold text-white shadow-lg transition-all duration-300 hover:from-indigo-500 hover:to-purple-600 hover:shadow-xl dark:from-indigo-400 dark:to-purple-500 dark:hover:from-indigo-500 dark:hover:to-purple-600"
                     >
-                        자세히 보기
+                        <span className="relative z-10">자세히 보기 →</span>
                     </button>
                 </div>
             </div>
