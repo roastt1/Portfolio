@@ -1,14 +1,14 @@
 export default function Footer() {
     return (
-        <footer className="flex w-full flex-col items-center justify-center gap-2 py-8 text-center font-sans dark:text-white">
-            <p className="text-caption font-medium">
+        <footer className="mt-4 flex w-full flex-col items-center justify-center gap-2 bg-white py-6 text-center font-sans shadow-[-0px_-4px_10px_rgba(0,0,0,0.15)] dark:bg-dark-100 dark:text-white">
+            <p className="text-sm font-semibold sm:text-base">
                 © 2025 Portfolio. All rights reserved.
             </p>
             <a
                 href="https://github.com/roastt1"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-1 hover:underline"
+                className="flex items-center gap-1 rounded-lg bg-black px-2 py-1 text-sm font-semibold text-white transition hover:brightness-[0.7] dark:border-dark-400 dark:bg-white dark:text-black sm:text-base"
             >
                 <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -22,7 +22,7 @@ export default function Footer() {
                         clipRule="evenodd"
                     />
                 </svg>
-                <span>GitHub</span>
+                <span className="text-white dark:text-black">GitHub</span>
             </a>
         </footer>
     );
