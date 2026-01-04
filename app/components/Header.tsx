@@ -38,9 +38,14 @@ export default function Header() {
                     {/* 로고 */}
                     <button
                         onClick={() => scrollToSection("home")}
-                        className="text-2xl font-bold transition-transform duration-200 hover:scale-105"
+                        className="group flex items-center gap-2 text-2xl font-black tracking-tight transition-all"
                     >
-                        JoonSeon&#39;s Portfolio
+                        <div className="flex h-8 w-8 rotate-[8deg] items-center justify-center rounded-lg bg-blue-500 text-white transition-transform group-active:rotate-[16deg] sm:group-hover:rotate-[16deg]">
+                            JS
+                        </div>
+                        <span className="rotate-[-2deg] transition-transform group-active:rotate-[-6deg] dark:text-white sm:group-hover:rotate-[-6deg]">
+                            Portfolio
+                        </span>
                     </button>
 
                     {/* 데스크톱 메뉴 */}
