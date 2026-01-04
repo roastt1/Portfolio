@@ -1,7 +1,9 @@
 "use client";
 
-import { useState } from "react";
-import { ChevronDown, ChevronUp, Menu, X } from "lucide-react";
+import { useEffect, useState } from "react";
+import { HeaderPin } from "./HeaderPin";
+import { MobileMenuButton } from "./MobileMenuButton";
+import { NavLinks } from "./NavLinks";
 
 const sections = [
     { id: "home", label: "home" },
@@ -12,17 +14,44 @@ const sections = [
 
 export default function Header() {
     const [showHeader, setShowHeader] = useState(true);
-    const [menuOpen, setMenuOpen] = useState(false); // 모바일 메뉴 상태
+    const [isPinned, setIsPinned] = useState(false);
+    const [menuOpen, setMenuOpen] = useState(false);
+    const [lastScrollY, setLastScrollY] = useState(0);
 
-    const toggleHeader = () => {
-        setShowHeader((prev) => !prev);
+    useEffect(() => {
+        const handleScroll = () => {
+            const currentScrollY = window.scrollY;
+
+            if (isPinned || menuOpen) {
+                setShowHeader(true);
+                return;
+            }
+
+            if (currentScrollY < 50) {
+                setShowHeader(true);
+            } else if (currentScrollY > lastScrollY) {
+                setShowHeader(false);
+            } else {
+                setShowHeader(true);
+            }
+
+            setLastScrollY(currentScrollY);
+        };
+
+        window.addEventListener("scroll", handleScroll);
+        return () => window.removeEventListener("scroll", handleScroll);
+    }, [lastScrollY, isPinned, menuOpen]);
+
+    const togglePin = () => {
+        setIsPinned((prev) => !prev);
+        setShowHeader(true);
     };
 
     const scrollToSection = (id: string) => {
         const el = document.getElementById(id);
         if (el) {
             el.scrollIntoView({ behavior: "smooth" });
-            setMenuOpen(false); // 모바일 메뉴 닫기
+            setMenuOpen(false);
         }
     };
 
@@ -38,7 +67,7 @@ export default function Header() {
                     {/* 로고 */}
                     <button
                         onClick={() => scrollToSection("home")}
-                        className="group flex items-center gap-2 text-2xl font-black tracking-tight transition-all"
+                        className="group z-30 flex items-center gap-2 text-2xl font-black tracking-tight transition-all"
                     >
                         <div className="flex h-8 w-8 rotate-[8deg] items-center justify-center rounded-lg bg-blue-500 text-white transition-transform group-active:rotate-[16deg] sm:group-hover:rotate-[16deg]">
                             JS
@@ -49,59 +78,36 @@ export default function Header() {
                     </button>
 
                     {/* 데스크톱 메뉴 */}
-                    <nav className="hidden items-center gap-12 md:flex">
-                        {sections.map((section) => (
-                            <button
-                                key={section.id}
-                                onClick={() => scrollToSection(section.id)}
-                                className="text-base font-black transition hover:text-blue-400"
-                            >
-                                {section.label}
-                            </button>
-                        ))}
+                    <nav className="absolute left-1/2 top-1/2 hidden -translate-x-1/2 -translate-y-1/2 items-center gap-12 md:flex">
+                        <NavLinks
+                            sections={sections}
+                            onAction={scrollToSection}
+                        />
                     </nav>
 
-                    {/* 모바일 햄버거 버튼 */}
-                    <button
-                        className="rounded-md p-2 transition hover:bg-gray-100 dark:hover:bg-dark-200 md:hidden"
-                        onClick={() => setMenuOpen((prev) => !prev)}
-                    >
-                        {menuOpen ? <X size={24} /> : <Menu size={24} />}
-                    </button>
+                    {/* 우측 버튼 영역 */}
+                    <div className="flex items-center gap-2 sm:gap-4">
+                        {/* 헤더 핀 버튼 */}
+                        <HeaderPin isPinned={isPinned} onToggle={togglePin} />
 
-                    {/* 헤더 토글 버튼 */}
-                    <button
-                        onClick={toggleHeader}
-                        className={`absolute -bottom-5 left-1/2 hidden -translate-x-1/2 rounded-full bg-white p-3 shadow-md transition hover:scale-110 dark:bg-dark-100 md:block ${
-                            !showHeader
-                                ? "animate-glow dark:animate-darkglow"
-                                : ""
-                        }`}
-                    >
-                        {showHeader ? (
-                            <ChevronUp size={24} />
-                        ) : (
-                            <ChevronDown size={24} />
-                        )}
-                    </button>
+                        {/* 모바일 메뉴 버튼 */}
+                        <MobileMenuButton
+                            isOpen={menuOpen}
+                            onToggle={() => setMenuOpen(!menuOpen)}
+                        />
+                    </div>
                 </div>
 
                 {/* 모바일 메뉴 드롭다운 */}
                 <div
-                    className={`overflow-hidden transition-all duration-300 md:hidden ${
-                        menuOpen ? "max-h-60 opacity-100" : "max-h-0 opacity-0"
-                    }`}
+                    className={`overflow-hidden transition-all duration-300 md:hidden ${menuOpen ? "max-h-60 opacity-100" : "max-h-0 opacity-0"}`}
                 >
                     <nav className="flex flex-col items-center gap-4 border-t bg-white py-4 shadow-md dark:border-dark-200 dark:bg-dark-100">
-                        {sections.map((section) => (
-                            <button
-                                key={section.id}
-                                onClick={() => scrollToSection(section.id)}
-                                className="w-full text-center font-bold hover:text-blue-400"
-                            >
-                                {section.label}
-                            </button>
-                        ))}
+                        <NavLinks
+                            sections={sections}
+                            onAction={scrollToSection}
+                            isMobile
+                        />
                     </nav>
                 </div>
             </header>
