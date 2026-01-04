@@ -1,11 +1,12 @@
 "use client";
 
 import { useEffect, useState } from "react";
+
 function SunIcon() {
     return (
         <svg
             xmlns="http://www.w3.org/2000/svg"
-            className="h-6 w-6 transition-all duration-300 group-hover:scale-[1.1] group-hover:fill-orange-500 group-hover:text-orange-500"
+            className="h-6 w-6 fill-orange-500 transition-all duration-300"
             fill=""
             height="24px"
             viewBox="0 -960 960 960"
@@ -15,12 +16,13 @@ function SunIcon() {
         </svg>
     );
 }
+
 function MoonIcon() {
     return (
         <svg
             xmlns="http://www.w3.org/2000/svg"
-            className="h-6 w-6 transition-all duration-300 group-hover:scale-[1.1] group-hover:fill-yellow-400 group-hover:text-yellow-400"
-            fill="white"
+            className="h-6 w-6 fill-yellow-400 text-yellow-400 transition-all duration-300"
+            fill=""
             viewBox="0 0 24 24"
             stroke="currentColor"
             strokeWidth={2}
@@ -34,6 +36,7 @@ function MoonIcon() {
         </svg>
     );
 }
+
 export default function DarkMode() {
     const [theme, setTheme] = useState<"light" | "dark">("light");
 
@@ -77,9 +80,9 @@ export default function DarkMode() {
     return (
         <button
             onClick={toggleTheme}
-            className="group fixed bottom-24 right-8 z-[99] flex h-12 w-12 items-center justify-center overflow-hidden rounded-full border border-gray-300 bg-white p-0 shadow-lg transition hover:bg-gray-100 dark:border-gray-600 dark:bg-[#202026] dark:text-white sm:bottom-36 sm:right-16 sm:h-16 sm:w-16"
+            className="group relative flex h-10 w-10 items-center justify-center overflow-hidden rounded-full border border-gray-300 transition-colors hover:bg-gray-100 dark:border-gray-600 dark:hover:bg-dark-200"
         >
-            <span className="relative flex h-8 w-8 items-center justify-center">
+            <span className="relative flex h-6 w-6 items-center justify-center">
                 <span
                     className={`absolute inset-0 flex items-center justify-center transition-all duration-500 ${theme === "light" ? "animate-rise-in" : "animate-set-out"} `}
                 >

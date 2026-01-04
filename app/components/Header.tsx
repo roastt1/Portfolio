@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { HeaderPin } from "./HeaderPin";
 import { MobileMenuButton } from "./MobileMenuButton";
 import { NavLinks } from "./NavLinks";
+import DarkMode from "./DarkMode";
 
 const sections = [
     { id: "home", label: "home" },
@@ -58,7 +59,7 @@ export default function Header() {
     return (
         <>
             <header
-                className={`fixed left-0 top-0 z-20 w-full bg-white shadow-md backdrop-blur-sm transition-transform duration-500 dark:bg-dark-100 dark:text-white ${
+                className={`fixed left-0 top-0 z-20 w-full bg-white shadow-md backdrop-blur-sm transition-all duration-300 dark:bg-dark-100 dark:text-white ${
                     showHeader ? "translate-y-0" : "-translate-y-full"
                 }`}
                 suppressHydrationWarning
@@ -69,10 +70,10 @@ export default function Header() {
                         onClick={() => scrollToSection("home")}
                         className="group z-30 flex items-center gap-2 text-2xl font-black tracking-tight transition-all"
                     >
-                        <div className="flex h-8 w-8 rotate-[8deg] items-center justify-center rounded-lg bg-blue-500 text-white transition-transform group-active:rotate-[16deg] sm:group-hover:rotate-[16deg]">
+                        <div className="flex h-8 w-8 rotate-[8deg] items-center justify-center rounded-lg bg-blue-500 text-white transition-all group-active:rotate-[16deg] group-active:scale-90 sm:group-hover:rotate-[16deg]">
                             JS
                         </div>
-                        <span className="rotate-[-2deg] transition-transform group-active:rotate-[-6deg] dark:text-white sm:group-hover:rotate-[-6deg]">
+                        <span className="rotate-[-2deg] transition-all group-active:rotate-[-6deg] group-active:scale-90 dark:text-white sm:group-hover:rotate-[-6deg]">
                             Portfolio
                         </span>
                     </button>
@@ -85,8 +86,11 @@ export default function Header() {
                         />
                     </nav>
 
-                    {/* 우측 버튼 영역 */}
+                    {/* 우측 유틸리티 영역 */}
                     <div className="flex items-center gap-2 sm:gap-4">
+                        {/* 다크 모드 토글 버튼 */}
+                        <DarkMode />
+
                         {/* 헤더 핀 버튼 */}
                         <HeaderPin isPinned={isPinned} onToggle={togglePin} />
 

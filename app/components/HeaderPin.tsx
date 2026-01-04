@@ -9,10 +9,10 @@ export function HeaderPin({ isPinned, onToggle }: HeaderPinProps) {
     return (
         <button
             onClick={onToggle}
-            className={`rounded-full p-2 transition-all ${
+            className={`flex h-10 w-10 items-center justify-center rounded-full border transition-all duration-300 ${
                 isPinned
-                    ? "bg-blue-500 text-white shadow-inner"
-                    : "text-gray-400 hover:bg-gray-100 dark:hover:bg-dark-200"
+                    ? "border-blue-500 bg-blue-500 text-white shadow-inner"
+                    : "border-gray-300 text-gray-400 hover:bg-gray-100 dark:border-gray-600 dark:hover:bg-dark-200"
             }`}
             title={isPinned ? "고정 해제" : "헤더 고정"}
         >
