@@ -1,155 +1,120 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import Lottie from "lottie-react";
-import coding from "@/public/coding.json";
-import { BookText, ChevronsDown, CircleUser, Folders } from "lucide-react";
+import { ChevronDown, Sparkles } from "lucide-react";
+import { HomeSectionButton } from "./HomeSectionButton";
+import { HOMESECTION_BUTTONS } from "@/constants/homeConstants";
+import { CodeTerminal } from "./CodeTerminal";
 
 export default function HomeSection() {
-    const [showTitle1, setShowTitle1] = useState(false);
-    const [showTitle2, setShowTitle2] = useState(false);
-    const [showContent, setShowContent] = useState(false);
-    const [showImage, setShowImage] = useState(false);
-    const [showButton1, setShowButton1] = useState(false);
-    const [showButton2, setShowButton2] = useState(false);
-    const [showButton3, setShowButton3] = useState(false);
+    const [step, setStep] = useState(0);
     const [scrollLock, setScrollLock] = useState(true);
 
     useEffect(() => {
-        if (scrollLock) {
-            document.body.style.overflow = "hidden";
-            document.documentElement.style.overflow = "hidden";
-        } else {
-            document.body.style.overflow = "";
-            document.documentElement.style.overflow = "";
-        }
+        const timeouts = [
+            setTimeout(() => setStep(1), 400),
+            setTimeout(() => setStep(2), 800),
+            setTimeout(() => setStep(3), 1200),
+            setTimeout(() => setStep(4), 1400),
+            setTimeout(() => setStep(5), 1800),
+            setTimeout(() => setStep(6), 2000),
+            setTimeout(() => setStep(7), 2200),
+            setTimeout(() => {
+                setStep(8);
+                setScrollLock(false);
+            }, 2600),
+        ];
+        return () => timeouts.forEach(clearTimeout);
+    }, []);
+
+    useEffect(() => {
+        document.body.style.overflow = scrollLock ? "hidden" : "";
         return () => {
             document.body.style.overflow = "";
-            document.documentElement.style.overflow = "";
         };
     }, [scrollLock]);
 
-    useEffect(() => {
-        const timers = [
-            setTimeout(() => setShowTitle1(true), 500),
-            setTimeout(() => setShowTitle2(true), 900),
-            setTimeout(() => setShowContent(true), 1300),
-            setTimeout(() => setShowImage(true), 1500),
-            setTimeout(() => setShowButton1(true), 2100),
-            setTimeout(() => setShowButton2(true), 2300),
-            setTimeout(() => setShowButton3(true), 2500),
-            setTimeout(() => setScrollLock(false), 2900),
-        ];
-        return () => timers.forEach(clearTimeout);
-    }, []);
-
     const scrollToSection = (id: string) => {
-        const el = document.getElementById(id);
-        if (el) {
-            el.scrollIntoView({ behavior: "smooth" });
-        }
+        document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
     };
 
     return (
-        <section className="flex min-h-screen flex-col items-center gap-4 pt-24 text-black dark:text-white sm:gap-16">
+        <section
+            id="home"
+            className="relative flex min-h-screen flex-col items-center justify-center overflow-hidden text-black dark:text-white"
+        >
             {/* 텍스트 영역 */}
-            <div className="flex w-full max-w-lg flex-col items-center sm:max-w-5xl">
-                <h1
-                    className={`self-start pl-4 text-5xl font-black transition-all duration-700 ease-in-out md:text-8xl lg:text-9xl ${
-                        showTitle1
-                            ? "animate-slide-right-fade opacity-100"
-                            : "opacity-0"
-                    }`}
+            <div className="z-10 flex w-full max-w-lg flex-col items-center sm:max-w-5xl">
+                <div
+                    className={`mb-4 flex items-center gap-2 rounded-full border border-blue-200/50 bg-white/50 px-3 py-1 backdrop-blur-sm transition-all duration-1000 dark:border-blue-900/30 dark:bg-dark-100/50 sm:mb-6 sm:px-4 sm:py-1.5 ${step >= 1 ? "translate-y-0 opacity-100" : "translate-y-4 opacity-0"}`}
                 >
-                    <span className="bg-gradient-to-r from-indigo-500 to-blue-400 bg-clip-text text-transparent">
+                    <Sparkles
+                        size={12}
+                        className="animate-pulse text-blue-600 dark:text-white sm:size-[14px]"
+                    />
+                    <span className="text-[8px] font-black tracking-[0.2em] text-blue-600 dark:text-white sm:text-sm">
+                        AVAILIABLE FOR PROJECTS
+                    </span>
+                </div>
+
+                <h1
+                    className={`self-start text-5xl font-black leading-none transition-all duration-1000 ease-out sm:text-9xl ${step >= 1 ? "translate-x-0 opacity-100" : "-translate-x-20 opacity-0"}`}
+                >
+                    <span className="bg-gradient-to-r from-blue-600 via-indigo-500 to-purple-500 bg-clip-text text-transparent">
                         FRONTEND
                     </span>
                 </h1>
 
                 <h1
-                    className={`self-end pr-4 text-4xl font-black transition-all duration-700 ease-in-out md:text-7xl lg:text-8xl ${
-                        showTitle2
-                            ? "animate-slide-left-fade opacity-100"
-                            : "opacity-0"
-                    }`}
+                    className={`self-end text-4xl font-black leading-none transition-all duration-1000 ease-out sm:text-8xl ${step >= 2 ? "translate-x-0 opacity-100" : "translate-x-20 opacity-0"}`}
                 >
-                    <span>DEVELOPER</span>
+                    DEVELOPER
                 </h1>
-
-                <p
-                    className={`mt-4 text-center text-base transition-all duration-700 ease-in-out sm:text-xl md:text-2xl ${
-                        showContent
-                            ? "animate-slide-up opacity-100"
-                            : "opacity-0"
-                    }`}
-                >
-                    안녕하세요, <span className="font-bold">박준선</span>입니다.
-                    <br />
-                </p>
-            </div>
-
-            {/* 이미지 + 버튼 */}
-            <div className="flex flex-col items-center gap-12 transition-all duration-1000 sm:flex-row sm:gap-24">
-                {/* 이미지 */}
                 <div
-                    className={`flex h-48 w-48 items-center justify-center overflow-hidden rounded-3xl transition-all duration-1000 sm:h-64 sm:w-64 ${
-                        showImage
-                            ? "scale-110 opacity-100"
-                            : "scale-90 opacity-0"
-                    }`}
+                    className={`mt-8 text-center font-mono transition-all duration-1000 ${step >= 3 ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"}`}
                 >
-                    <Lottie animationData={coding} loop autoplay />
-                </div>
-                {/* 버튼 */}
-                <div className="flex flex-col items-start gap-2 sm:gap-8">
-                    <button
-                        onClick={() => scrollToSection("about")}
-                        className={`group flex items-center gap-4 rounded-2xl bg-gradient-to-r from-violet-500 to-pink-400 px-4 py-2 text-white transition-all hover:brightness-[0.8] sm:px-8 sm:py-4 ${
-                            showButton1
-                                ? "animate-slide-left-fade opacity-100"
-                                : "opacity-0"
-                        }`}
-                    >
-                        <CircleUser className="h-8 w-8 sm:h-10 sm:w-10" />
-                        <span className="text-xl font-bold sm:text-3xl">
-                            Meet the Developer
-                        </span>
-                    </button>
-                    <button
-                        onClick={() => scrollToSection("skills")}
-                        className={`group flex items-center gap-4 rounded-2xl bg-gradient-to-r from-indigo-500 to-blue-400 px-4 py-2 text-white transition-all hover:brightness-[0.8] sm:px-8 sm:py-4 ${
-                            showButton2
-                                ? "animate-slide-left-fade opacity-100"
-                                : "opacity-0"
-                        }`}
-                    >
-                        <BookText className="h-8 w-8 sm:h-10 sm:w-10" />
-                        <span className="text-xl font-bold sm:text-3xl">
-                            View My Skills
-                        </span>
-                    </button>
-                    <button
-                        onClick={() => scrollToSection("projects")}
-                        className={`group flex items-center gap-4 rounded-2xl bg-gradient-to-r from-blue-400 to-cyan-400 px-4 py-2 text-white transition-all hover:brightness-[0.8] sm:px-8 sm:py-4 ${
-                            showButton3
-                                ? "animate-slide-left-fade opacity-100"
-                                : "opacity-0"
-                        }`}
-                    >
-                        <Folders className="h-8 w-8 sm:h-10 sm:w-10" />
-                        <span className="text-xl font-bold sm:text-3xl">
-                            My Work
-                        </span>
-                    </button>
+                    <span className="text-gray-500 dark:text-gray-400">
+                        {`// 사용자의 경험을 코드로 설계하는`}
+                    </span>
+                    <h2 className="mt-2 text-xl font-bold sm:text-3xl">
+                        <span className="text-blue-500">class</span>{" "}
+                        JoonSeonPark{" "}
+                        <span className="text-purple-500">implements</span>{" "}
+                        Developer {"{ ... }"}
+                    </h2>
                 </div>
             </div>
 
+            {/* 메인 콘텐츠 영역 */}
+            <div className="z-10 mt-8 flex w-full max-w-6xl flex-col items-center justify-center gap-10 sm:flex-row">
+                {/* 코드 터미널 */}
+                <CodeTerminal step={step} />
+                {/* 버튼 그룹  */}
+                <div className="flex w-full max-w-[420px] flex-col gap-4">
+                    {HOMESECTION_BUTTONS.map((btn, idx) => (
+                        <HomeSectionButton
+                            key={btn.id}
+                            label={btn.label}
+                            icon={btn.icon}
+                            color={btn.color}
+                            index={idx}
+                            step={step}
+                            onClick={() => scrollToSection(btn.id)}
+                        />
+                    ))}
+                </div>
+            </div>
+
+            {/* 하단 스크롤 인디케이터 */}
             <div
-                className={`absolute bottom-5 animate-bounce ${
-                    showButton2 ? "opacity-100" : "opacity-0"
-                }`}
+                className={`absolute bottom-6 left-1/2 -translate-x-1/2 transition-all duration-700 ${step >= 7 ? "translate-y-0 opacity-100" : "translate-y-6 opacity-0"}`}
             >
-                <ChevronsDown size={36} />
+                <div className="flex flex-col items-center gap-1">
+                    <ChevronDown className="h-6 w-6 animate-bounce text-blue-500 sm:h-7 sm:w-7" />
+                    <span className="text-[10px] font-bold tracking-widest text-gray-400">
+                        SCROLL
+                    </span>
+                </div>
             </div>
         </section>
     );
