@@ -1,11 +1,36 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { ChevronDown, Sparkles } from "lucide-react";
+import {
+    BookText,
+    ChevronDown,
+    CircleUser,
+    Folders,
+    Sparkles,
+} from "lucide-react";
 import { HomeSectionButton } from "./HomeSectionButton";
-import { HOMESECTION_BUTTONS } from "@/constants/homeConstants";
 import { CodeTerminal } from "./CodeTerminal";
 
+export const HOMESECTION_BUTTONS = [
+    {
+        id: "about",
+        label: "Meet the Developer",
+        icon: CircleUser,
+        color: "from-violet-500 to-pink-400",
+    },
+    {
+        id: "skills",
+        label: "View My Skills",
+        icon: BookText,
+        color: "from-indigo-500 to-blue-400",
+    },
+    {
+        id: "projects",
+        label: "My Work",
+        icon: Folders,
+        color: "from-blue-400 to-cyan-400",
+    },
+];
 export default function HomeSection() {
     const [step, setStep] = useState(0);
     const [scrollLock, setScrollLock] = useState(true);
