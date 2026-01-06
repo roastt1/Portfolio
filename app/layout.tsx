@@ -42,7 +42,6 @@ export default function RootLayout({
                     {children}
                 </main>
                 <ScrollToTopButton />
-                <DarkMode />
                 <Footer />
             </body>
         </html>
