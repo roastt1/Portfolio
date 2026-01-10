@@ -3,100 +3,79 @@
 import { useEffect } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
-
-import Image from "next/image";
 import AboutCard from "./AboutCard";
+import { ABOUT_INFO } from "@/constants/aboutConstants";
 import { CircleUser } from "lucide-react";
+import ProfileStack from "./ProfileImageStacks";
 
 export default function About() {
     useEffect(() => {
-        AOS.init({ duration: 600, easing: "ease-in-out", once: true });
+        AOS.init({ duration: 800, easing: "ease-out-cubic", once: true });
     }, []);
 
     return (
-        <div className="flex w-full flex-col items-center gap-8 pt-20 dark:text-white sm:gap-16">
+        <section
+            id="about"
+            className="flex w-full flex-col items-center gap-12 py-20 dark:text-white sm:gap-20"
+        >
+            {/* 구분선 */}
             <div
-                className="mx-4 h-[2px] w-0 bg-gray-400 aos-animate:animate-expand-width"
+                className="mx-4 h-[1px] w-0 bg-gray-400 aos-animate:animate-expand-width"
                 data-aos="fade-in"
                 data-aos-once="true"
             />
+
+            {/* 타이틀 */}
             <h2
-                className="felx-row flex w-full items-center gap-4 px-4 text-5xl font-black sm:text-6xl"
-                data-aos="fade-right"
-                data-aos-once="true"
+                className="flex items-center gap-2 text-4xl font-black sm:text-5xl"
+                data-aos="fade-up"
             >
-                <CircleUser className="h-10 w-10 sm:h-12 sm:w-12" />
-                <span>About me</span>
+                <CircleUser
+                    className="text-blue-500"
+                    size={40}
+                    strokeWidth={2.5}
+                />
+                <span>About Me</span>
             </h2>
-            <div className="flex flex-col items-center gap-10 text-center">
-                {/* 프로필 사진 */}
-                <div
-                    data-aos="fade-down"
-                    data-aos-delay="100"
-                    className="relative h-96 w-72 overflow-hidden rounded-3xl border-4 border-blue-400 shadow-md dark:border-dark-400 sm:h-[450px] sm:w-[400px]"
-                >
-                    <Image
-                        src="/images/about/about_me.jpg"
-                        alt="Profile Picture"
-                        fill
-                        style={{ objectFit: "cover" }}
-                    />
+
+            <div className="flex w-full flex-col items-center gap-4 lg:flex-row lg:items-start lg:justify-center">
+                {/* 왼쪽 프로필 영역  */}
+                <div className="flex flex-col items-center gap-6 text-center">
+                    <ProfileStack />
+
+                    <div
+                        className="flex flex-col gap-2 px-4"
+                        data-aos="fade-right"
+                        data-aos-delay="200"
+                    >
+                        <h3 className="text-xl font-bold sm:text-3xl">
+                            안녕하세요!{" "}
+                            <span className="text-2xl text-blue-500 sm:text-3xl">
+                                박준선
+                            </span>
+                            입니다.
+                        </h3>
+                        <p className="text-sm font-medium text-gray-500 dark:text-gray-300 sm:text-lg">
+                            사용자의 경험을 코드로 설계하며{" "}
+                            <br className="sm:hidden" />
+                            직관적인 웹을 지향하는 개발자입니다.
+                        </p>
+                    </div>
                 </div>
 
-                {/* 소개 */}
-                <div
-                    data-aos="fade-down"
-                    data-aos-delay="100"
-                    className="flex flex-col items-center space-y-2 whitespace-nowrap"
-                >
-                    <h1 className="mb-4 text-2xl font-bold sm:text-3xl">
-                        안녕하세요! 박준선입니다.
-                    </h1>
-                    <p className="max-w-xl text-sm sm:text-xl">
-                        항상 사용자 입장에서 고민하며,
-                    </p>
-                    <p className="max-w-xl text-sm sm:text-xl">
-                        더 나은 경험을 만드는 프론트엔드 개발자입니다.
-                    </p>
-                    <p className="max-w-2xl text-sm sm:text-xl">
-                        누구나 직관적이고 편하게 사용할 수 있는 웹을 지향합니다.
-                    </p>
+                {/* 오른쪽 정보 카드 그리드 */}
+                <div className="grid w-full max-w-2xl grid-cols-2 items-stretch gap-2 sm:gap-6 sm:px-4 lg:grid-cols-2">
+                    {ABOUT_INFO.map((info, i) => (
+                        <AboutCard
+                            key={info.title}
+                            title={info.title}
+                            description={info.description}
+                            icon={info.icon}
+                            delay={i * 50}
+                        />
+                    ))}
                 </div>
             </div>
-
-            {/* 정보 카드 */}
-            <div className="grid w-full grid-cols-2 justify-items-center gap-4 sm:w-[60vw] sm:gap-x-8 sm:gap-y-12">
-                <AboutCard
-                    title="이름"
-                    description="박준선"
-                    iconSrc="/icons/about/name.svg"
-                />
-                <AboutCard
-                    title="생년월일"
-                    description="2000.02.18"
-                    iconSrc="/icons/about/birth.svg"
-                />
-                <AboutCard
-                    title="위치"
-                    description="경기도 남양주시"
-                    iconSrc="/icons/about/location.svg"
-                />
-                <AboutCard
-                    title="연락처"
-                    description="010-8298-9208"
-                    iconSrc="/icons/about/contact.svg"
-                />
-                <AboutCard
-                    title="이메일"
-                    description="roastt1@naver.com"
-                    iconSrc="/icons/about/email.svg"
-                />
-                <AboutCard
-                    title="학력"
-                    description="서경대학교 소프트웨어"
-                    iconSrc="/icons/about/education.svg"
-                />
-            </div>
-        </div>
+        </section>
     );
 }

@@ -1,48 +1,42 @@
 "use client";
 
-import Image from "next/image";
+import { LucideIcon } from "lucide-react";
 
-interface LandingCardProps {
+interface AboutCardProps {
     title: string;
     description: string;
-    iconSrc?: string;
+    icon: LucideIcon;
+    delay?: number;
 }
 
 export default function AboutCard({
     title,
     description,
-    iconSrc,
-}: LandingCardProps) {
+    icon: Icon,
+    delay = 0,
+}: AboutCardProps) {
     return (
         <div
-            className="h-[160px] w-full max-w-[280px] sm:h-[180px] sm:max-w-[500px]"
-            data-aos="fade-down"
-            data-aos-duration="600"
+            className="group w-full"
+            data-aos="fade-up"
+            data-aos-delay={delay}
+            data-aos-duration="800"
         >
-            <div className="flex h-full flex-col items-center justify-center rounded-2xl border-2 border-blue-100 bg-white/90 px-6 py-6 text-center shadow-lg backdrop-blur-sm transition-all duration-300 ease-out hover:-translate-y-2 hover:shadow-2xl dark:border-dark-400 dark:bg-black/10 dark:bg-dark-300">
-                {/* 아이콘 */}
-                {iconSrc && (
-                    <div className="mb-2 flex h-12 w-12 items-center justify-center rounded-xl bg-blue-200 shadow-lg dark:bg-dark-200 sm:mb-4 sm:h-14 sm:w-14">
-                        <Image
-                            src={iconSrc}
-                            alt="아이콘"
-                            width={32}
-                            height={32}
-                            style={{
-                                objectFit: "contain",
-                                filter: "invert(1) brightness(1.8)",
-                            }}
-                        />
-                    </div>
-                )}
+            <div className="relative flex min-h-[80px] w-full flex-row items-center gap-2 rounded-xl border border-black/15 bg-white/50 p-3 transition-all duration-300 dark:border-white/15 dark:bg-dark-200/50 sm:min-h-[160px] sm:flex-col sm:justify-center sm:gap-3 sm:rounded-2xl sm:p-6 sm:text-center">
+                {/* 아이콘 영역 */}
+                <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-blue-300/20 text-blue-600 dark:bg-dark-300 dark:text-white sm:h-14 sm:w-14 sm:rounded-xl">
+                    <Icon size={18} className="sm:size-8" />
+                </div>
 
-                {/* 텍스트 */}
-                <h2 className="mb-1 text-lg font-semibold text-gray-800 dark:text-white sm:text-xl">
-                    {title}
-                </h2>
-                <p className="whitespace-nowrap text-sm leading-relaxed text-gray-600 dark:text-white sm:text-base">
-                    {description}
-                </p>
+                {/* 텍스트 영역 */}
+                <div className="flex min-w-0 flex-1 flex-col gap-0.5 sm:w-full sm:gap-1">
+                    <h2 className="text-[10px] font-bold text-gray-400 dark:text-gray-400 sm:text-sm">
+                        {title}
+                    </h2>
+                    <p className="break-all text-xs font-bold text-gray-800 dark:text-gray-100 sm:text-base sm:text-gray-600 sm:dark:text-white">
+                        {description}
+                    </p>
+                </div>
             </div>
         </div>
     );
