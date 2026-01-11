@@ -5,6 +5,7 @@ import { HeaderPin } from "./HeaderPin";
 import { MobileMenuButton } from "./MobileMenuButton";
 import { NavLinks } from "./NavLinks";
 import DarkMode from "./DarkMode";
+import { Logo } from "./Logo";
 
 const sections = [
     { id: "home", label: "home" },
@@ -66,17 +67,7 @@ export default function Header() {
             >
                 <div className="relative mx-auto flex max-w-screen-xl items-center justify-between px-6 py-4">
                     {/* 로고 */}
-                    <button
-                        onClick={() => scrollToSection("home")}
-                        className="group z-30 flex items-center gap-2 text-2xl font-black tracking-tight transition-all"
-                    >
-                        <div className="flex h-8 w-8 rotate-[8deg] items-center justify-center rounded-lg bg-blue-500 text-white transition-all group-active:rotate-[16deg] group-active:scale-90 sm:group-hover:rotate-[16deg]">
-                            JS
-                        </div>
-                        <span className="rotate-[-2deg] transition-all group-active:rotate-[-6deg] group-active:scale-90 dark:text-white sm:group-hover:rotate-[-6deg]">
-                            Portfolio
-                        </span>
-                    </button>
+                    <Logo onClick={() => scrollToSection("home")} size={32} />
 
                     {/* 데스크톱 메뉴 */}
                     <nav className="absolute left-1/2 top-1/2 hidden -translate-x-1/2 -translate-y-1/2 items-center gap-12 md:flex">
