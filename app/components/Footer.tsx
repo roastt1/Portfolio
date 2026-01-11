@@ -1,29 +1,80 @@
+"use client";
+
+import { Logo } from "./Logo";
+
 export default function Footer() {
+    const scrollToSection = (id: string) => {
+        const el = document.getElementById(id);
+        if (el) {
+            el.scrollIntoView({ behavior: "smooth" });
+        } else {
+            window.scrollTo({ top: 0, behavior: "smooth" });
+        }
+    };
+
     return (
-        <footer className="mt-4 flex w-full flex-col items-center justify-center gap-2 bg-white py-6 text-center font-sans shadow-[-0px_-4px_10px_rgba(0,0,0,0.15)] dark:bg-dark-100 dark:text-white">
-            <p className="text-sm font-semibold sm:text-base">
-                © 2025 Portfolio. All rights reserved.
-            </p>
-            <a
-                href="https://github.com/roastt1"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-1 rounded-lg bg-black px-2 py-1 text-sm font-semibold text-white transition hover:brightness-[0.7] dark:border-dark-400 dark:bg-white dark:text-black sm:text-base"
-            >
-                <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 24 24"
-                    fill="currentColor"
-                    className="h-5 w-5"
+        <footer className="relative mt-20 w-full border-t border-gray-200 bg-white py-12 backdrop-blur-md dark:border-gray-800 dark:bg-dark-100 dark:text-white">
+            <div className="mx-auto flex max-w-screen-xl flex-col items-center justify-between gap-8 px-6 md:flex-row md:gap-4">
+                {/* 로고 및 저작권 */}
+                <div className="flex flex-col items-center gap-4 md:items-start">
+                    <Logo onClick={() => scrollToSection("home")} size={28} />
+                    <p className="text-sm font-medium text-gray-500 dark:text-gray-400">
+                        © 2026 Park Joon Seon. All rights reserved.
+                    </p>
+                </div>
+
+                {/* nav 링크 */}
+                <nav className="flex gap-6 text-sm font-bold uppercase tracking-wider text-gray-400 dark:text-gray-500">
+                    <button
+                        onClick={() => scrollToSection("home")}
+                        className="cursor-pointer transition-colors hover:text-blue-500"
+                    >
+                        Home
+                    </button>
+                    <button
+                        onClick={() => scrollToSection("about")}
+                        className="cursor-pointer transition-colors hover:text-blue-500"
+                    >
+                        About
+                    </button>
+                    <button
+                        onClick={() => scrollToSection("skills")}
+                        className="cursor-pointer transition-colors hover:text-blue-500"
+                    >
+                        Skills
+                    </button>
+                    <button
+                        onClick={() => scrollToSection("projects")}
+                        className="cursor-pointer transition-colors hover:text-blue-500"
+                    >
+                        Projects
+                    </button>
+                </nav>
+
+                {/* 깃허브 */}
+                <a
+                    href="https://github.com/roastt1"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group flex items-center gap-2 rounded-full bg-gray-100 px-4 py-2 text-sm font-bold text-gray-700 transition-all hover:bg-black hover:text-white dark:bg-dark-200 dark:text-gray-300 dark:hover:bg-white dark:hover:text-black"
                 >
-                    <path
-                        fillRule="evenodd"
-                        d="M12 2C6.477 2 2 6.475 2 12c0 4.418 2.865 8.166 6.839 9.489.5.092.682-.217.682-.483 0-.237-.009-.868-.013-1.703-2.782.605-3.369-1.342-3.369-1.342-.454-1.154-1.11-1.461-1.11-1.461-.908-.62.069-.608.069-.608 1.003.07 1.532 1.03 1.532 1.03.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.637-1.338-2.22-.253-4.555-1.11-4.555-4.942 0-1.091.39-1.984 1.029-2.683-.103-.253-.447-1.27.098-2.647 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.748-1.027 2.748-1.027.547 1.379.202 2.396.1 2.649.64.699 1.028 1.592 1.028 2.683 0 3.841-2.338 4.685-4.566 4.933.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .269.18.58.688.481A10.003 10.003 0 0022 12c0-5.525-4.477-10-10-10z"
-                        clipRule="evenodd"
-                    />
-                </svg>
-                <span className="text-white dark:text-black">GitHub</span>
-            </a>
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="18"
+                        height="18"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor" // text-white hover 적용
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                    >
+                        <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4" />
+                        <path d="M9 18c-4.51 2-5-2-7-2" />
+                    </svg>
+                    <span>GitHub</span>
+                </a>
+            </div>
         </footer>
     );
 }
