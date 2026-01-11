@@ -5,7 +5,6 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 import { Noto_Sans_KR } from "next/font/google";
 import { usePathname } from "next/navigation";
-import DarkMode from "./components/DarkMode";
 import ScrollToTopButton from "./components/ScrollToTopButton";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 
