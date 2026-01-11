@@ -4,7 +4,8 @@ import { useEffect } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import SkillCard from "./SkillCard";
-import { BookText } from "lucide-react";
+import { BookText, Terminal } from "lucide-react";
+import { SKILL_DATA } from "@/constants/skillConstants";
 
 export default function Skills() {
     useEffect(() => {
@@ -12,94 +13,67 @@ export default function Skills() {
     }, []);
 
     return (
-        <div className="flex w-full flex-col items-center gap-8 pt-20 dark:text-white sm:gap-16">
+        <section className="flex w-full flex-col items-center gap-12 pt-20 dark:text-white sm:gap-20">
+            {/* 구분선 */}
             <div
-                className="mx-4 h-[2px] w-0 bg-gray-400 aos-animate:animate-expand-width"
+                className="mx-4 h-[1px] w-0 bg-gray-400 aos-animate:animate-expand-width"
                 data-aos="fade-in"
                 data-aos-once="true"
             />
+
+            {/* 타이틀 */}
             <h2
-                className="felx-row flex w-full items-center gap-4 whitespace-nowrap px-4 text-5xl font-black sm:text-6xl"
-                data-aos="fade-right"
-                data-aos-once="true"
+                className="flex items-center gap-2 text-4xl font-black sm:text-5xl"
+                data-aos="fade-up"
             >
-                <BookText className="h-10 w-10 sm:h-12 sm:w-12" />
+                <BookText
+                    className="text-blue-500"
+                    size={40}
+                    strokeWidth={2.5}
+                />
                 <span>Skill</span>
             </h2>
-            {/* Frontend */}
-            <div className="mb-6 w-full max-w-5xl">
-                <h2
-                    className="mb-4 text-2xl font-semibold"
-                    data-aos="fade-right"
-                    data-aos-once="true"
-                >
-                    Frontend
-                </h2>
-                <div className="grid grid-cols-3 place-items-center gap-x-4 gap-y-8 sm:grid-cols-4 md:grid-cols-5">
-                    <SkillCard name="HTML" icon="/icons/skills/html.svg" />
-                    <SkillCard name="CSS" icon="/icons/skills/css.svg" />
-                    <SkillCard
-                        name="JavaScript"
-                        icon="/icons/skills/javascript.svg"
-                    />
-                    <SkillCard
-                        name="TypeScript"
-                        icon="/icons/skills/typescript.svg"
-                    />
-                    <SkillCard name="React" icon="/icons/skills/react.svg" />
-                    <SkillCard name="Next.js" icon="/icons/skills/nextjs.svg" />
-                    <SkillCard
-                        name="TailwindCSS"
-                        icon="/icons/skills/tailwind.svg"
-                    />
-                </div>
-            </div>
 
-            {/* Backend */}
-            <div className="mb-6 w-full max-w-5xl">
-                <h2
-                    className="mb-4 text-2xl font-semibold"
-                    data-aos="fade-right"
-                    data-aos-once="true"
-                >
-                    Backend
-                </h2>
-                <div className="grid grid-cols-3 place-items-center gap-x-4 gap-y-8 sm:grid-cols-4 md:grid-cols-5">
-                    <SkillCard name="Node.js" icon="/icons/skills/nodejs.svg" />
-                    <SkillCard
-                        name="Express"
-                        icon="/icons/skills/express.svg"
-                    />
-                    <SkillCard name="Prisma" icon="/icons/skills/prisma.svg" />
-                    <SkillCard
-                        name="MongoDB"
-                        icon="/icons/skills/mongodb.svg"
-                    />
-                    <SkillCard
-                        name="Socket.IO"
-                        icon="/icons/skills/socketio.svg"
-                    />
+            {/* 터미널 컨테이너 */}
+            <div className="w-full max-w-6xl rounded-3xl border border-gray-200 bg-white/30 p-6 shadow-xl backdrop-blur-md dark:border-gray-800 dark:bg-black/20 sm:p-12">
+                {/* 터미널 헤더 */}
+                <div className="mb-10 flex items-center gap-2 rounded-t-lg bg-gray-100/50 p-3 dark:bg-gray-800/50">
+                    <div className="h-3 w-3 rounded-full bg-red-400" />
+                    <div className="h-3 w-3 rounded-full bg-yellow-400" />
+                    <div className="h-3 w-3 rounded-full bg-green-400" />
+                    <span className="ml-2 font-mono text-xs text-gray-500 underline">
+                        guest@joon-seon: ~/skills
+                    </span>
                 </div>
-            </div>
 
-            {/* Tools & Others */}
-            <div className="w-full max-w-5xl">
-                <h2
-                    className="mb-4 text-2xl font-semibold"
-                    data-aos="fade-right"
-                    data-aos-once="true"
-                >
-                    Tools & Others
-                </h2>
-                <div className="grid grid-cols-3 place-items-center gap-x-4 gap-y-8 sm:grid-cols-4 md:grid-cols-5">
-                    <SkillCard name="GitHub" icon="/icons/skills/github.svg" />
-                    <SkillCard name="Notion" icon="/icons/skills/notion.svg" />
-                    <SkillCard
-                        name="Discord"
-                        icon="/icons/skills/discord.svg"
-                    />
+                <div className="flex flex-col gap-16">
+                    {SKILL_DATA.map((group, i) => (
+                        <div key={group.category} className="w-full">
+                            <div
+                                className="mb-8 flex items-center gap-3"
+                                data-aos="fade-right"
+                                data-aos-delay={i * 100}
+                            >
+                                <Terminal className="text-blue-500" size={24} />
+                                <h3 className="font-mono text-2xl font-bold tracking-tight">
+                                    <span className="text-blue-500">./</span>
+                                    {group.category}
+                                </h3>
+                            </div>
+
+                            <div className="grid grid-cols-3 gap-x-4 gap-y-6 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6">
+                                {group.skills.map((skill) => (
+                                    <SkillCard
+                                        key={skill.name}
+                                        name={skill.name}
+                                        icon={skill.icon}
+                                    />
+                                ))}
+                            </div>
+                        </div>
+                    ))}
                 </div>
             </div>
-        </div>
+        </section>
     );
 }
