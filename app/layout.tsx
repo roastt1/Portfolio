@@ -7,7 +7,6 @@ import { Noto_Sans_KR } from "next/font/google";
 import { usePathname } from "next/navigation";
 import ScrollToTopButton from "./components/ScrollToTopButton";
 import { SpeedInsights } from "@vercel/speed-insights/next";
-<SpeedInsights />;
 
 const notoSansKR = Noto_Sans_KR({
     weight: ["300", "400", "500", "700", "900"],
@@ -44,6 +43,7 @@ export default function RootLayout({
                 </main>
                 <ScrollToTopButton />
                 <Footer />
+                <SpeedInsights />
             </body>
         </html>
     );
