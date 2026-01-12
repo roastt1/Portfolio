@@ -1,50 +1,56 @@
-"use client";
+// app/layout.tsx (서버 컴포넌트)
+import { Metadata } from "next";
+import ClientLayout from "./ClientLayout";
+export const metadata: Metadata = {
+    title: "박준선 | 프론트엔드 개발자 포트폴리오",
+    description:
+        "React, Next.js, TypeScript를 기반으로 더 나은 UX를 설계하는 프론트엔드 개발자 박준선입니다.",
 
-import "./globals.css";
-import Header from "./components/Header";
-import Footer from "./components/Footer";
-import { Noto_Sans_KR } from "next/font/google";
-import { usePathname } from "next/navigation";
-import ScrollToTopButton from "./components/ScrollToTopButton";
-import { SpeedInsights } from "@vercel/speed-insights/next";
+    // 검색 엔진 키워드
+    keywords: [
+        "박준선",
+        "프론트엔드 개발자",
+        "프론트엔드 개발자 포트폴리오",
+        "신입 개발자 포트폴리오",
+    ],
 
-const notoSansKR = Noto_Sans_KR({
-    weight: ["300", "400", "500", "700", "900"],
-    subsets: ["latin"],
-    display: "swap",
-});
+    // 카톡, 페이스북, 슬랙 등에 공유될 때 표시
+    openGraph: {
+        title: "박준선 | 프론트엔드 개발자 포트폴리오",
+        description:
+            "React, Next.js, TypeScript를 기반으로 더 나은 UX를 설계하는 프론트엔드 개발자 박준선입니다.",
+        url: "https://joonseon-portfolio.vercel.app/",
+        siteName: "박준선 포트폴리오",
+        images: [
+            {
+                url: "/images/landing-image.png",
+                width: 1200,
+                height: 630,
+                alt: "박준선 포트폴리오 메인 이미지",
+            },
+        ],
+        locale: "ko_KR",
+        type: "website",
+    },
 
-function getBgClass(pathname: string) {
-    if (pathname === "/" || pathname.startsWith("/home"))
-        return "home-bg animate-slideBgFast sm:animate-slideBgSlow dark:bg-dark-200";
-    if (pathname.startsWith("/about")) return "dark:bg-dark-200";
-    if (pathname.startsWith("/skills")) return "dark:bg-dark-200";
-    if (pathname.startsWith("/projects")) return "dark:bg-dark-200";
-    return "";
-}
+    icons: {
+        icon: [{ url: "/icons/favicon.svg", type: "image/svg+xml" }],
+    },
+
+    robots: {
+        index: true,
+        follow: true,
+    },
+};
 
 export default function RootLayout({
     children,
 }: {
     children: React.ReactNode;
 }) {
-    const pathname = usePathname();
-    const bgClass = getBgClass(pathname);
-
     return (
         <html lang="ko">
-            <body
-                className={`${notoSansKR.className} body flex min-h-screen flex-col transition-all duration-300 ${bgClass}`}
-                style={{ minHeight: "100vh" }}
-            >
-                <Header />
-                <main className="mx-auto w-full max-w-[1480px] flex-1 px-4">
-                    {children}
-                </main>
-                <ScrollToTopButton />
-                <Footer />
-                <SpeedInsights />
-            </body>
+            <ClientLayout>{children}</ClientLayout>
         </html>
     );
 }
