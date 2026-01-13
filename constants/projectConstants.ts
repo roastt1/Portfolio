@@ -9,16 +9,16 @@ export const projectConstants = [
             "/images/projects/portfolio_2.png",
             "/images/projects/portfolio_3.png",
             "/images/projects/portfolio_4.png",
+            "/images/projects/portfolio_4.png",
+            "/images/projects/portfolio_4.png",
+            "/images/projects/portfolio_4.png",
+            "/images/projects/portfolio_4.png",
         ],
         link: "http://joonseon-portfolio.vercel.app",
         details: `이 프로젝트는 Next.js를 기반으로 제작되었으며,
-
             Tailwind CSS를 사용하여 반응형 디자인을 구현했습니다.
-
             주요 기능으로는 프로젝트 카드, 모달, 이미지 캐러셀 등이 포함되어 있습니다.
-
             AOS 라이브러리를 활용하여 스크롤 애니메이션을 적용했습니다.
-
             사용자 친화적인 UI와 간결한 코드 구조를 목표로 했습니다. `,
         contributions: `프로젝트 기획부터 개발, 디자인까지 모든 작업을 담당했습니다. `,
         troubleshooting: [
@@ -49,18 +49,12 @@ export const projectConstants = [
             "/images/projects/fitple_3.png",
         ],
         details: `사이드프로젝트를 함께할 개발자, 디자이너, 기획자를 연결해주는 매칭 플랫폼입니다.
-
             사용자들은 자신의 프로필을 작성하거나, 프로젝트를 등록하여 팀원을 모집할 수 있습니다.
-
             사용자는 프로젝트에 직접 지원할 수도 있으며, 다른 사용자의 프로필을 보고 자신의 프로젝트에 제안을 보낼 수도 있습니다.
-
             또한 관심 있는 프로젝트를 북마크하여 나중에 다시 확인할 수 있으며, 
-
             프로젝트 팀이 결성되면 팀원들과 간단히 소통할 수 있는 채팅 기능도 포함되어 있습니다. `,
         contributions: `메인 페이지와 상세 페이지에서 필요한 주요 API를 설계하고 구현하였으며, 데이터 조회, 정렬, 필터링 등의 로직을 개발했습니다.
-
             DB 설계는 팀원들과 함께 협의하여 진행하였으며, 데이터 정규화 및 관계 설정을 통해 효율적인 쿼리 구조를 구축했습니다.
-
             버튼, 카드 등의 공통 컴포넌트를 개발하여 코드 재사용성을 높였고, 사용자 피드백을 반영해 UI/UX 개선 작업에도 기여했습니다. `,
         troubleshooting: [
             {
@@ -78,7 +72,8 @@ export const projectConstants = [
     {
         projectType: "팀",
         title: "GameChu - 겜추",
-        content: "IGDB API 기반 게임 추천 및 커뮤니티 플랫폼",
+        content:
+            "IGDB API 기반 게임 평점 · 리뷰 · 투기장까지 지원하는 종합 게이머 플랫폼",
         duration: "2025.05.09 ~ 진행중",
         images: [
             "/images/projects/gamechu.png",
@@ -86,25 +81,16 @@ export const projectConstants = [
             "/images/projects/game.png",
         ],
         link: "https://gamechu.com",
-        details: `겜추(GameChu)는 게이머를 위한 게임 추천 서비스와 커뮤니티 기능을 통합한 웹 플랫폼입니다.
-
+        details: `겜추(GameChu)는 게이머를 위한 게임 리뷰 서비스와 투기장 기능을 통합한 웹 플랫폼입니다.
             로튼토마토식 평점 시스템을 도입해 게임에 대한 객관적인 평가를 제공합니다.
-
             유저 간 1:1 논쟁(투기장) 기능으로 게임에 대한 다양한 관점을 공유하고 활동 점수(티어) 시스템을 통해 유저의 활발한 참여를 유도했습니다.
-
             클린 아키텍처 기반의 구조를 적용하여 유지보수성과 확장성을 높였으며,
-
             husky를 활용하여 코드 품질을 유지하고, GitHub Actions를 통해 CI/CD 파이프라인을 구축하여 안정적인 배포 환경을 마련했습니다.`,
         contributions: `투기장(Arena) 상세 페이지의 전반적인 개발을 담당했습니다.
-
             채팅 및 투표 기능의 UI/UX를 직접 설계하고 구현하였으며 사용자 경험을 고려한 인터랙션과 화면의 흐름을 구성했습니다.
-
             반응형 디자인을 적용하여 다양한 기기와 화면 크기의 환경에서도 최적화된 사용자 경험 제공했습니다.
-
             Socket.IO를 활용한 실시간 채팅 기능 구현하여 사용자 간 원활한 소통을 지원했습니다. 
-            
             또한, 팀원들과 지속적으로 소통하며 기능 구현 및 디자인 개선 방향을 논의하고, 피드백을 주고받으며 프로젝트 완성도를 높였습니다.
-
             랜딩 페이지 및 헤더 등의 디자인과 기능을 직접 수정하고 개선하여, 전체적인 시각적 일관성과 완성도를 향상시켰습니다. `,
         troubleshooting: [
             {
