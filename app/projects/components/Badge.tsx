@@ -1,5 +1,4 @@
 "use client";
-
 import { User, Users } from "lucide-react";
 
 interface BadgeProps {
@@ -8,20 +7,19 @@ interface BadgeProps {
 }
 
 export default function Badge({ text, projectType }: BadgeProps) {
-    const baseClass =
-        "rounded-lg border min-w-[70px] px-3 py-1 text-sm font-semibold flex items-center justify-center gap-2";
-
-    const colorClass =
+    const themeClass =
         projectType === "개인"
-            ? "bg-gray-400 text-white"
-            : "bg-gray-800 text-white";
+            ? "bg-blue-500/80 text-white backdrop-blur-md border-blue-400/30"
+            : "bg-indigo-600/80 text-white backdrop-blur-md border-indigo-400/30";
 
     const IconComponent = projectType === "개인" ? User : Users;
 
     return (
-        <div className={`${baseClass} ${colorClass}`}>
-            <IconComponent size={16} />
-            <span>{text}</span>
+        <div
+            className={`flex items-center gap-2 rounded-full border px-3 py-1.5 text-[10px] font-bold uppercase tracking-wider shadow-sm transition-all duration-300 sm:text-xs ${themeClass}`}
+        >
+            <IconComponent size={12} strokeWidth={3} />
+            <span>{text} 프로젝트</span>
         </div>
     );
 }

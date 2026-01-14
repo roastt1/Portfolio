@@ -1,8 +1,8 @@
-// ProjectCard.tsx 파일
 "use client";
 
 import Image from "next/image";
 import Badge from "./Badge";
+import { Calendar } from "lucide-react";
 
 interface ProjectCardProps {
     title: string;
@@ -23,57 +23,67 @@ export default function ProjectCard({
 }: ProjectCardProps) {
     return (
         <div
-            className="group relative h-[450px] w-[350px] lg:w-[400px]"
+            className="group relative h-[460px] w-full max-w-[380px] lg:max-w-[400px]"
             data-aos="fade-up"
             data-aos-duration="600"
         >
-            <div className="relative flex h-full transform flex-col overflow-hidden rounded-3xl border border-gray-200 bg-white shadow-xl transition-all duration-500 ease-out group-hover:-translate-y-2 group-hover:shadow-2xl dark:border-dark-400 dark:bg-gradient-to-br dark:from-dark-300 dark:to-dark-400">
+            <div className="relative flex h-full flex-col overflow-hidden rounded-[2rem] border border-gray-200 bg-white shadow-lg transition-all duration-500 ease-out hover:-translate-y-2 hover:shadow-2xl dark:border-white/5 dark:bg-dark-100/50">
                 {/* 상단 이미지 및 뱃지 */}
-                <div className="relative flex items-start gap-4 bg-gradient-to-br from-blue-50 to-indigo-50 p-6 dark:from-dark-100 dark:to-dark-300">
-                    <div className="absolute right-0 top-0 h-32 w-32 rounded-bl-full bg-gradient-to-br from-indigo-200/30 to-purple-200/40 dark:from-indigo-500/20 dark:to-purple-500/25"></div>
-                    {/* 호버 시 강조 효과 */}
-                    <div className="absolute inset-0 bg-gradient-to-r from-blue-400 via-indigo-400 to-purple-400 opacity-0 blur transition duration-500 group-hover:opacity-50 dark:from-indigo-400 dark:via-purple-400 dark:to-pink-200 dark:group-hover:opacity-35"></div>
-                    {/* 이미지 */}
-                    <div className="relative z-10 h-28 w-28 overflow-hidden rounded-2xl shadow-lg ring-2 ring-white/50 transition-all duration-300">
-                        <Image
-                            src={image}
-                            alt="프로젝트 이미지"
-                            fill
-                            style={{ objectFit: "cover" }}
-                        />
-                    </div>
+                <div className="relative h-44 w-full overflow-hidden bg-gradient-to-br from-slate-100 to-indigo-50 dark:from-gray-900 dark:to-dark-100">
+                    <div className="relative flex h-full items-center justify-between px-6">
+                        {/* 이미지 */}
+                        <div className="relative h-24 w-24 shrink-0 overflow-hidden rounded-2xl bg-white shadow-md ring-1 ring-gray-300 transition-transform duration-300 group-hover:scale-110 dark:bg-dark-200 dark:ring-white/10">
+                            <Image
+                                src={image}
+                                alt={title}
+                                fill
+                                className="object-cover"
+                            />
+                        </div>
 
-                    <div className="relative z-10 flex-1">
-                        <Badge text={projectType} projectType={projectType} />
+                        <div className="flex flex-col items-end gap-2">
+                            <Badge
+                                text={projectType}
+                                projectType={projectType}
+                            />
+                        </div>
                     </div>
                 </div>
 
                 {/* 프로젝트명, 진행 기간, 프로젝트 설명 */}
-                <div className="flex flex-1 flex-col gap-3 px-6 py-5">
-                    <h3 className="text-2xl font-bold">{title}</h3>
+                <div className="flex flex-1 flex-col px-7 py-6">
+                    <div className="mb-auto space-y-3">
+                        <h3 className="text-xl font-[800] tracking-tight text-gray-900 transition-colors group-hover:text-indigo-600 dark:text-white dark:group-hover:text-indigo-400">
+                            {title}
+                        </h3>
 
-                    {duration && (
-                        <div className="flex items-center gap-2">
-                            <span className="text-lg">📅</span>
-                            <p className="text-sm font-medium text-gray-600 dark:text-gray-300">
-                                {duration}
-                            </p>
-                        </div>
-                    )}
+                        {duration && (
+                            <div className="flex items-center gap-2 text-gray-400 dark:text-gray-400">
+                                <Calendar className="h-3.5 w-3.5" />
+                                <p className="text-[13px] font-medium tracking-wide">
+                                    {duration}
+                                </p>
+                            </div>
+                        )}
 
-                    <p className="whitespace-normal break-keep text-base leading-relaxed text-gray-600 dark:text-gray-300">
-                        {content}
-                    </p>
-                </div>
+                        <p className="line-clamp-3 text-[14px] leading-relaxed text-gray-500 dark:text-gray-300">
+                            {content}
+                        </p>
+                    </div>
 
-                {/* 자세히 보기 버튼 */}
-                <div className="flex items-center justify-center p-6">
-                    <button
-                        onClick={openModal}
-                        className="group/btn relative w-full overflow-hidden rounded-xl bg-gradient-to-r from-indigo-400 to-purple-500 px-6 py-3.5 text-base font-semibold text-white shadow-lg transition-all duration-300 hover:from-indigo-500 hover:to-purple-600 hover:shadow-xl dark:from-indigo-400 dark:to-purple-500 dark:hover:from-indigo-500 dark:hover:to-purple-600"
-                    >
-                        <span className="relative z-10">자세히 보기 →</span>
-                    </button>
+                    {/* 자세히 보기 버튼 */}
+                    <div className="mt-6">
+                        <button
+                            onClick={openModal}
+                            className="group/btn relative flex w-full items-center justify-center gap-2 overflow-hidden rounded-xl bg-gray-900 px-6 py-3.5 text-sm font-bold text-white transition-all duration-300 hover:bg-indigo-600 dark:bg-white dark:text-black dark:hover:bg-indigo-500 dark:hover:text-white"
+                        >
+                            <span>자세히 보기</span>
+                            <span className="transition-transform duration-300 group-hover/btn:translate-x-1">
+                                →
+                            </span>
+                            <div className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/20 to-transparent transition-transform duration-1000 group-hover/btn:translate-x-full" />
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
