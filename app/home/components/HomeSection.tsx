@@ -82,18 +82,27 @@ export default function HomeSection() {
                     </span>
                 </div>
 
-                <h1
-                    className={`self-start text-5xl font-black leading-none transition-all duration-1000 ease-out sm:text-9xl ${step >= 1 ? "translate-x-0 opacity-100" : "-translate-x-20 opacity-0"}`}
-                >
-                    <span className="bg-gradient-to-r from-blue-600 via-indigo-500 to-purple-500 bg-clip-text text-transparent">
-                        FRONTEND
+                <h1 className="flex w-full flex-col">
+                    <span
+                        className={`self-start text-5xl font-black leading-none transition-all duration-1000 ease-out sm:text-8xl lg:text-9xl ${
+                            step >= 1
+                                ? "translate-x-0 opacity-100"
+                                : "-translate-x-20 opacity-0"
+                        }`}
+                    >
+                        <span className="bg-gradient-to-r from-blue-600 via-indigo-500 to-purple-500 bg-clip-text text-transparent">
+                            FRONTEND
+                        </span>
                     </span>
-                </h1>
-
-                <h1
-                    className={`self-end text-4xl font-black leading-none transition-all duration-1000 ease-out sm:text-8xl ${step >= 2 ? "translate-x-0 opacity-100" : "translate-x-20 opacity-0"}`}
-                >
-                    DEVELOPER
+                    <span
+                        className={`self-end text-4xl font-black leading-none transition-all duration-1000 ease-out sm:text-8xl ${
+                            step >= 2
+                                ? "translate-x-0 opacity-100"
+                                : "translate-x-20 opacity-0"
+                        }`}
+                    >
+                        DEVELOPER
+                    </span>
                 </h1>
                 <div
                     className={`mt-8 text-center font-mono transition-all duration-1000 ${step >= 3 ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"}`}
