@@ -5,21 +5,19 @@ export const projectConstants = [
         content: "Next.js와 Tailwind로 만든 개인 포트폴리오 웹",
         duration: "2025.06.08 ~ 진행중",
         images: [
-            "/images/projects/portfolio_1.png",
-            "/images/projects/portfolio_2.png",
-            "/images/projects/portfolio_3.png",
-            "/images/projects/portfolio_4.png",
-            "/images/projects/portfolio_4.png",
-            "/images/projects/portfolio_4.png",
-            "/images/projects/portfolio_4.png",
-            "/images/projects/portfolio_4.png",
+            "/images/projects/webPortfolio_1.png",
+            "/images/projects/webPortfolio_2.png",
+            "/images/projects/webPortfolio_3.png",
+            "/images/projects/webPortfolio_4.png",
+            "/images/projects/webPortfolio_5.png",
+            "/images/projects/webPortfolio_6.png",
         ],
         link: "http://joonseon-portfolio.vercel.app",
         details: `이 프로젝트는 Next.js를 기반으로 제작되었으며,
             Tailwind CSS를 사용하여 반응형 디자인을 구현했습니다.
             주요 기능으로는 프로젝트 카드, 모달, 이미지 캐러셀 등이 포함되어 있습니다.
             AOS 라이브러리를 활용하여 스크롤 애니메이션을 적용했습니다.
-            사용자 친화적인 UI와 간결한 코드 구조를 목표로 했습니다. `,
+            반응형 UI와 원활한 사용자 경험을 제공하는 데 중점을 두었습니다. `,
         contributions: `프로젝트 기획부터 개발, 디자인까지 모든 작업을 담당했습니다. `,
         troubleshooting: [
             {
@@ -86,8 +84,13 @@ export const projectConstants = [
         duration: "2025.05.09 ~ 진행중",
         images: [
             "/images/projects/gamechu.png",
-            "/images/projects/game.png",
-            "/images/projects/game.png",
+            "/images/projects/gamechu_1.png",
+            "/images/projects/gamechu_2.png",
+            "/images/projects/gamechu_3.png",
+            "/images/projects/gamechu_4.png",
+            "/images/projects/gamechu_5_2.png",
+            "/images/projects/gamechu_7.png",
+            "/images/projects/gamechu_8.png",
         ],
         link: "https://gamechu.com",
         details: `겜추(GameChu)는 게이머를 위한 게임 리뷰 서비스와 투기장 기능을 통합한 웹 플랫폼입니다.
@@ -97,7 +100,7 @@ export const projectConstants = [
             husky를 활용하여 코드 품질을 유지하고, GitHub Actions를 통해 CI/CD 파이프라인을 구축하여 안정적인 배포 환경을 마련했습니다.`,
         contributions: `투기장(Arena) 상세 페이지의 전반적인 개발을 담당했습니다.
             채팅 및 투표 기능의 UI/UX를 직접 설계하고 구현하였으며 사용자 경험을 고려한 인터랙션과 화면의 흐름을 구성했습니다.
-            반응형 디자인을 적용하여 다양한 기기와 화면 크기의 환경에서도 최적화된 사용자 경험 제공했습니다.
+            반응형 디자인을 적용하여 다양한 기기와 화면 크기의 환경에서도 최적화된 사용자 경험을 제공했습니다.
             Socket.IO를 활용한 실시간 채팅 기능 구현하여 사용자 간 원활한 소통을 지원했습니다. 
             또한, 팀원들과 지속적으로 소통하며 기능 구현 및 디자인 개선 방향을 논의하고, 피드백을 주고받으며 프로젝트 완성도를 높였습니다.
             랜딩 페이지 및 헤더 등의 디자인과 기능을 직접 수정하고 개선하여, 전체적인 시각적 일관성과 완성도를 향상시켰습니다. `,
