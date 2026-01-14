@@ -13,7 +13,7 @@ export default function Skills() {
     }, []);
 
     return (
-        <section className="flex w-full flex-col items-center gap-12 pt-20 dark:text-white sm:gap-20">
+        <section className="flex w-full flex-col items-center gap-8 pt-20 dark:text-white sm:gap-16">
             {/* 구분선 */}
             <div
                 className="mx-4 h-[1px] w-0 bg-gray-400 aos-animate:animate-expand-width"

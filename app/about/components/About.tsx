@@ -16,7 +16,7 @@ export default function About() {
     return (
         <section
             id="about"
-            className="relative flex w-full flex-col items-center gap-12 pt-20 dark:text-white sm:gap-20"
+            className="relative flex w-full flex-col items-center gap-8 pt-20 dark:text-white sm:gap-16"
         >
             {/* 구분선 */}
             <div

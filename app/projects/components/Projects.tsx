@@ -53,18 +53,23 @@ export default function Projects() {
 
     return (
         <div className="flex w-full flex-col items-center gap-8 pt-20 dark:text-white sm:gap-16">
+            {/* 구분선 */}
             <div
                 className="mx-4 h-[2px] w-0 bg-gray-400 aos-animate:animate-expand-width"
                 data-aos="fade-in"
                 data-aos-once="true"
             />
+            {/* 타이틀 */}
             <h2
-                className="flex w-full flex-row items-center gap-4 px-4 text-5xl font-black sm:text-6xl"
-                data-aos="fade-right"
-                data-aos-once="true"
+                className="flex items-center gap-2 text-4xl font-black sm:text-5xl"
+                data-aos="fade-up"
             >
-                <Folders className="h-10 w-10 sm:h-12 sm:w-12" />
-                <span>Project</span>
+                <Folders
+                    className="text-blue-500"
+                    size={40}
+                    strokeWidth={2.5}
+                />
+                <span>Projects</span>
             </h2>
             <div className="flex w-full flex-wrap justify-center gap-8">
                 {projectConstants.map((project, i) => (
