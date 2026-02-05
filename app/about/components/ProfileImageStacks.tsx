@@ -58,17 +58,18 @@ export default function ProfileStack() {
                             PROFILE_IMAGES.length
                     )
                 }
-                className="-md absolute left-4 top-1/2 -translate-y-1/2 rounded-full bg-white px-1 py-2 opacity-0 transition-all hover:bg-white/40 group-hover:opacity-100"
+                className="absolute left-4 top-1/2 flex h-9 w-9 -translate-y-1/2 items-center justify-center rounded-full bg-black/20 text-white opacity-0 backdrop-blur-sm transition-all hover:bg-black/40 group-hover:opacity-100 dark:bg-white/20 dark:hover:bg-white/40"
             >
-                ←
+                <span className="mb-0.5 mr-0.5">←</span>
             </button>
+
             <button
                 onClick={() =>
                     setIndex((prev) => (prev + 1) % PROFILE_IMAGES.length)
                 }
-                className="absolute right-4 top-1/2 -translate-y-1/2 rounded-full bg-white px-1 py-2 opacity-0 transition-all hover:bg-white/40 group-hover:opacity-100"
+                className="absolute right-4 top-1/2 flex h-9 w-9 -translate-y-1/2 items-center justify-center rounded-full bg-black/20 text-white opacity-0 backdrop-blur-sm transition-all hover:bg-black/40 group-hover:opacity-100 dark:bg-white/20 dark:hover:bg-white/40"
             >
-                →
+                <span className="mb-0.5 ml-0.5">→</span>
             </button>
         </div>
     );
