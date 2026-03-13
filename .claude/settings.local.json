@@ -3,7 +3,8 @@
     "allow": [
       "WebFetch(domain:raw.githubusercontent.com)",
       "WebFetch(domain:github.com)",
-      "Bash(chmod +x \"C:\\\\Users\\\\roast\\\\Desktop\\\\next\\\\Portfolio\\\\.claude\\\\hooks\\\\skill-activation-prompt.sh\" \"C:\\\\Users\\\\roast\\\\Desktop\\\\next\\\\Portfolio\\\\.claude\\\\hooks\\\\post-tool-use-tracker.sh\" \"C:\\\\Users\\\\roast\\\\Desktop\\\\next\\\\Portfolio\\\\.claude\\\\hooks\\\\tsc-check.sh\" 2>/dev/null; echo \"chmod done\")"
+      "Bash(chmod +x \"C:\\\\Users\\\\roast\\\\Desktop\\\\next\\\\Portfolio\\\\.claude\\\\hooks\\\\skill-activation-prompt.sh\" \"C:\\\\Users\\\\roast\\\\Desktop\\\\next\\\\Portfolio\\\\.claude\\\\hooks\\\\post-tool-use-tracker.sh\" \"C:\\\\Users\\\\roast\\\\Desktop\\\\next\\\\Portfolio\\\\.claude\\\\hooks\\\\tsc-check.sh\" 2>/dev/null; echo \"chmod done\")",
+      "Bash(cd \"C:\\\\Users\\\\roast\\\\Desktop\\\\next\\\\Portfolio\" && npx tsc --noEmit 2>&1)"
     ]
   }
 }

@@ -45,3 +45,7 @@ Checklist format:
 - Clear action items with acceptance criteria
 - Technical specifics (file paths, component names)
 - Business context (why this matters)
+
+## Language
+- `{task-name}-plan.md` and `{task-name}-tasks.md` must be written in **Korean**
+- `{task-name}-context.md` may remain in English (technical reference for Claude)
