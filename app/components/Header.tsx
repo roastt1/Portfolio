@@ -6,6 +6,7 @@ import { MobileMenuButton } from "./MobileMenuButton";
 import { NavLinks } from "./NavLinks";
 import DarkMode from "./DarkMode";
 import { Logo } from "./Logo";
+import { useActiveSection } from "../hooks/useActiveSection";
 
 const sections = [
     { id: "home", label: "home" },
@@ -13,12 +14,14 @@ const sections = [
     { id: "skills", label: "skills" },
     { id: "projects", label: "projects" },
 ];
+const sectionIds = sections.map((s) => s.id);
 
 export default function Header() {
     const [showHeader, setShowHeader] = useState(true);
     const [isPinned, setIsPinned] = useState(false);
     const [menuOpen, setMenuOpen] = useState(false);
     const [lastScrollY, setLastScrollY] = useState(0);
+    const activeSection = useActiveSection(sectionIds);
 
     useEffect(() => {
         const handleScroll = () => {
@@ -74,6 +77,7 @@ export default function Header() {
                         <NavLinks
                             sections={sections}
                             onAction={scrollToSection}
+                            activeSection={activeSection}
                         />
                     </nav>
 
@@ -101,6 +105,7 @@ export default function Header() {
                         <NavLinks
                             sections={sections}
                             onAction={scrollToSection}
+                            activeSection={activeSection}
                             isMobile
                         />
                     </nav>
