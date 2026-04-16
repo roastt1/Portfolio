@@ -85,6 +85,36 @@ export const projectConstants = [
     },
     {
         projectType: "팀",
+        title: "프로젝트 일정관리 시스템",
+        content: "CANIAS ERP 기반 WBS 시각화 및 Task 일정 관리 시스템",
+        duration: "2024.10.29 ~ 2024.12.10",
+        images: [
+            "/images/projects/schedule_1.png",
+            "/images/projects/schedule_2.png",
+            "/images/projects/schedule_3.png",
+            "/images/projects/schedule_system.png",
+        ],
+        details: `CANIAS ERP 플랫폼 위에 구현한 프로젝트 일정관리 시스템입니다.
+            프로젝트 목록 조회, WBS(Work Breakdown Structure) 기반의 Task 등록·수정·삭제 기능을 제공합니다.
+            세부 Task별 일정을 인터널테이블로 시각화하여 진척 현황을 한눈에 파악할 수 있으며,
+            계획 대비 실제 진척도가 낮은 미진한 Task에 대해 경고를 표시해 일정 리스크를 즉시 감지할 수 있습니다.`,
+        contributions: `프로젝트 일정 조회 화면(PRJT34F001NK) 및 WBS 조회·관리 화면(PRJT34F003NK)의 설계와 개발을 담당했습니다.
+            Task 등록·수정·삭제 로직을 구현하고, 미진한 Task 경고 표시 기능을 개발했습니다.
+            인터널테이블 기반의 일정 시각화 UI를 구성하여 사용자가 프로젝트 진행 상황을 직관적으로 확인할 수 있도록 했습니다.
+            팀원과 함께 DB 설계 및 시스템 구성도를 작성하였으며, 요구사항 정의부터 테스트까지 전 과정에 참여했습니다.`,
+        troubleshooting: [
+            {
+                problem: `WBS 화면에서 모든 Task가 한꺼번에 나열되다 보니, 일정이 지연되거나 미진한 Task만 골라서 확인하기가 불편했습니다.
+                    담당자가 주의해야 할 항목을 찾으려면 전체 목록을 일일이 스크롤해야 했습니다.`,
+                cause: `기본 화면에는 Warning 여부와 관계없이 모든 Task가 동일하게 표시되었고,
+                    Warning 상태의 Task만 필터링하는 별도의 수단이 없었습니다.`,
+                solution: `'미진한 태스크 목록' 버튼을 추가하여, 클릭 시 Warning 표시가 된 Task만 별도로 필터링해 보여주는 기능을 구현했습니다.
+                    이를 통해 담당자가 주의가 필요한 항목을 한눈에 파악하고 빠르게 대응할 수 있도록 UX를 개선했습니다.`,
+            },
+        ],
+    },
+    {
+        projectType: "팀",
         title: "GameChu - 겜추",
         content:
             "IGDB API 기반 게임 평점 · 리뷰 · 투기장까지 지원하는 종합 게이머 플랫폼",
